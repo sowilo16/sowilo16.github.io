@@ -1,4 +1,3 @@
-(function (jQuery, $) {
 jQuery(function ($) {
     'use strict';
 
@@ -68,4 +67,3 @@ jQuery(function ($) {
         });
     }
 });
-})(window._$, window._$);
