@@ -10100,18 +10100,18 @@ html[dir="ltr"] [data-responsive-menu="false"] .bd-horizontalmenu-5 .bd-menuitem
 #marker-end-L3N0eWxlLmNzcw.L2NvbnRyb2xzL2JkLWxpbmtidXR0b24xNA {}
 #marker-start-L3N0eWxlLmNzcw.L2NvbnRyb2xzL2JkLWxpbmtidXR0b241MA {}
 #marker-end-L3N0eWxlLmNzcw.L2NvbnRyb2xzL2JkLWxpbmtidXR0b241MA {}
-#marker-start-L3N0eWxlLmNzcw.L2NvbnRyb2xzL2JkLWxpbmtidXR0b244 {}
-.bd-button-21 a {
+#marker-start-L3N0eWxlLmNzcw.L2NvbnRyb2xzL2JkLWxpbmtidXR0b242 {}
+.bd-button-22 a {
   line-height: 20.00000001px;
   font-size: 14px;
 }
-.bd-button-21 {
+.bd-button-22 {
   /* default transparent bg otherwise you get gray default bg */
   background-color: transparent;
 }
-.bd-button-21,
-.bd-button-21:link,
-.bd-button-21:visited {
+.bd-button-22,
+.bd-button-22:link,
+.bd-button-22:visited {
   /* reset browser styles */
   border-width: 0;
   padding: 0;
@@ -10121,27 +10121,27 @@ html[dir="ltr"] [data-responsive-menu="false"] .bd-horizontalmenu-5 .bd-menuitem
   text-align: center;
   text-transform: none;
 }
-.bd-button-21:hover,
-.bd-button-21:focus {
+.bd-button-22:hover,
+.bd-button-22:focus {
   background-color: rgba(0, 0, 0, 0);
   text-decoration: none;
   color: #000000;
   background-image: none;
 }
-.bd-button-21:active {
+.bd-button-22:active {
   background-color: rgba(0, 0, 0, 0);
   background-image: none;
 }
-.bd-icon-40:before {
+.bd-icon-25:before {
   content: url(../../assets/images/2321891d840303dc55811d72d478bb43_word.png);
   font-size: 0 !important;
   line-height: 0 !important;
 }
-.bd-icon-40:before {
+.bd-icon-25:before {
   padding-bottom: 5px;
   padding-right: 5px;
 }
-#marker-end-L3N0eWxlLmNzcw.L2NvbnRyb2xzL2JkLWxpbmtidXR0b244 {}
+#marker-end-L3N0eWxlLmNzcw.L2NvbnRyb2xzL2JkLWxpbmtidXR0b242 {}
 #marker-start-L3N0eWxlLmNzcw.L2NvbnRyb2xzL2JkLXBhZ2V0aXRsZTI {}
 .bd-pagetitle-2 {
   overflow: hidden;
@@ -10599,7 +10599,7 @@ h2.bd-postheader-4 a {
   background-color: #333333;
   padding-bottom: 12px;
   padding-top: 12px;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 .bd-section-5 {
   color: #bfbfbf;
