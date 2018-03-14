@@ -49,7 +49,7 @@
             if ($mouseTrap === null) {
                 var w = jWin.width();
                 jWin.parent().append(format('<div style="width:%0px;position:absolute;top:75%;left:%1px;text-align:center" class="cloud-zoom-loading" >Loading...</div>', w / 3, (w / 2) - (w / 6)));
-                $('cloud-zoom-loading', jWin.parent()).css('opacity', 0.5)
+                $('cloud-zoom-loading', jWin.parent()).css('opacity', 0.5);
             }
         }, 200);
         var ie6FixRemove = function () {
@@ -106,7 +106,7 @@
                 if (y < 0) {
                     y = 0;
                 } else if (y > (sImg.outerHeight() - ch)) {
-                    y = (sImg.outerHeight() - ch)
+                    y = (sImg.outerHeight() - ch);
                 }
                 lens.css({
                     left: x,
@@ -117,7 +117,7 @@
                 destV = (((y) / sImg.outerHeight()) * zoomImage.height) >> 0;
                 currU += (destU - currU) / opts.smoothMove;
                 currV += (destV - currV) / opts.smoothMove;
-                zoomDiv.css('background-position', (-(currU >> 0) + 'px ') + (-(currV >> 0) + 'px'))
+                zoomDiv.css('background-position', (-(currU >> 0) + 'px ') + (-(currV >> 0) + 'px'));
             }
             controlTimer = setTimeout(function () {
                 ctx.controlLoop();
@@ -149,7 +149,7 @@
                 mx = event.pageX;
                 my = event.pageY;
             });
-            $mouseTrap.bind('mouseleave', this, function (event) {
+            $mouseTrap.bind('mouseleave', this, function () {
                 cw = (sImg.outerWidth() / zoomImage.width) * opts.zoomWidth;
                 ch = (sImg.outerHeight() / zoomImage.height) * opts.zoomHeight;
                 if ((parseFloat($('body').css('width').replace('px', '')) < 980) ||
@@ -183,10 +183,10 @@
                 var sih = sImg.outerHeight();
                 var w = opts.zoomWidth;
                 var h = opts.zoomHeight;
-                if (opts.zoomWidth == 'auto') {
+                if (opts.zoomWidth === 'auto') {
                     w = siw;
                 }
-                if (opts.zoomHeight == 'auto') {
+                if (opts.zoomHeight === 'auto') {
                     h = sih;
                 }
                 var appendTo = jWin.parent();
@@ -310,12 +310,13 @@
     }
     $.fn.CloudZoom = function (options) {
         try {
-            document.execCommand("BackgroundImageCache", false, true)
+            document.execCommand("BackgroundImageCache", false, true);
         } catch (e) {}
         this.each(function () {
             var relOpts, opts;
             if ($(this).find('img').length > 0 && $(this).attr('href') !== '#'){
                 var relArray = $(this).attr('rel').replace(/\'/g, '"').split(',');
+                jQuery.unique(relArray);
                 relArray = $.map(relArray, function(value) {
                     var i = value.indexOf(':'),
                         parts = [value.slice(0, i), value.slice(i+1)];
@@ -330,8 +331,8 @@
                     $('img', $(this)).css({
                         'display': 'block'
                     });
-                    if ($(this).parent().attr('id') != 'wrap') {
-                        $(this).wrap('<div id="wrap" style="top:0px;position:relative;"></div>')
+                    if ($(this).parent().attr('id') !== 'wrap') {
+                        $(this).wrap('<div id="wrap" style="top:0px;position:relative;"></div>');
                     }
                     opts = $.extend({}, $.fn.CloudZoom.defaults, options);
                     opts = $.extend({}, opts, relOpts);
