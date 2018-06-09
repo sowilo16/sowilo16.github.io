@@ -1,33 +1,36 @@
 ﻿<!DOCTYPE html>
 <html dir="ltr">
 <head>
-    
+    <link href="./assets/images/ed476fd8d3fa5b5850cc696c5e57a08b_favicon.png" rel="icon" type="image/x-icon" />
 	<script>
     var themeHasJQuery = !!window.jQuery;
 </script>
-<script type="text/javascript" src="./assets/js/jquery.js?1.0.1180"></script>
+<script type="text/javascript" src="./assets/js/jquery.js?1.0.1554"></script>
 <script>
     window._$ = jQuery.noConflict(themeHasJQuery);
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./assets/css/bootstrap.css?1.0.1180" media="screen" />
-<script type="text/javascript" src="./assets/js/bootstrap.min.js?1.0.1180"></script>
+<link rel="stylesheet" href="./assets/css/bootstrap.css?1.0.1554" media="screen" />
+<script type="text/javascript" src="./assets/js/bootstrap.min.js?1.0.1554"></script>
 <!--[if lte IE 9]>
-<link rel="stylesheet" href="./assets/css/layout.ie.css?1.0.1180">
-<script src="./assets/js/layout.ie.js?1.0.1180"></script>
+<link rel="stylesheet" href="./assets/css/layout.ie.css?1.0.1554">
+<script src="./assets/js/layout.ie.js?1.0.1554"></script>
 <![endif]-->
-<link class="" href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic&subset=cyrillic-ext' rel='stylesheet' type='text/css'>
+<link class="" href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic&subset=cyrillic-ext' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="./assets/js/layout.core.js"></script>
-<script src="./assets/js/CloudZoom.js?1.0.1180"></script>
+<script src="./assets/js/CloudZoom.js?1.0.1554"></script>
 	
-    <title>Статьи</title>
-	<link rel="stylesheet" href="./assets/css/style.css?1.0.1180">
-	<script src="./assets/js/script.js?1.0.1180"></script>
+    <title>Научные статьи по заземлению, молниезащите, ЭМС</title>
+	<link rel="stylesheet" href="./assets/css/style.css?1.0.1554">
+	<script src="./assets/js/script.js?1.0.1554"></script>
     <meta charset="utf-8">
     
     
     
- <!-- Yandex.Metrika counter -->
+ <meta name="keywords" content="статьи, публикации, заземление, молниезащита, ЭМС">
+<meta name="description" content="Здесь представлен список основных научных трудов, выполненных нашей командой ООО «ЗУМ». Темы статей: заземление, молниезащита, ЭМС, грозозащита, кондуктивные помехи, электромагные экраны, разработка программного обеспечения.">
+
+<!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function (d, w, c) {
         (w[c] = w[c] || []).push(function() {
@@ -55,7 +58,86 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/37847770" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(e) { 
+ 
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("accActive");
+      var accPanel = this.nextElementSibling;
+      if (accPanel.style.maxHeight){
+        accPanel.style.maxHeight = null;
+      } else {
+        accPanel.style.maxHeight = 1000 + "px";
+      } 
+    });
+  }
+  
+});
+</script>
     
+ <style>.accordion {
+    transition: 0.4s;
+    outline:none;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: left;
+    margin-right: 9px;
+    margin-left: 3px;
+}
+
+.accActive:after {
+    content: "\2212";
+}
+
+.accPanel {
+    padding: 0 25px;
+    background-color: #f5f5f5;
+    max-height: 0px;
+    font-size:13px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.type-icon-empty {
+    vertical-align:bottom;
+    display:inline-block;
+    padding-left: 28px;
+}
+
+.type-icon-ppt {
+    background:url(ppt20.png) no-repeat left 2px; 
+    background-size: 20px; 
+    vertical-align:bottom;
+    display:inline-block;
+    padding-left: 28px;
+}
+
+.type-icon-doc {
+    background:url(word20.png) no-repeat left 2px; 
+    background-size: 20px; 
+    vertical-align:bottom;
+    display:inline-block;
+    padding-left: 28px;
+}
+
+.type-icon-pdf {
+    background:url(pdf20.png) no-repeat left 2px; 
+    background-size: 20px; 
+    vertical-align:bottom;
+    display:inline-block;
+    padding-left: 28px;
+}</style>
 </head>
 <body class=" bootstrap bd-body-7  bd-pagebackground bd-margins">
     <header class=" bd-headerarea-1 bd-margins">
@@ -75,7 +157,8 @@
  col-sm-4
  col-xs-12">
     <div class="bd-layoutcolumn-16 bd-column" ><div class="bd-vertical-align-wrapper"><a class=" bd-logo-2 bd-imagescaling bd-imagescaling-4" href="index.html">
-    <img class=" bd-imagestyles" src="./assets/images/418dddcbdae15a53d86637b73ca4f6ee_ZYM_logo.png">
+    <img class=" bd-imagestyles" src="./assets/images/418dddcbdae15a53d86637b73ca4f6ee_ZYM_logo.png"
+ alt="ЗУМ. Заземление, молниезащита, ЭМС">
 </a></div></div>
 </div>
 	
@@ -131,7 +214,7 @@
 
                                 
                             
-                            <a  title="Главная" href="./index.html" >Главная</a>
+                            <a  title="ООО «ЗУМ». Заземление, молниезащита, ЭМС" href="./index.html" >Главная</a>
 
                                 
                                     
@@ -165,7 +248,7 @@
 
                                 
                             
-                            <a  title="Услуги" href="./services.html" >Услуги</a>
+                            <a  title="Услуги по расчету заземления и молниезащиты электрических подстанций" href="./services.html" >Услуги</a>
 
                                 
                                     
@@ -182,9 +265,9 @@
 
                                 
                             
-                            <a  title="Программа «ЗУМ»" href="./zymprogram.html" >Программа «ЗУМ»</a>
+                            <a  title="Программа «ЗУМ». Расчет заземления, молниезащиты, ЭМС" href="./zymprogram.html" >Программа «ЗУМ»</a>
 
- 
+
 <div class="bd-menu-56-popup">                          
   <ul class="data-control-id-171405 bd-menu-56 bd-no-margins">   
                      
@@ -205,7 +288,7 @@
     </li>
 
   </ul>
-</div>                               
+</div>                                
                                     
                             
                             
@@ -238,7 +321,7 @@
                                 
                             
                             <a 
- class="active" title="Статьи" href="./articles.html" >Статьи</a>
+ class="active" title="Научные статьи по заземлению, молниезащите, ЭМС" href="./articles.html" >Статьи</a>
 
                                 
                                     
@@ -292,11 +375,2180 @@
     
     <div class=" bd-htmlcontent-6 bd-margins" 
  data-page-id="page.17">
-    <div class="bd-containereffect-39 container-effect container ">
-<p class=" bd-textblock-69  bd-content-element">
-    Страница в разработке
+    <div class="bd-containereffect-29 container-effect container "><section class=" bd-section-29 bd-tagstyles " id="section29" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <p class=" bd-textblock-146 bd-content-element">
+    На этой странице представлен список научных трудов по заземлению, заземлению и ЭМС, выполненных нашей командой.&nbsp;Основные публикации:
+</p>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-59 container-effect container ">
+<h3 class=" bd-textblock-93  bd-content-element">
+    2018
+</h3>
+</div>
+	
+		<div class="bd-containereffect-48 container-effect container "><section class=" bd-section-32 bd-tagstyles " id="section32" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-layoutbox-7 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-88 bd-content-element">
+    <a class="type-icon-pdf" href="2018_Расчет магнитного поля сеточного экрана.pdf" draggable="false">
+Расчет магнитного поля сеточного экрана при ударах молнии в цепных моделях частотным методом
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-56 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-3 bd-no-margins bd-content-element">
+    ток молнии
+</p>
+	
+		<p class=" bd-textblock-58 bd-no-margins bd-content-element">
+    электрическая подстанция
+</p>
+	
+		<p class=" bd-textblock-64 bd-no-margins bd-content-element">
+    импульсное магнитное поле
+</p>
+	
+		<p class=" bd-textblock-120 bd-no-margins bd-content-element">
+    сеточный экран
+</p>
+	
+		<p class=" bd-textblock-122 bd-no-margins bd-content-element">
+    клетка Фарадея
+</p>
+	
+		<p class=" bd-textblock-54 bd-no-margins bd-content-element">
+    электромагнитный экран
+</p>
+	
+		<p class=" bd-textblock-61 bd-no-margins bd-content-element">
+    коэффициент экранирования
+</p>
+	
+		<p class=" bd-textblock-67 bd-content-element">
+    стандарт МЭК 62305-4
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-90 bd-no-margins bd-content-element">
+    Шишигин Д.С., Шишигин С.Л., Коровкин Н.В.<br>
+Вестник ИГЭУ. – 2018. – №. 1. – С. 49-58.
+</p>
+	
+		<div class=" bd-customhtml-33 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Напряженность импульсного магнитного поля, создаваемого током молнии в местах расположения микропроцессорной аппаратуры, является нормируемым параметром при проектировании молниезащиты электрических подстанций. Арматура стен, металлическая обшивка здания и прочие металлоконструкции играют роль сеточного электромагнитного экрана, ослабляющего внешнее поле. Нормативными документами ФСК ЕЭС допускается проводить расчеты импульсных магнитных полей без экранов с учетом заданного коэффициента ослабления. Но для конкретного объекта с реальными размерами, шагом и другими параметрами сетки погрешность этого коэффициента слишком высока, что ведет к неадекватным проектным решениям. Более точные расчетные выражения предлагает стандарт МЭК-62305-4, однако они получены в предположении идеальных проводников и земли, поэтому требуют систематического анализа на предмет ограничений и точности для реальных экранов с учетом заземлителя. Численные методики позволяют включить экраны в общую расчетную модель проводников подстанции, по которым растекается ток молнии, чтобы проводить расчеты импульсных магнитных полей с погрешностью не более 5 %, установленной нормативами для заземляющих устройств. Трудности представляют расчеты с малым шагом сетки при большом числе стержней. Сокращение времени счета - необходимое условие решения этой задачи. Математические модели и методы теории заземлителей использованы для расчета сеточных экранов в частотном диапазоне тока молнии (25 кГц - 1 МГц). Адекватность методики подтверждается сравнением с результатами расчетов и экспериментов, выполненных другими исследователями. Предложен новый вариант частотного метода на основе искусственной периодизации импульса тока молнии без постоянной составляющей, наличие которой снижает точность расчета электромагнитных экранов при близком ударе молнии. За счет исключения постоянной составляющей, четных гармоник, доминирования основной гармоники и быстрого затухания высших гармоник новый вариант на порядок уменьшает число отсчетов при заданной точности по сравнению с традиционным методом. Полученные результаты предназначены для специалистов в области электромагнитной совместимости и проектировщиков электрических подстанций при разработке раздела проекта «Электромагнитная совместимость». Результаты могут быть востребованы при переработке нормативной документации. Новый вариант частотного метода применим в научных исследованиях для широкого круга задач и при разработке программного обеспечения.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-18 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-62 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-160 bd-content-element">
+    <a class="type-icon-pdf" href="2018_Расчет магнитных полей сеточных экранов.pdf" draggable="false">
+Расчет магнитных полей сеточных экранов при ударе молнии и анализ стандарта МЭК 62305-4
+</a>
+</h3>
+	
+		<p class=" bd-textblock-154 bd-no-margins bd-content-element">
+    Шишигин С.Л., Шишигин Д.С., Коровкин Н.В., Мещеряков В.Н.<br>
+6 Российская конф. по молниезащите: Сб. мат-лов конф. – СПб, 2018. С. 243-252.
+</p>
+	
+		<h4 class=" bd-textblock-69 bd-no-margins bd-content-element">
+    <a href="http://rclp2018.com/upload/iblock/1c8/1c8b49c7c47119162c186be9318b61f1.pdf" draggable="false">
+Презентация (pdf)
+</a>
+</h4>
+	
+		<div class=" bd-spacer-35 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-65 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-168 bd-content-element">
+    <a class="type-icon-pdf" href="2018_3D моделирование грозовых перенапряжений.pdf" draggable="false">
+3D моделирование грозовых перенапряжений воздушных линий и электрических подстанций
+</a>
+</h3>
+	
+		<p class=" bd-textblock-162 bd-no-margins bd-content-element">
+    Шишигин Д.С., Шишигин С.Л.<br>
+6 Российская конф. по молниезащите: Сб. мат-лов конф. – СПб, 2018. С. 291-300.
+</p>
+	
+		<h4 class=" bd-textblock-77 bd-no-margins bd-content-element">
+    <a href="http://rclp2018.com/upload/iblock/d94/d94a6774991c63299704ef3a4cbae6d8.pdf" draggable="false">
+Презентация (pdf)
+</a>
+</h4>
+	
+		<div class=" bd-spacer-36 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-38 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-95 bd-content-element">
+    <a class="type-icon-pdf" href="2018_Расчет заземлителей молниезащиты с учетом частотной зависимости.pdf" draggable="false">
+Расчет заземлителей молниезащиты с учетом частотной зависимости проводимости земли
+</a>
+</h3>
+	
+		<p class=" bd-textblock-86 bd-no-margins bd-content-element">
+    Шишигин С.Л., Черепанов А.В., Шишигин Д.С.<br>
+6 Российская конф. по молниезащите: Сб. мат-лов конф. – СПб, 2018. С. 306-313.
+</p>
+	
+		<h4 class=" bd-textblock-80 bd-no-margins bd-content-element">
+    <a href="http://rclp2018.com/upload/iblock/122/1226d0e4d9fd1ff0631a42b908dd85fa.pdf" draggable="false">
+Презентация (pdf)
+</a>
+</h4>
+	
+		<div class=" bd-spacer-20 clearfix"></div>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-41 container-effect container ">
+<h3 class=" bd-textblock-97  bd-content-element">
+    2017
+</h3>
+</div>
+	
+		<div class="bd-containereffect-11 container-effect container "><section class=" bd-section-34 bd-tagstyles " id="section32" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-layoutbox-71 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-177 bd-content-element">
+    <a class="type-icon-pdf" href="2017_Методы расчета переходных процессов.pdf" draggable="false">
+Методы расчета переходных процессов на электрических подстанциях при ударах молнии
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-72 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-176 bd-no-margins bd-content-element">
+    электрическая подстанция
+</p>
+	
+		<p class=" bd-textblock-175 bd-no-margins bd-content-element">
+    удар молнии
+</p>
+	
+		<p class=" bd-textblock-174 bd-no-margins bd-content-element">
+    переходный процесс
+</p>
+	
+		<p class=" bd-textblock-173 bd-no-margins bd-content-element">
+    частотный метод
+</p>
+	
+		<p class=" bd-textblock-172 bd-no-margins bd-content-element">
+    метод дискретных схем
+</p>
+	
+		<p class=" bd-textblock-171 bd-no-margins bd-content-element">
+    метод Влаха
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-153 bd-no-margins bd-content-element">
+    Шишигин Д.С.<br>
+Известия Тульского государственного университета. Технические науки. 2017. №7. -С.324-333.
+</p>
+	
+		<div class=" bd-customhtml-38 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Показано, что при проектировании электрических подстанций производится расчет переходных электромагнитных процессов, вызванных ударом молнии. Частотный метод, метод дискретных схем и метод Влаха (численный вариант операторного метода) исследованы и сопоставлены по критерию точности и быстродействия в задачах расчета условного импеданса заземлителя, кондуктивных помех контрольного кабеля и грозовых перенапряжений. Отмечены преимущества метода дискретных схем при расчете заземляющих устройств и метода Влаха при расчете волновых процессов. 
 </p>
 </div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-33 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-69 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-152 bd-content-element">
+    <a class="type-icon-pdf" href="http://ntv.spbstu.ru/fulltext/T10.2.2017_06.PDF" draggable="false">
+Шаговые алгоритмы расчета волновых процессов в задачах грозозащиты электрических подстанций
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-70 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-151 bd-no-margins bd-content-element">
+    грозозащита
+</p>
+	
+		<p class=" bd-textblock-150 bd-no-margins bd-content-element">
+    волновые процессы
+</p>
+	
+		<p class=" bd-textblock-149 bd-no-margins bd-content-element">
+    EMTP
+</p>
+	
+		<p class=" bd-textblock-148 bd-no-margins bd-content-element">
+    формула трапеций
+</p>
+	
+		<p class=" bd-textblock-147 bd-no-margins bd-content-element">
+    метод Влаха
+</p>
+	
+		<p class=" bd-textblock-207 bd-no-margins bd-content-element">
+    шаговые алгоритмы
+</p>
+	
+		<p class=" bd-textblock-208 bd-no-margins bd-content-element">
+    метод Влаха
+</p>
+	
+		<p class=" bd-textblock-209 bd-no-margins bd-content-element">
+    численное моделирование
+</p>
+	
+		<p class=" bd-textblock-210 bd-no-margins bd-content-element">
+    электрическая подстанция
+</p>
+	
+		<p class=" bd-textblock-211 bd-content-element">
+    ОПН
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-145 bd-no-margins bd-content-element">
+    Шишигин Д.С., Шишигин С.Л.<br>
+Научно-технические ведомости СПбГПУ. Информатика. Телекоммуникации. Управление. 2017. Т. 10. № 2. С. 75-84.
+</p>
+	
+		<div class=" bd-customhtml-37 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Удар молнии в воздушную линию электропередач вызывает волну перенапряжения, которая может быть опасна для электрооборудования электрических подстанций. Моделирование волновых процессов обычно проводится в программе EMTP на основе цепных схем. Проблемой является осцилляция напряжения при воздействии импульса тока с коротким фронтом, что связано с использованием формулы трапеций для интегрирования дифференциальных уравнений. Комбинация формулы трапеций с неявной формулой Эйлера, предлагаемая в EMTP, не решает проблемы. Идея работы заключается в адаптации и применении хорошо разработанных цепно-полевых моделей, методов и программ теории заземления в задачах грозозащиты. Тогда волновые процессы моделируются совместно с процессами растекания тока в заземлителях. Показаны очевидные преимущества формул интегрирования высокого порядка Влаха и Синхгала по сравнению с формулой трапеций. В качестве практического примера рассчитаны волны перенапряжения на силовом и измерительном трансформаторе подстанции, обусловленные ударом молнии в опору воздушной линии с перекрытием изоляции. Показан эффект от установки ОПН. 
+</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-32 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-67 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-144 bd-content-element">
+    <a class="type-icon-pdf" href="2016_Предложения по совершенствованию стандартов.pdf" draggable="false">
+Предложения по совершенствованию стандартов молниезащиты, заземления, электромагнитной совместимости
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-68 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-143 bd-no-margins bd-content-element">
+    молниезащита
+</p>
+	
+		<p class=" bd-textblock-142 bd-no-margins bd-content-element">
+    заземление
+</p>
+	
+		<p class=" bd-textblock-141 bd-no-margins bd-content-element">
+    ЭМС
+</p>
+	
+		<p class=" bd-textblock-140 bd-no-margins bd-content-element">
+    стандарты проектирования
+</p>
+	
+		<p class=" bd-textblock-139 bd-content-element">
+    совершенствование стандартов
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-138 bd-no-margins bd-content-element">
+    Шишигин С.Л.<br>
+Энергетик. 2017. № 2. С. 31-32.
+</p>
+	
+		<div class=" bd-customhtml-36 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Российские стандарты молниезащиты, заземления, электромагнитной совместимости (ЭМС) далеко несовершенны. Указаны некоторые проблемы, которые связаны с зонами защиты молниеотводов, значениями тока молнии в задачах ЭМС, выбором модели земли при расчёте заземлителей, определением кондуктивных помех, а также с требованиями к компьютерным программам расчёта заземления и ЭМС. 
+</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-31 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-58 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-137 bd-content-element">
+    <a class="type-icon-pdf" href="2017_Numerical modeling in EMC problems.pdf" draggable="false">
+Numerical modeling in EMC problems of electric power substations when lightning strikes
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-60 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-136 bd-no-margins bd-content-element">
+    EMC
+</p>
+	
+		<p class=" bd-textblock-135 bd-no-margins bd-content-element">
+    lightning protection system
+</p>
+	
+		<p class=" bd-textblock-134 bd-no-margins bd-content-element">
+    grounding
+</p>
+	
+		<p class=" bd-textblock-133 bd-no-margins bd-content-element">
+    trapezoid formula
+</p>
+	
+		<p class=" bd-textblock-132 bd-no-margins bd-content-element">
+    Vlach method
+</p>
+	
+		<p class=" bd-textblock-213 bd-no-margins bd-content-element">
+    AutoCAD
+</p>
+	
+		<p class=" bd-textblock-214 bd-no-margins bd-content-element">
+    ZYM
+</p>
+	
+		<p class=" bd-textblock-215 bd-no-margins bd-content-element">
+    numerical modeling
+</p>
+	
+		<p class=" bd-textblock-216 bd-content-element">
+    electric power substation
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-131 bd-no-margins bd-content-element">
+    Shishigin D.S., Shishigin S.L.<br>
+EEEIC/I and CPS Europe 2017 – Milan, Italy, 2017.– P.1-5.
+</p>
+	
+		<div class=" bd-customhtml-35 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">For numerical modeling of lightning current spreading in lightning protection, grounding, electric power supply systems the ZYM program is used. Hybrid (field-circuit) thin-wire model is implemented in the program for electromagnetic fields and transients calculations (in ground and in air). Circuit model structure and its parameters are determined automatically, the user should only draw 3D model of a power substation and transmission line. The program is integrated with AutoCAD (using ObjectARX technology) that provides effective geometrical modeling with object and results visualization. Three impulse process calculation methods are researched and implemented: Fourier method, discrete circuits method (similar to ATP-EMTP) and step algorithm based on the Vlach method. The comparison of the methods shows the effectiveness of the latter. The wave process calculation caused by a lightning stroke in the overhead ground wire close to the power substation is carried out as an example. Surge voltage on the transformer and on the electrical equipment is determined before and after surge arrester is installed. The results are animated.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-30 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-75 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-191 bd-content-element">
+    <a class="type-icon-pdf" href="2017_Расчет кондуктивных помех и нагрева.pdf" draggable="false">
+Расчет кондуктивных помех и нагрева экрана контрольного кабеля
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-76 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-190 bd-no-margins bd-content-element">
+    контрольный кабель
+</p>
+	
+		<p class=" bd-textblock-189 bd-no-margins bd-content-element">
+    кондуктивная помеха
+</p>
+	
+		<p class=" bd-textblock-188 bd-no-margins bd-content-element">
+    нагрев экрана
+</p>
+	
+		<p class=" bd-textblock-187 bd-no-margins bd-content-element">
+    передаточное сопротивление
+</p>
+	
+		<p class=" bd-textblock-186 bd-no-margins bd-content-element">
+    вносимое сопротивление
+</p>
+	
+		<p class=" bd-textblock-218 bd-content-element">
+    шаговый алгоритм
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-185 bd-no-margins bd-content-element">
+    Шишигин С.Л., Черепанов А.В., Шишигин Д.С.<br>
+Электротехника. – 2017. – №10. – C.82-87.
+</p>
+	
+		<div class=" bd-customhtml-40 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Разряды молнии и короткие замыкания (КЗ) являются основными источниками кондуктивных помех, которые, распространяясь по контрольным кабелям, могут привести к отказу микропроцессорной аппаратуры в системах защиты и управления электрических подстанций. Двустороннее заземление экрана контрольного кабеля существенно снижает уровень импульсных и высокочастотных кондуктивных помех, однако приводит к нагреву экрана в режиме КЗ. Действующие стандарты определяют кондуктивные помехи и нагрев экрана как функцию напряжения экрана, что удобно для уединенного кабеля. Рассмотрен более общий случай с учетом магнитных связей кабеля с другими проводниками, когда в качестве расчетного параметра используется ток. Кондуктивные помехи при первом импульсе тока молнии определяются с использованием передаточного сопротивления «экран-жила» или с 3D-моделью кабеля в общем случае. Для расчета нагрева используется формула ГОСТ 28895-91, которая в современных стандартах не применяется из-за допущения о постоянстве тока в процессе КЗ. Реализация этой формулы в шаговом алгоритме дает корректные результаты. Магнитные связи кабеля с другими проводниками выражены в виде вносимого сопротивления, которое увеличивает полное сопротивление экрана, снижает ток и нагрев экрана. На примере для кабеля КВВГЭ показана возможность существенного снижения кондуктивных помех и нагрева экрана кабеля за счет прокладки параллельных проводников. Сделан вывод, что для снижения кондуктивных помех и нагрева экрана кабеля необходимо снижать ток экрана.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-37 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-79 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-205 bd-content-element">
+    <a class="type-icon-pdf" href="2017_The Calculations of Conductive Noise.pdf" draggable="false">
+The calculations of conductive noise and heating of the screen in a control cable
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-80 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-204 bd-no-margins bd-content-element">
+    control cable
+</p>
+	
+		<p class=" bd-textblock-203 bd-no-margins bd-content-element">
+    conductive noise
+</p>
+	
+		<p class=" bd-textblock-202 bd-no-margins bd-content-element">
+    screen heating
+</p>
+	
+		<p class=" bd-textblock-201 bd-no-margins bd-content-element">
+    transfer impedance
+</p>
+	
+		<p class=" bd-textblock-200 bd-no-margins bd-content-element">
+    insertion impedance
+</p>
+	
+		<p class=" bd-textblock-84 bd-content-element">
+    step algorithm
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-199 bd-no-margins bd-content-element">
+    Shishigin S.L., Cherepanov A.V., Shishigin D.S.<br>
+Russian Electrical Engineering, Volume 88, Issue 10, October 2017. P. 687-691.
+</p>
+	
+		<div class=" bd-customhtml-44 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Lighting strokes and short circuits (SCs) are the main sources of conductive noise that propagates along control cables and can lead to the failure of microprocessor equipment in the protection and control systems of electric power substations. Two-sided grounding of the screen of a control cable substantially reduces the pulse and high-frequency conductive noise level, but leads to heating of the screen under short-circuit conditions. The existing standards determine the conductive noise and screen heating as a function of screen voltage that is suitable for a single cable. A more general case that takes into account the cable magnetic coupling with other conductors when current is used as a calculation parameter has been considered. The conductive noise at the first pulse of lightning current is determined using the transfer impedance “screen–cable core” or 3D cable model in the general case. To calculate the heating, the formula of GOST (State Standard) 28895-91, which is rejected in modern standards because of the assumption that short-circuit current is invariable (in fact, the current decreases with heating of the screen), has been used. Using this formula in a step algorithm leads to correct results. The cable magnetic coupling with other conductors is expressed as insertion impedance that increases the screen impedance and decreases the current and screen heating. A numerical experiment for a typical cable has shown that conductive noise and heating of the screen of the cable can be substantially reduced because of the parallel laying of conductors. It has been concluded that, to decrease the conductive noise and heating of the screen of a control cable, it is necessary to decrease the screen current.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-39 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-39 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-111 bd-content-element">
+    <a class="type-icon-pdf" href="2017_Расчет заземлителей с учетом частотной зависимости.pdf" draggable="false">
+Расчет заземлителей с учетом частотной зависимости удельного сопротивления земли
+</a>
+</h3>
+	
+		<p class=" bd-textblock-102 bd-no-margins bd-content-element">
+    Черепанов А.В, Шишигин С.Л.<br>
+Труды IV Всероссийской НТК «Техно-ЭМС 2017». М.: Грифон, 2017. С.110-112.
+</p>
+	
+		<div class=" bd-spacer-22 clearfix"></div>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-63 container-effect container ">
+<h3 class=" bd-textblock-282  bd-content-element">
+    2016
+</h3>
+</div>
+	
+		<div class="bd-containereffect-39 container-effect container "><section class=" bd-section-40 bd-tagstyles " id="section32" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-layoutbox-93 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-270 bd-content-element">
+    <a class="type-icon-pdf" href="http://www.proceedings.spiiras.nw.ru/ojs/index.php/sp/article/download/3317/1940" draggable="false">
+К выбору технологии интеграции прикладного программного обеспечения с САПР
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-94 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-269 bd-no-margins bd-content-element">
+    геометрическая модель
+</p>
+	
+		<p class=" bd-textblock-268 bd-no-margins bd-content-element">
+    САПР
+</p>
+	
+		<p class=" bd-textblock-267 bd-no-margins bd-content-element">
+    AutoCAD
+</p>
+	
+		<p class=" bd-textblock-266 bd-no-margins bd-content-element">
+    DXF
+</p>
+	
+		<p class=" bd-textblock-265 bd-no-margins bd-content-element">
+    COM
+</p>
+	
+		<p class=" bd-textblock-284 bd-no-margins bd-content-element">
+    ObjectARX
+</p>
+	
+		<p class=" bd-textblock-286 bd-no-margins bd-content-element">
+    автоматизация
+</p>
+	
+		<p class=" bd-textblock-287 bd-content-element">
+    научная графика
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-264 bd-no-margins bd-content-element">
+    Шишигин Д.С.<br>
+Труды СПИИРАН. 2016. №4(47). С.211-224.
+</p>
+	
+		<div class=" bd-customhtml-51 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Компьютерные программы для научных исследований со сложными геометрическими моделями целесообразно интегрировать с САПР. Рассматриваются три подхода на основе: обмена данными в формате DXF (drawing exchange format), COM-технологии и прикладной программный интерфейс (API) ObjectARX. DXF-обмен данными с САПР - простой и универсальный способ, доступный для большинства исследователей, но исключающий интерактивное управление САПР. COM технологии предоставляют простые, надежные, но не самые быстродействующие механизмы интерактивного управления САПР из внешней программы. Комбинация с DXF повышает быстродействие COM. Для задач со сложными геометрическими моделями система AutoCAD предоставляет ObjectARX API и.NET API - низкоуровневые технологии, обеспечивающие наивысшую по сравнению с другими технологиями функциональность и производительность, но имеющие ограничения. Приведены листинги программ, упрощающие понимание рассматриваемых технологий, проведен анализ их быстродействия, даны рекомендации по их применению с позиции исследователя.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-46 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-91 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-263 bd-content-element">
+    <a class="type-icon-pdf" href="2016_Расчет площади стягивания.pdf" draggable="false">
+Расчет площади стягивания молнии методом наведенного заряда
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-92 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-262 bd-no-margins bd-content-element">
+    лидер молнии
+</p>
+	
+		<p class=" bd-textblock-261 bd-no-margins bd-content-element">
+    стягивание
+</p>
+	
+		<p class=" bd-textblock-260 bd-no-margins bd-content-element">
+    площадь стягивания
+</p>
+	
+		<p class=" bd-textblock-259 bd-no-margins bd-content-element">
+    радиус стягивания
+</p>
+	
+		<p class=" bd-textblock-258 bd-content-element">
+    метод наведенного заряда
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-257 bd-no-margins bd-content-element">
+    Шишигин С.Л., Мещеряков В.Е., Шишигин Д.С. <br>
+Электричество. 2016. № 6. C. 10–15.
+</p>
+	
+		<div class=" bd-customhtml-50 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Площадь стягивания молнии определяется двумя процессами - электростатическим притяжением (стягиванием) заряда лидера к наведенному заряду наземного объекта и развитием встречного лидера. Рассматривается первый из них. В предположении, что усредненный лидер молнии движется по силовым линиям, методика исследования заключается в анализе искажения силовой линии электростатического поля заряженного облака, проведенной через крайнюю точку зоны захвата. Заряд лидера и зона захвата определяются по методу Г.Н. Александрова. Показано, что наведенный заряд невысоких объектов компенсируется его зеркальным зарядом и электростатическое стягивание незначительно. Исследовано влияние высоты и диаметра стержневых объектов, тока молнии и рельефа местности на площадь стягивания. Для сравнения приведены данные действующих стандартов молниезащиты и работ других исследователей.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-45 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-89 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-256 bd-content-element">
+    <a class="type-icon-pdf" href="2016_Расчет прощади стягивания молнии.pdf" draggable="false">
+Расчет площади стягивания молнии по наведенному заряду наземного объекта
+</a>
+</h3>
+	
+		<p class=" bd-textblock-250 bd-no-margins bd-content-element">
+    Шишигин С.Л., Мещеряков В.Е.<br>
+5 Российская конф. по молниезащите: Сб. мат-лов конф. – СПб, 2016. – С.373-380.
+</p>
+	
+		<h4 class=" bd-textblock-96 bd-no-margins bd-content-element">
+    <a href="http://lightningprotection.ru/wp-content/uploads/2016/05/1_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD_%D0%9C%D0%B5%D1%89%D0%B5%D1%80%D1%8F%D0%BA%D0%BE%D0%B2.ppsx" draggable="false">
+Презентация (ppsx)
+</a>
+</h4>
+	
+		<div class=" bd-spacer-44 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-101 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-308 bd-content-element">
+    <a class="type-icon-pdf" href="2016_Расчет кондуктивных помех и нагрева.pdf" draggable="false">
+Расчет кондуктивных помех и нагрева экрана контрольного кабеля
+</a>
+</h3>
+	
+		<p class=" bd-textblock-302 bd-no-margins bd-content-element">
+    Шишигин С.Л., Черепанов А.В., Шишигин Д.С.<br>
+5 Российская конф. по молниезащите: Сб. мат-лов конф. – СПб, 2016. – С.367-372.
+</p>
+	
+		<h4 class=" bd-textblock-99 bd-no-margins bd-content-element">
+    <a href="http://lightningprotection.ru/wp-content/uploads/2016/05/4_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD_%D0%A7%D0%B5%D1%80%D0%B5%D0%BF%D0%B0%D0%BD%D0%BE%D0%B2_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD.ppsx" draggable="false">
+Презентация (ppsx)
+</a>
+</h4>
+	
+		<div class=" bd-spacer-50 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-103 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-315 bd-content-element">
+    <a class="type-icon-pdf" href="2016_Предложения по совершенствованию стандартов.pdf" draggable="false">
+Предложения по совершенствованию стандартов молниезащиты, заземления, ЭМС
+</a>
+</h3>
+	
+		<p class=" bd-textblock-309 bd-no-margins bd-content-element">
+    Шишигин С.Л.<br>
+5 Российская конф. по молниезащите: Сб. мат-лов конф. – СПб, 2016. – С.363-366.
+</p>
+	
+		<h4 class=" bd-textblock-100 bd-no-margins bd-content-element">
+    <a href="http://lightningprotection.ru/wp-content/uploads/2016/05/3_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD.ppsx" draggable="false">
+Презентация (ppsx)
+</a>
+</h4>
+	
+		<div class=" bd-spacer-51 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-105 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-322 bd-content-element">
+    <a class="type-icon-pdf" href="2016_Моделирование волновых процессов.pdf" draggable="false">
+Моделирование волновых процессов в линиях при ударах молнии
+</a>
+</h3>
+	
+		<p class=" bd-textblock-316 bd-no-margins bd-content-element">
+    Шишигин Д.С., Шишигин С.Л.<br>
+5 Российская конф. по молниезащите: Сб. мат-лов конф. – СПб, 2016. – С.358-362.
+</p>
+	
+		<h4 class=" bd-textblock-101 bd-no-margins bd-content-element">
+    <a href="http://lightningprotection.ru/wp-content/uploads/2016/05/2_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD-%D0%94%D0%A1_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD-%D0%A1%D0%9B.pptx" draggable="false">
+Презентация (pptx)
+</a>
+</h4>
+	
+		<div class=" bd-spacer-52 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-107 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-329 bd-content-element">
+    <a class="type-icon-pdf" href="2016_Расчет грозопоражаемости наземного объекта.pdf" draggable="false">
+Расчет грозопоражаемости наземного объекта по его наведенному заряду
+</a>
+</h3>
+	
+		<p class=" bd-textblock-323 bd-no-margins bd-content-element">
+    Мещеряков В.Е., Шишигин С.Л.<br>
+Труды III Всероссийской НТК «Техно-ЭМС 2016». М.: Грифон, 2016. С.17-20.
+</p>
+	
+		<div class=" bd-spacer-53 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-111 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-343 bd-content-element">
+    <a class="type-icon-pdf" href="2016_Нагрев экрана контрольного кабеля.pdf" draggable="false">
+Нагрев экрана контрольного кабеля
+</a>
+</h3>
+	
+		<p class=" bd-textblock-337 bd-no-margins bd-content-element">
+    Черепанов А.В., Шишигин С.Л.<br>
+Труды III Всероссийской НТК «Техно-ЭМС 2016». М.: Грифон, 2016. С.36-39.
+</p>
+	
+		<div class=" bd-spacer-55 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-113 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-350 bd-content-element">
+    <a class="type-icon-pdf" href="2016_Моделирование переходных процессов в линиях.pdf" draggable="false">
+Моделирование переходных процессов в линиях при ударе молнии
+</a>
+</h3>
+	
+		<p class=" bd-textblock-344 bd-no-margins bd-content-element">
+    Шишигин Д.С., Шишигин С.Л.<br>
+Труды III Всероссийской НТК «Техно-ЭМС 2016». М.: Грифон, 2016. С.40-42.
+</p>
+	
+		<div class=" bd-spacer-56 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-115 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-357 bd-content-element">
+    <span class="type-icon-empty">
+Зоны защиты молниеотводов
+</span>
+</h3>
+	
+		<div class=" bd-layoutbox-116 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-356 bd-no-margins bd-content-element">
+    конструкции молниеотводов
+</p>
+	
+		<p class=" bd-textblock-355 bd-no-margins bd-content-element">
+    молниезащита зданий
+</p>
+	
+		<p class=" bd-textblock-354 bd-no-margins bd-content-element">
+    нормативные документы молниезащиты
+</p>
+	
+		<p class=" bd-textblock-353 bd-no-margins bd-content-element">
+    методы моделирования ориентировки молнии
+</p>
+	
+		<p class=" bd-textblock-352 bd-no-margins bd-content-element">
+    статистический метод
+</p>
+	
+		<p class=" bd-textblock-359 bd-no-margins bd-content-element">
+    модель лидера молнии
+</p>
+	
+		<p class=" bd-textblock-360 bd-content-element">
+    метод Г.Н. Александрова
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-351 bd-no-margins bd-content-element">
+    Шишигин С.Л., Мещеряков В.Е.<br>
+Учебное пособие. ВоГУ. 2016, 79 с.
+</p>
+	
+		<div class=" bd-customhtml-62 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Рассмотрена задача защиты от прямого удара молнии с помощью установки молниеотводов. Приведены данные основных российских нормативных документов по молниезащите и стандарта МЭК 62305. Выполнены расчеты зон защиты типовых молниеотводов и показаны значительные различия в применении действующих стандартов молниезащиты. Для понимания перспектив совершенствования молниезащитных систем представлены основы современных методов моделирования ориентировки молнии, предназначенных для расчета надежности молниезащиты, площади стягивания и грозопоражаемости наземных объектов. Даны расчетные задания по расчету зон защиты молниеотводов объектов различного назначения, предназначенные для лабораторного практикума и самостоятельной работы. Учебное пособие предназначено для магистров, обучающихся по направлению 13.04.02 – электроэнергетика и электротехника в рамках дисциплины «Электромагнитная совместимость в электроэнергетике», и аспирантов, обучающихся по направлению 13.06.01 – электро- и теплотехника.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-57 clearfix"></div>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-67 container-effect container ">
+<h3 class=" bd-textblock-118  bd-content-element">
+    2015
+</h3>
+</div>
+	
+		<div class="bd-containereffect-45 container-effect container "><section class=" bd-section-38 bd-tagstyles " id="section32" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-layoutbox-52 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-158 bd-content-element">
+    <a class="type-icon-pdf" href="2015_AutoCAD application for LPS, grounding and EMC problems.pdf" draggable="false">
+AutoCAD application for LPS, grounding and EMC problems
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-54 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-156 bd-no-margins bd-content-element">
+    lightning protection system
+</p>
+	
+		<p class=" bd-textblock-155 bd-no-margins bd-content-element">
+    grounding
+</p>
+	
+		<p class=" bd-textblock-130 bd-no-margins bd-content-element">
+    shielding
+</p>
+	
+		<p class=" bd-textblock-129 bd-no-margins bd-content-element">
+    AutoCAD
+</p>
+	
+		<p class=" bd-textblock-128 bd-no-margins bd-content-element">
+    ZYM
+</p>
+	
+		<p class=" bd-textblock-127 bd-no-margins bd-content-element">
+    computation electromagnetics
+</p>
+	
+		<p class=" bd-textblock-126 bd-content-element">
+    electric power substations
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-125 bd-no-margins bd-content-element">
+    Shishigin D.S., Shishigin S.L., Korovkin N.V.<br>
+EMC 2015 Joint IEEE International Symposium on Electromagnetic Compatibility and  EMC EUROPE. Dresden, Germany, 2015, pp. 834 – 838.
+</p>
+	
+		<div class=" bd-customhtml-26 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">A software program ZYM (AutoCAD application) for calculating of LPS, grounding and EMC problems of power substations has been developed. The program consists of a calculation kernel and an AutoCAD-bound interface (COM-technology). Advanced methods and programming technologies are used. High performance is reached with the use of Intel Math Kernel Library. The results of calculation get visualized by 3D plots, and dynamic processes are animated. The example of LPS, grounding and EMC calculations of electric power substation is given.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-41 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-73 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-196 bd-content-element">
+    <a class="type-icon-pdf" href="2015_Расчет зон защиты стержневых молниеотводов.pdf" draggable="false">
+Расчет зон защиты стержневых молниеотводов методом наведенного заряда
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-74 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-195 bd-no-margins bd-content-element">
+    молниезащита
+</p>
+	
+		<p class=" bd-textblock-194 bd-no-margins bd-content-element">
+    метод катящейся сферы
+</p>
+	
+		<p class=" bd-textblock-193 bd-no-margins bd-content-element">
+    метод наведенного заряда
+</p>
+	
+		<p class=" bd-textblock-192 bd-no-margins bd-content-element">
+    зона захвата
+</p>
+	
+		<p class=" bd-textblock-184 bd-content-element">
+    зона защиты
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-180 bd-no-margins bd-content-element">
+    Шишигин С.Л., Мещеряков В.Е., Шишигин Д.С.<br>
+Электричество. 2015. № 8. C. 4–9.
+</p>
+	
+		<div class=" bd-customhtml-31 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Разработан метод расчета внешней молниезащиты, в основу которого принято положение Г.Н. Александрова о связи вероятности поражения молнией объекта и его наведенного заряда. Зона захвата молнии индивидуальна для каждого объекта и определяется из условия равного относительного наведенного заряда объекта. Метод адекватно отражает основные закономерности, установленные российскими нормами, и применим для сложных объектов подобно методу катящейся сферы.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-43 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-81 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-233 bd-content-element">
+    <a class="type-icon-pdf" href="http://journals.ioffe.ru/articles/viewPDF/41579" draggable="false">
+Метод расчета молниезащиты на основе электростатической модели стягивания лидера молнии
+</a>
+</h3>
+	
+		<p class=" bd-textblock-224 bd-no-margins bd-content-element">
+    Шишигин С.Л., Мещеряков В.Е.<br>
+Письма в ЖТФ. 2015. №6(41). С.34-41.
+</p>
+	
+		<div class=" bd-customhtml-34 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Разработан метод молниезащиты, в котором стягивание лидера молнии к наземным объектам вызвано электростатическим взаимодействием заряда лидера с наведенным зарядом наземных объектов.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-48 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-85 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-254 bd-content-element">
+    <a class="type-icon-pdf" href="2015_Calculation of Lightning Protection.pdf" draggable="false">
+Calculation of lightning protection based on the electrostatic model of leader attraction
+</a>
+</h3>
+	
+		<p class=" bd-textblock-244 bd-no-margins bd-content-element">
+    Shishigin S.L., Meshcheryakov V.E.<br>
+Technical Physics Letters, March 2015, Volume 41, Issue 3 , pp 273-276.
+</p>
+	
+		<div class=" bd-customhtml-41 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">A new method of lightning protection has been developed in which the lightning leader is attracted
+to ground objects as a result of the electrostatic interaction between the leader charge and induced charges on
+ground objects.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-54 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-90 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-293 bd-content-element">
+    <a class="type-icon-pdf" href="2015_Совершенствование методов расчета молниезащиты.pdf" draggable="false">
+Совершенствование методов расчета молниезащиты
+</a>
+</h3>
+	
+		<p class=" bd-textblock-280 bd-no-margins bd-content-element">
+    Мещеряков В.Е.<br>
+Труды II Всероссийской НТК «Техно-ЭМС 2015». М.: Грифон, 2015.С.29-31.
+</p>
+	
+		<div class=" bd-spacer-59 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-96 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-304 bd-content-element">
+    <a class="type-icon-pdf" href="2015_Программное обеспечение.pdf" draggable="false">
+Программное обеспечение для задач молниезащиты, заземления, ЭМС
+</a>
+</h3>
+	
+		<p class=" bd-textblock-294 bd-no-margins bd-content-element">
+    Шишигин Д.С.<br>
+Труды II Всероссийской НТК «Техно-ЭМС 2015». М.: Грифон, 2015.С.32-34.
+</p>
+	
+		<div class=" bd-spacer-60 clearfix"></div>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-47 container-effect container ">
+<h3 class=" bd-textblock-76  bd-content-element">
+    2014
+</h3>
+</div>
+	
+		<div class="bd-containereffect-65 container-effect container "><section class=" bd-section-43 bd-tagstyles " id="section32" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-layoutbox-50 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-163 bd-content-element">
+    <a class="type-icon-pdf" href="2014_Ориентировка молнии и молниезащита по Г.Н. Александрову.pdf" draggable="false">
+Ориентировка молнии и молниезащита по Г.Н. Александрову
+</a>
+</h3>
+	
+		<p class=" bd-textblock-159 bd-no-margins bd-content-element">
+    Шишигин С.Л., Мещеряков В.Е.<br>
+4 Межд. конф. по молниезащите: Сб.мат-лов конф. – СПб, 2014. С.34-41.
+</p>
+	
+		<h4 class=" bd-textblock-124 bd-no-margins bd-content-element">
+    <a href="http://lightningprotection.ru/wp-content/uploads/2014/06/03_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD_%D0%9C%D0%BE%D0%BB%D0%BD%D0%B8%D0%B5%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0_%D0%BF%D0%BE_%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%BE%D0%B2%D1%83.pps" draggable="false">
+Презентация (pps)
+</a>
+</h4>
+	
+		<div class=" bd-spacer-40 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-49 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-123 bd-content-element">
+    <a class="type-icon-pdf" href="2014_Математические модели и методы.pdf" draggable="false">
+Математические модели и методы в задачах заземления и ЭМС
+</a>
+</h3>
+	
+		<p class=" bd-textblock-121 bd-no-margins bd-content-element">
+    Шишигин С.Л., Мещеряков В.Е., Шишигин Д.С.<br>
+4 Межд. конф. по молниезащите: Сб.мат-лов конф. – СПб, 2014. С.128-135.
+</p>
+	
+		<h4 class=" bd-textblock-119 bd-no-margins bd-content-element">
+    <a href="http://lightningprotection.ru/wp-content/uploads/2014/06/02_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD-%D1%81%D1%82_%D0%9C%D0%B0%D1%82%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8_%D0%B2_%D0%B7%D0%B0%D0%B7%D0%B5%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8_%D0%B8_%D0%AD%D0%9C%D0%A1.pps" draggable="false">
+Презентация (pps)
+</a>
+</h4>
+	
+		<div class=" bd-spacer-38 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-48 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-117 bd-content-element">
+    <a class="type-icon-pdf" href="2014_Разработка программного обеспечения.pdf" draggable="false">
+Разработка программного обеспечения для расчета молниезащиты, заземления и ЭМС, интегрированного в AutoCAD
+</a>
+</h3>
+	
+		<p class=" bd-textblock-116 bd-no-margins bd-content-element">
+    Шишигин Д.С. , Шишигин С.Л. <br>
+4 Межд. конф. по молниезащите: Сб.мат-лов конф. – СПб, 2014. С.135-141.
+</p>
+	
+		<h4 class=" bd-textblock-115 bd-no-margins bd-content-element">
+    <a href="http://lightningprotection.ru/wp-content/uploads/2014/06/03_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD-%D0%BC%D0%BB_%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BD%D0%BE%D0%B5_%D0%BE%D0%B1%D0%B5%D1%81%D0%BF_%D0%B4%D0%BB%D1%8F_%D1%80%D0%B0%D1%81%D1%87%D0%B5%D1%82%D0%BE%D0%B2.pps" draggable="false">
+Презентация (pps)
+</a>
+</h4>
+	
+		<div class=" bd-spacer-34 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-83 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-271 bd-content-element">
+    <a class="type-icon-pdf" href="2014_AutoCAD приложение.pdf" draggable="false">
+AUTOCAD приложение для расчета молниезащиты и заземления объектов электроэнергетики
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-102 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-331 bd-no-margins bd-content-element">
+    AutoCAD приложение
+</p>
+	
+		<p class=" bd-textblock-330 bd-no-margins bd-content-element">
+    заземление
+</p>
+	
+		<p class=" bd-textblock-328 bd-no-margins bd-content-element">
+    молниезащита
+</p>
+	
+		<p class=" bd-textblock-327 bd-no-margins bd-content-element">
+    электрическая подстанция
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-236 bd-no-margins bd-content-element">
+    Шишигин Д.С.<br>
+Автоматизация в промышленности, 2014. – № 9. – C. 28 – 32.
+</p>
+	
+		<div class=" bd-customhtml-39 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Представлена разработка программы ЗУМ (приложение к AutoCAD) для расчета заземления и молниезащиты электрических подстанций. Программа состоит из вычислительного ядра и интерфейса, связанного с AutoCAD (технология COM). Результаты расчетов визуализируются 3D графиками, динамические процессы анимируются. Разработан оригинальный метод построения графиков в dxf кодах, отличающийся быстродействием. Рассмотрены способы борьбы со сложностью кода и повышения его быстродействия. Приведен пример расчета молниезащиты электрической подстанции.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-49 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-87 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-306 bd-content-element">
+    <a class="type-icon-pdf" href="2014_AUTOCAD приложение для расчета молниезащиты и заземления.pdf" draggable="false">
+AUTOCAD приложение для расчета молниезащиты и заземления объектов электроэнергетики
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-88 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-305 bd-no-margins bd-content-element">
+    AutoCAD приложение
+</p>
+	
+		<p class=" bd-textblock-279 bd-no-margins bd-content-element">
+    заземление
+</p>
+	
+		<p class=" bd-textblock-278 bd-no-margins bd-content-element">
+    молниезащита
+</p>
+	
+		<p class=" bd-textblock-277 bd-no-margins bd-content-element">
+    электрическая подстанция
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-272 bd-no-margins bd-content-element">
+    Шишигин Д.С.<br>
+XII Всероссийское совещание по проблемам управления. М., Институт проблем управления РАН, 16-19 июня 2014.
+</p>
+	
+		<div class=" bd-customhtml-42 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Разработана компьютерная программа (приложение к AutoCAD) для расчета заземления и молниезащиты электрических подстанций. Программа состоит из вы- числительного ядра и интерфейса, связанного с AutoCAD (COM-технологии). Результаты расчетов визуализируются 3D графиками, динамические процессы анимируются. Разработан оригинальный метод построения графиков в dxf кодах, отличающийся быстродействием. Приведен пример расчета молниезащиты электрической подстанции.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-58 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-98 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-320 bd-content-element">
+    <span class="type-icon-empty">
+Программные и аппаратные средства ускорения матричных операций
+</span>
+</h3>
+	
+		<p class=" bd-textblock-307 bd-no-margins bd-content-element">
+    Шишигин Д.С.<br>
+Вузовская наука – региону: Мат-лы всерос. науч.–техн. конф. Вологда: ВоГУ, 2014.
+</p>
+	
+		<div class=" bd-spacer-61 clearfix"></div>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-70 container-effect container ">
+<h3 class=" bd-textblock-333  bd-content-element">
+    2013
+</h3>
+</div>
+	
+		<div class="bd-containereffect-74 container-effect container "><section class=" bd-section-45 bd-tagstyles " id="section32" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-layoutbox-134 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-458 bd-content-element">
+    <a class="type-icon-pdf" href="2013_Grounding and shielding in EMC problems.pdf" draggable="false">
+Grounding and shielding in EMC problems of electric power substations
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-135 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-457 bd-no-margins bd-content-element">
+    grounding
+</p>
+	
+		<p class=" bd-textblock-456 bd-no-margins bd-content-element">
+    shielding
+</p>
+	
+		<p class=" bd-textblock-455 bd-no-margins bd-content-element">
+    multilayer ground
+</p>
+	
+		<p class=" bd-textblock-454 bd-content-element">
+    AutoCAD application
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-451 bd-no-margins bd-content-element">
+    Korovkin N.V., Shishigin S.L. Shishigin D.S., Frolov O.V.<br>
+Proc. of the 2013 International Symposium on Electromagnetic Compatibility (EMC Europe 2013), Brugge, Belgium, September 2-6, 2013, p. 863 – 866.
+</p>
+	
+		<div class=" bd-customhtml-60 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Galvanic and electromagnetic interference occurring at lightning stroke, short-circuit or equipment switching may result in damage or failure of microprocessor control systems of electric power stations and substations. The EMC problem is to limit interference; its solution starts with the design of grounding and shielding systems. To continue the works, [1,2] we would like to discuss impulse characteristics of grounding devices; to propose a multilayer ground model with boundaries of arbitrary shape; to show the procedure to design electromagnetic screen and grounding devices; to give an example of problem solution based on ZYM program developed by us.
+</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-75 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-132 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-450 bd-content-element">
+    <a class="type-icon-pdf" href="2013_Математическое моделирование заземляющих устройств.pdf" draggable="false">
+Математическое моделирование заземляющих устройств при действии импульсных токов
+</a>
+</h3>
+	
+		<p class=" bd-textblock-439 bd-no-margins bd-content-element">
+    Боронин В.Н., Коровкин Н.В., Кривошеев С.И, Шишигин С.Л.<br>
+Известия РАН. Энергетика. 2013. №6. С.80-89.
+</p>
+	
+		<div class=" bd-customhtml-59 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Рассмотрены различные подходы к созданию математических моделей (ММ) заземляющих устройств (ЗУ) при действии импульсных токов. Сформулированы основные требования к этим подходам с точки зрения их перспективности для создания системы диагностики и моделирования свойств ЗУ. Подробно представлен разработанный авторами новый подход к созданию ММ ЗУ, наилучший по предложенным критериям.
+</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-74 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-130 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-438 bd-content-element">
+    <a class="type-icon-pdf" href="2013_Сопротивление заземлителя в многослойной земле.pdf" draggable="false">
+Сопротивление заземлителя в многослойной земле с границами произвольной формы
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-131 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-437 bd-no-margins bd-content-element">
+    заземлитель
+</p>
+	
+		<p class=" bd-textblock-436 bd-no-margins bd-content-element">
+    многослойный грунт
+</p>
+	
+		<p class=" bd-textblock-435 bd-no-margins bd-content-element">
+    вносимое сопротивление
+</p>
+	
+		<p class=" bd-textblock-434 bd-no-margins bd-content-element">
+    границы слоев
+</p>
+	
+		<p class=" bd-textblock-433 bd-content-element">
+    расчет
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-432 bd-no-margins bd-content-element">
+    Шишигин С.Л.<br>
+Электричество. М. 2013. № 4. C. 18 – 23.
+</p>
+	
+		<div class=" bd-customhtml-58 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Приведены результаты расчета матрицы собственных и взаимных сопротивлений заземлителя R в многослойной земле с границами произвольной формы методом зеркальных изображений и методом интегральных уравнений совместно. Влияние границ выражено в виде вносимого сопротивления, поэтому размерность матрицы R в однородной и неоднородной среде не меняется. Матрица R используется для расчета сопротивления эквипотенциального заземлителя и в цепной модели неэквипотенциального заземлителя как один из параметров
+</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-73 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-128 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-431 bd-content-element">
+    <a class="type-icon-pdf" href="http://ntv.spbstu.ru/fulltext/N1.166.2013_11.PDF" draggable="false">
+Расчетные методы в теории заземления
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-129 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-430 bd-no-margins bd-content-element">
+    заземляющие устройства
+</p>
+	
+		<p class=" bd-textblock-429 bd-no-margins bd-content-element">
+    математические модели
+</p>
+	
+		<p class=" bd-textblock-422 bd-content-element">
+    методы расчета
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-421 bd-no-margins bd-content-element">
+    Коровкин Н.В., Шишигин С.Л.<br>
+Научно-технические ведомости СПбГПУ. Изд-во СПбГПУ. Вып.1(166). 2013. С. 74 – 79.
+</p>
+	
+		<div class=" bd-customhtml-57 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Рассмотрены современные математические модели, методы, программы и экспериментальное оборудование для определения параметров заземляющих устройств и создаваемых ими электромагнитных полей.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-72 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-126 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-420 bd-content-element">
+    <span class="type-icon-empty">
+Расчет молниезащиты и заземления электрических подстанций в программе ZYM
+</span>
+</h3>
+	
+		<p class=" bd-textblock-413 bd-no-margins bd-content-element">
+    Шишигин С.Л., Мещеряков В.Е., Шишигин Д.С.<br>
+8 Международная научно-практическая Конференция «Повышение эффективности энергетического оборудования» – М:, МЭИ. 2013. – С.245-251.
+</p>
+	
+		<div class=" bd-spacer-71 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-124 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-412 bd-content-element">
+    <a class="type-icon-pdf" href="2013_Повышение быстродействия матричных операций.pdf" draggable="false">
+Повышение быстродействия матричных операций в задачах расчета заземлителей
+</a>
+</h3>
+	
+		<p class=" bd-textblock-405 bd-no-margins bd-content-element">
+    Шишигин Д.С.<br>
+Мат-лы 3-й международной научно-практической конференции  «Современные материалы, техника и технология» Курск. Юго-западный государственный Университет. Т.3. 2013, С.279-282.
+</p>
+	
+		<div class=" bd-spacer-70 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-138 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-474 bd-content-element">
+    <a class="type-icon-pdf" href="2013_Ускорение вычислений в задачах расчета заземлителей.pdf" draggable="false">
+Ускорение вычислений в задачах расчета заземлителей
+</a>
+</h3>
+	
+		<p class=" bd-textblock-467 bd-no-margins bd-content-element">
+    Шишигин Д.С.<br>
+Материалы 7 ежегодной сессии аспирантов и молодых ученых. – Вологда: ВоГУ, 2013. С.87-90.
+</p>
+	
+		<div class=" bd-spacer-77 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-140 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-482 bd-content-element">
+    <a class="type-icon-pdf" href="2013_Программа расчета заземления и молниезащиты.pdf" draggable="false">
+Программа расчета заземления и молниезащиты электрических подстанций в AutoCAD и ее применение
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-141 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-481 bd-no-margins bd-content-element">
+    AutoCAD приложение
+</p>
+	
+		<p class=" bd-textblock-480 bd-no-margins bd-content-element">
+    заземление
+</p>
+	
+		<p class=" bd-textblock-479 bd-no-margins bd-content-element">
+    молниезащита
+</p>
+	
+		<p class=" bd-textblock-476 bd-content-element">
+    электрическая подстанция
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-475 bd-no-margins bd-content-element">
+    Шишигин Д.С.<br>
+Компьютерное моделирование 2013. Мат. межд. науч.-техн. конф. – СПб: СПБГПУ, 2013.
+</p>
+	
+		<div class=" bd-customhtml-64 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Разработана компьютерная программа (приложение к AutoCAD) для расчета заземления и молниезащиты электрических подстанций. Программа состоит из вычислительного ядра и интерфейса, связанного с AutoCAD (COM-технологии). Результаты расчетов визуализируются 3D графиками, динамические процессы анимируются. Разработан оригинальный метод построения графиков в dxf кодах, отличающийся быстродействием. Приведен пример проектирования системы молниезащиты реального объекта.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-78 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-147 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-504 bd-content-element">
+    <a class="type-icon-pdf" href="http://2013.secrus.org/2013/files/045_shishigin.pdf" draggable="false">
+Разработка AutoCAD приложения для расчета заземления и молниезащиты электрических подстанций <span style="font-size:14px">(презентация)</span>
+</a>
+</h3>
+	
+		<p class=" bd-textblock-503 bd-no-margins bd-content-element">
+    Шишигин Д.С.<br>
+Конференция «Разработка ПО 2013».
+</p>
+	
+		<div class=" bd-spacer-82 clearfix"></div>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-60 container-effect container ">
+<h3 class=" bd-textblock-81  bd-content-element">
+    2012
+</h3>
+</div>
+	
+		<div class="bd-containereffect-68 container-effect container "><section class=" bd-section-44 bd-tagstyles " id="section32" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-layoutbox-78 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-221 bd-content-element">
+    <a class="type-icon-pdf" href="2012_Computing methods for building earthing devices.pdf" draggable="false">
+Computing methods for building earthing devices in problems related to EMC of substations
+</a>
+</h3>
+	
+		<p class=" bd-textblock-182 bd-no-margins bd-content-element">
+    Korovkin N.V., Frolov O.V., Ivanova E.A,. Shishigin S.L.<br>
+EMC Europe 2012. University of Rome, Italy, 2012, pp.5.
+</p>
+	
+		<div class=" bd-customhtml-29 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Calculations for earthing devices (ED) are formulated as chain-field-like problems. The chain-field model of ED, computing techniques and software (AutoCAD application) have been developed, the program makes possible the solution of the problems related to EMC of electric power substations.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-63 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-37 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-89 bd-content-element">
+    <span class="type-icon-empty">
+Электромагнитные параметры заземляющих устройств при импульсных воздействиях
+</span>
+</h3>
+	
+		<p class=" bd-textblock-87 bd-no-margins bd-content-element">
+    Бочаров Ю.Н., Коровкин Н.В., Кривошеев С.И., Шишигин С.Л. и др.<br>
+III Российская конф. по молниезащите: Сб.мат-лов конф. – СПб, 2012. – С.152-156.
+</p>
+	
+		<div class=" bd-spacer-24 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-46 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-110 bd-content-element">
+    <span class="type-icon-empty">
+Синтез rlc моделей заземляющих устройств опор воздушных линий с тросом импульсным методом
+</span>
+</h3>
+	
+		<p class=" bd-textblock-105 bd-no-margins bd-content-element">
+    Нетреба К.И., Бочаров Ю.Н., Коровкин Н.В., Кривошеев С.И., Шишигин С.Л., Миневич Т.Г., Ненашев А.П., Парфенов А.А.<br>
+Воздушные линии. 2012. № 4 (9). С. 61-68.
+</p>
+	
+		<div class=" bd-spacer-28 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-84 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-197 bd-content-element">
+    <span class="type-icon-empty">
+Расчет заземлителей
+</span>
+</h3>
+	
+		<p class=" bd-textblock-112 bd-no-margins bd-content-element">
+    Шишигин С.Л.<br>
+Учебное пособие. Вологда, 2012.
+</p>
+	
+		<div class=" bd-customhtml-47 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Изложена современная теория заземлителей, начиная с простейших, эквипотенциальных заземлителей и заканчивая произвольными заземлителями при синусоидальных и импульсных воздействиях. Введена математическая модель заземлителя с учетом гальванических, электрических и магнитных связей, нелинейных и частотно зависимых параметров. Исследованы возможности частотного метода и метода дискретных схем для расчета переходных процессов в заземлителе. Изучены характеристики импульсного заземлителя. Принята двухслойная горизонтально-слоистая модель земли, параметры которой определены теоретически и экспериментально. Представлена MathCAD-программа расчета эквипотенциальных заземлителей и инструкция к программе ЗУМ (приложение к AutoCAD) для расчета произвольных заземлителей. Разработаны расчетные задания для самостоятельной работы студентов.<br>
+Учебное пособие предназначено для бакалавров и магистров, обучающихся по направлению 140400 – электроэнергетика и электротехника, а также студентов специальности 140610 «Электрооборудование и электрохозяйство предприятий, организаций и учреждений».
+</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-64 clearfix"></div>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-62 container-effect container ">
+<h3 class=" bd-textblock-85  bd-content-element">
+    2011
+</h3>
+</div>
+	
+		<div class="bd-containereffect-71 container-effect container "><section class=" bd-section-47 bd-tagstyles " id="section32" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-layoutbox-95 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-231 bd-content-element">
+    <a class="type-icon-pdf" href="2011_Расчет сопротивления заземления фундаментов опор ВЛ.pdf" draggable="false">
+Расчет сопротивления заземления фундаментов опор ВЛ из железобетонных грибовидных подножников в неоднородном грунте
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-97 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-230 bd-no-margins bd-content-element">
+    сопротивление заземления фундаментов опор
+</p>
+	
+		<p class=" bd-textblock-229 bd-no-margins bd-content-element">
+    грибовидный подножник
+</p>
+	
+		<p class=" bd-textblock-228 bd-no-margins bd-content-element">
+    расчетная модель
+</p>
+	
+		<p class=" bd-textblock-227 bd-no-margins bd-content-element">
+    неоднородный грунт
+</p>
+	
+		<p class=" bd-textblock-226 bd-no-margins bd-content-element">
+    эквивалентное удельное сопротивление
+</p>
+	
+		<p class=" bd-textblock-222 bd-content-element">
+    номограмма
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-220 bd-no-margins bd-content-element">
+    Шишигин С.Л., Новикова А.Н.<br>
+Известия НИИ постоянного тока. СПб: 2011. – № 65. – C. 164-173.
+</p>
+	
+		<div class=" bd-customhtml-32 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Предложена и обоснована сопоставлением с результатами физического моделирования - измерениями сопротивления в электролитической ванне - модель грибовидного подножника для использования в расчетах сопротивления заземления сборного фундамента из грибовидных подножников по методу эквивалентных зарядов. Разработана номограмма для определения эквивалентного удельного сопротивления двухслойного грунта для фундамента из четырех грибовидных подножников, дополняющая и уточняющая справочный материал «Типовой проект. Заземляющие устройства опор ВЛ 35-750 кВ».</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-67 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-104 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-273 bd-content-element">
+    <a class="type-icon-pdf" href="2011_Цепно-полевые модели заземляющих устройств в задачах ЭМС.pdf" draggable="false">
+Цепно-полевые модели заземляющих устройств в задачах ЭМС
+</a>
+</h3>
+	
+		<p class=" bd-textblock-245 bd-no-margins bd-content-element">
+    Шишигин С.Л.<br>
+9-й Межд. симпозиум по электромагнитной совместимости и электромагнитной экологии. СПб: 2011. – С.455-458.
+</p>
+	
+		<div class=" bd-customhtml-48 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Расчет заземляющего устройства (ЗУ) формулируется как цепно-полевая задача. Разработана цепно-полевая модель ЗУ, определены ее параметры, показана возможность применения для практических задач. В качестве примера выполнен расчет распределения потенциала ЗУ подстанции при ударе молнии.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-69 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-44 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-170 bd-content-element">
+    <a class="type-icon-pdf" href="2011_Особенности проектирования заземляющего устройства.pdf" draggable="false">
+Особенности проектирования заземляющего устройства электрической подстанции 110 кВ в грунте со скальным основанием
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-64 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-169 bd-no-margins bd-content-element">
+    электрическая подстанция
+</p>
+	
+		<p class=" bd-textblock-167 bd-no-margins bd-content-element">
+    заземляющие устройства
+</p>
+	
+		<p class=" bd-textblock-166 bd-no-margins bd-content-element">
+    сопротивление
+</p>
+	
+		<p class=" bd-textblock-113 bd-content-element">
+    скальный грунт
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-109 bd-no-margins bd-content-element">
+    Липаткин В.А., Стенников Д.А., Шишигин С.Л.<br>
+Электричество. М: 2011. – № 8. – C. 23 – 29.
+</p>
+	
+		<div class=" bd-customhtml-43 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Анализируются особенности проектирования заземляющего устройства (ЗУ) электрической подстанции в грунте с изолирующим (скальным) основанием. Показано, что при горизонтальном растекании тока в подобном грунте имеет место логарифмическое убывание потенциала точечного источника, возрастает сопротивление заземляющего устройства, уменьшаются коэффициентыиспользования его элементов, возникают проблемы с выносом высокого потенциала за территорию подстанции. Исследованы пути снижения стационарного сопротивления ЗУ.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-26 clearfix"></div>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-66 container-effect container ">
+<h3 class=" bd-textblock-91  bd-content-element">
+    2010
+</h3>
+</div>
+	
+		<div class="bd-containereffect-77 container-effect container "><section class=" bd-section-48 bd-tagstyles " id="section32" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-layoutbox-106 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-242 bd-content-element">
+    <span class="type-icon-empty">
+Определение сопротивлений заземляющих устройств опор ВЛ с тросом импульсным методом
+</span>
+</h3>
+	
+		<div class=" bd-layoutbox-108 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-241 bd-no-margins bd-content-element">
+    ошибки измерения
+</p>
+	
+		<p class=" bd-textblock-240 bd-no-margins bd-content-element">
+    заземление опор ЛЭП
+</p>
+	
+		<p class=" bd-textblock-239 bd-no-margins bd-content-element">
+    сопротивление заземления
+</p>
+	
+		<p class=" bd-textblock-235 bd-content-element">
+    сопротивление фундамента опоры
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-234 bd-no-margins bd-content-element">
+    Бочаров Ю.Н., Коровкин Н.В., Кривошеев С.И., Шишигин С.Л.<br>
+Известия Академии электротехнических наук РФ. М: 2010. – №3. – С.25-31.
+</p>
+	
+		<div class=" bd-customhtml-55 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Анализируются погрешности измерений сопротивлений заземляющих устройств опор ВЛ с тросом импульсным методом. Приведены примеры определения сопротивлений фундаментов и заземляющих устройств опор ВЛ с заземленным тросом.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-66 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-100 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-232 bd-content-element">
+    <span class="type-icon-empty">
+Разработка методов анализа и синтеза электромагнитных полей электротехнических устройств с сильными токами
+</span>
+</h3>
+	
+		<div class=" bd-layoutbox-110 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-253 bd-no-margins bd-content-element">
+    теоретическая электротехника
+</p>
+	
+		<p class=" bd-textblock-252 bd-no-margins bd-content-element">
+    энергетика
+</p>
+	
+		<p class=" bd-textblock-251 bd-no-margins bd-content-element">
+    электроэнергетика
+</p>
+	
+		<p class=" bd-textblock-274 bd-no-margins bd-content-element">
+    электрические системы
+</p>
+	
+		<p class=" bd-textblock-275 bd-no-margins bd-content-element">
+    электрические станции
+</p>
+	
+		<p class=" bd-textblock-276 bd-no-margins bd-content-element">
+    заземляющие устройства
+</p>
+	
+		<p class=" bd-textblock-249 bd-content-element">
+    элетромагнитное поле
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-225 bd-no-margins bd-content-element">
+    Шишигин С.Л.<br>
+Автореферат диссертации на соискание ученой степени доктора технических наук. СПб. 2010.
+</p>
+	
+		<div class=" bd-customhtml-54 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Рассматриваются заземляющие устройства (ЗУ) электроэнергетического оборудования и квазибессиловые магниты для создания сверхсильных магнитных полей, которые объединены в рамках настоящей работы в единый класс электротехнических устройств, характерным свойством которого являются сильные токи (десятки и сотни килоампер в стационарном и импульсном режиме). Проектирование этих устройств ставит задачи анализа электромагнитных полей и выбора рациональной конструкции системы проводников с токами с целью повышения электробезопасности, надежности, экономичности, выполнения требований электромагнитной совместимости (ЭМС) с параллельно работающим оборудованием, снижения электродинамических сил в магнитных системах.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-65 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-86 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-223 bd-content-element">
+    <a class="type-icon-pdf" href="2010_Математические модели и методы расчета заземляющих устройств.pdf" draggable="false">
+Математические модели и методы расчета заземляющих устройств
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-99 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-219 bd-no-margins bd-content-element">
+    заземляющие устройства
+</p>
+	
+		<p class=" bd-textblock-217 bd-no-margins bd-content-element">
+    теория электрических цепей
+</p>
+	
+		<p class=" bd-textblock-212 bd-no-margins bd-content-element">
+    сосредоточенные параметры
+</p>
+	
+		<p class=" bd-textblock-206 bd-content-element">
+    математические модели
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-198 bd-no-margins bd-content-element">
+    Шишигин С.Л.<br>
+Электричество. 2010. № 1. C. 16 – 23.
+</p>
+	
+		<div class=" bd-customhtml-53 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Анализируются математические модели зазем ляющих устройств на основе теории цепей с сосредо точенными параметрами. Показана методика по строения схемы замещения заземляющего устройства с учетом взаимных электрических и магнитных свя зей между элементами. Рассмотрены методы расче та переходных процессов в заземляющих устройст вах.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-62 clearfix"></div>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-82 container-effect container ">
+<h3 class=" bd-textblock-283  bd-content-element">
+    2009
+</h3>
+</div>
+	
+		<div class="bd-containereffect-73 container-effect container "><section class=" bd-section-49 bd-tagstyles " id="section32" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-layoutbox-119 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-312 bd-content-element">
+    <a class="type-icon-pdf" href="2009_Математические модели и расчет сопротивления.pdf" draggable="false">
+Математические модели и расчет сопротивления железобетонных фундаментов опор высоковольтных линий
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-120 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-311 bd-no-margins bd-content-element">
+    заземляющие устройства
+</p>
+	
+		<p class=" bd-textblock-301 bd-content-element">
+    сопротивление железобетонного фундамента
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-300 bd-no-margins bd-content-element">
+    Шишигин С.Л.<br>
+Научно-технические ведомости СПбГПУ. Наука и образование. Т.2 – 2009. - №4–2(89). – С. 143-148.
+</p>
+	
+		<div class=" bd-customhtml-65 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Выполнено математическое моделирование железобетонных фундаментов, используемых в качестве естественных заземлителей. Показано совпадение расчетной модели с экспериментальными данными. Произведен расчет сопротивления заземлителей опор ВЛ при низкой проводимости грунта.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-79 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-117 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-299 bd-content-element">
+    <span class="type-icon-empty">
+Электромагнитные характеристики заземляющих устройств опор ВЛ при измерениях импульсным методом
+</span>
+</h3>
+	
+		<p class=" bd-textblock-289 bd-no-margins bd-content-element">
+    Боронин В.Н., Бочаров Ю.Н, Коровкин Н.В., Кривошеев С.И., Лубко А.Н., Шишигин С.Л.<br>
+Известия РАН. Энергетика. – 2009. – №2. – C. 11 – 20.
+</p>
+	
+		<div class=" bd-customhtml-63 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Рассмотрены вопросы, возникающие при экспериментальном определении электромагнитных параметров заземляющих устройств опор ВЛ при грозовых импульсах. К ним относится разработка экспериментального оборудования, методика проведения измерений в импульсном режиме и методы автоматизированной обработки результатов измерений для получения пригодных для инженерных расчетов математических моделей ЗУ.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-76 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-112 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-288 bd-content-element">
+    <span class="type-icon-empty">
+Измерение сопротивлений заземляющих устройств опор высоковольтных линий с тросом импульсным методом
+</span>
+</h3>
+	
+		<div class=" bd-layoutbox-114 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-285 bd-no-margins bd-content-element">
+    сопротивление заземляющего устройства
+</p>
+	
+		<p class=" bd-textblock-248 bd-content-element">
+    импульсный метод измерений
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-247 bd-no-margins bd-content-element">
+    Бочаров Ю.Н, Коровкин Н.В., Кривошеев С.И., Шишигин С.Л.<br>
+Научно-технические ведомости СПбГПУ. Серия Наука и образование. – 2009. - №4–1. – С. 115 – 120.
+</p>
+	
+		<div class=" bd-customhtml-61 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Анализируются погрешности измерений сопротивлений заземляющих устройств опор ВЛ с тросом импульсным методом. Приведены примеры определения сопротивления заземляющих устройств опор ВЛ с заземленным тросом.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-68 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-123 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-335 bd-content-element">
+    <span class="type-icon-empty">
+Синтез RLC моделей заземляющих устройств по экспериментальным и расчетным переходным характеристикам
+</span>
+</h3>
+	
+		<div class=" bd-layoutbox-125 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-334 bd-no-margins bd-content-element">
+    заземляющие устройства
+</p>
+	
+		<p class=" bd-textblock-332 bd-no-margins bd-content-element">
+    синтез схемы замещения
+</p>
+	
+		<p class=" bd-textblock-325 bd-content-element">
+    переходное сопротивление
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-324 bd-no-margins bd-content-element">
+    Коровкин Н.В., Лебедева А.А., Миневич Т.Г., Нетреба К.С., Шишигин С.Л.<br>
+Научно-технические ведомости СПбГПУ. Серия Наука и образование. – 2009. - №4–1. – С. 202 – 206.
+</p>
+	
+		<div class=" bd-customhtml-67 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Разработана методика синтеза RLC модели заземляющего устройства по его переходному сопротивлению, полученному экспериментальным или расчетным путем. Решены практические задачи синтеза RLC схем замещения заземляющих устройств.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-81 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-127 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-342 bd-content-element">
+    <a class="type-icon-pdf" href="2007_Векторная форма записи потенциала стержневого электрода.pdf" draggable="false">
+Векторная форма записи потенциала стержневого электрода в однородной и двухслойной земле
+</a>
+</h3>
+	
+		<div class=" bd-layoutbox-133 bd-no-margins bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <p class=" bd-textblock-341 bd-no-margins bd-content-element">
+    стержневой электрод
+</p>
+	
+		<p class=" bd-textblock-340 bd-no-margins bd-content-element">
+    земля
+</p>
+	
+		<p class=" bd-textblock-339 bd-no-margins bd-content-element">
+    потенциал
+</p>
+	
+		<p class=" bd-textblock-338 bd-content-element">
+    расчет
+</p>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-336 bd-no-margins bd-content-element">
+    Шишигин С.Л.<br>
+Электричество. – 2007. – № 7. – C. 22 – 27.
+</p>
+	
+		<div class=" bd-customhtml-68 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button class="accordion" draggable="false">Аннотация</button>
+<div class="accPanel">
+  <p style="padding-top:8px">Приведена векторная форма записи потенциала и напряженности стержневого электрода с током в однородной и двухслойной земле, применение которой повышает эффективность расчета заземлителей с использованием современных систем компьютерной математики.</p>
+</div>
+    </div>
+</div>
+	
+		<div class=" bd-spacer-83 clearfix"></div>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-80 container-effect container ">
+<h3 class=" bd-textblock-346  bd-content-element">
+    Программное обеспечение
+</h3>
+</div>
+	
+		<div class="bd-containereffect-88 container-effect container "><section class=" bd-section-51 bd-tagstyles " id="section32" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-layoutbox-154 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-411 bd-content-element">
+    <a class="type-icon-pdf" href="Свидетельство ZYM.pdf" draggable="false">
+Свидетельство о государственной регистрации программы для ЭВМ ZYM
+</a>
+</h3>
+	
+		<p class=" bd-textblock-406 bd-no-margins bd-content-element">
+    Шишигин С.Л., Шишигин Д.С.<br>
+Федеральная служба по интеллектуальной собственности. Реестр программ для ЭВМ. №2013613343. 02 апреля 2013.
+</p>
+	
+		<div class=" bd-spacer-91 clearfix"></div>
+    </div>
+</div>
+	
+		<div class=" bd-layoutbox-157 bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <h3 class=" bd-textblock-417 bd-content-element">
+    <a class="type-icon-pdf" href="Свидетельство ZYM-nano.pdf" draggable="false">
+Свидетельство о государственной регистрации программы для ЭВМ ZYM-nano
+</a>
+</h3>
+	
+		<p class=" bd-textblock-416 bd-no-margins bd-content-element">
+    Шишигин Д.С.<br>
+Федеральная служба по интеллектуальной собственности. Реестр программ для ЭВМ. №2017662335. 02 ноября 2017.
+</p>
+	
+		<div class=" bd-spacer-93 clearfix"></div>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-89 container-effect container "><div class=" bd-spacer-95  clearfix"></div></div>
 </div>
 </div></div>
 	
