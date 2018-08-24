@@ -30,8 +30,9 @@
  <meta name="keywords" content="заземление, молниезащита, ЭМС, ЗУМ, программа, расчет">
 <meta name="description" content="Программа «ЗУМ» – приложение к AutoCAD, предназначенное для комплексного расчета систем молниезащиты и заземления при проектировании объектов энергетики.">
 
+
 <!-- Yandex.Metrika counter -->
-<script type=" text=" "="" javascript"="">
+<script type="text/javascript">
     (function (d, w, c) {
         (w[c] = w[c] || []).push(function() {
             try {
@@ -55,11 +56,18 @@
             d.addEventListener("DOMContentLoaded", f, false);
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
-
+</script>
 <noscript><div><img src="https://mc.yandex.ru/watch/37847770" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 <!-- /Yandex.Metrika counter -->
-
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script><script>var $ = jQuery;</script>
+
+<script src="https://www.google.com/recaptcha/api.js" async="true" defer="true"></script>
+<script>
+     function onSubmit(token) {
+       document.getElementById("demoform").submit();
+     }
+</script>
+
 
 <script type="text/javascript">
 $(document).ready(function(e) { 
@@ -1639,7 +1647,7 @@ function netKeysFunction() {
 	
 		<div class=" bd-customhtml-20 bd-tagstyles bd-custom-button bd-bootstrap-btn bd-btn-primary">
     <div class="bd-container-inner bd-content-element">
-        <button type="submit" style="padding-top:6px;padding-bottom:6px;padding-left:12px;padding-right:12px">ЗАКАЗАТЬ ДЕМО</button>
+        <button class="g-recaptcha" data-sitekey="6Lf14WsUAAAAAKQupxn9FAZnFGaHgJdRDYWz1W1e" data-callback="onSubmit" style="padding-top:6px;padding-bottom:6px;padding-left:12px;padding-right:12px">ЗАКАЗАТЬ ДЕМО</button>
     </div>
 </div>
         </div>
