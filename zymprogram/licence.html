@@ -1,0 +1,1580 @@
+﻿<!DOCTYPE html>
+<html dir="ltr">
+<head>
+    <link href="../assets/images/ed476fd8d3fa5b5850cc696c5e57a08b_favicon.png" rel="icon" type="image/x-icon" />
+	<script>
+    var themeHasJQuery = !!window.jQuery;
+</script>
+<script type="text/javascript" src="../assets/js/jquery.js?1.0.3293"></script>
+<script>
+    window._$ = jQuery.noConflict(themeHasJQuery);
+</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../assets/css/bootstrap.css?1.0.3293" media="screen" />
+<script type="text/javascript" src="../assets/js/bootstrap.min.js?1.0.3293"></script>
+<!--[if lte IE 9]>
+<link rel="stylesheet" href="../assets/css/layout.ie.css?1.0.3293">
+<script src="../assets/js/layout.ie.js?1.0.3293"></script>
+<![endif]-->
+<link class="" href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic&subset=cyrillic-ext' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="../assets/js/layout.core.js"></script>
+<script src="../assets/js/CloudZoom.js?1.0.3293"></script>
+	
+    <title>Приобретение лицензии</title>
+	<link rel="stylesheet" href="../assets/css/style.css?1.0.3293">
+	<script src="../assets/js/script.js?1.0.3293"></script>
+    <meta charset="utf-8">
+    
+    
+
+<script type="text/javascript">
+jQuery(document).ready(function(e) { 
+ 
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("accActive");
+      var accPanel = this.nextElementSibling;
+      if (accPanel.style.maxHeight){
+        accPanel.style.maxHeight = null;
+      } else {
+        accPanel.style.maxHeight = 1000 + "px";
+      } 
+    });
+  }
+  
+});
+</script>
+    
+ <meta name="keywords" content="лицензия, приобретение, ЗУМ">
+<meta name="description" content="ООО «ЗУМ» предлагает приобрести неисключительную лицензию на программу для ЭВМ «ЗУМ». Доступны 3 пакета: «Заземление: базовая версия», «Заземление: максимальная версия», «Молниезащита».">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(37847770, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/37847770" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+
+<script type="text/javascript">
+/* ==========================================================
+ * bootstrapx-clickover.js
+ * https://github.com/lecar-red/bootstrapx-clickover
+ * version: 1.0
+ * ==========================================================
+ *
+ * Based on work from Twitter Bootstrap and 
+ * from Popover library http://twitter.github.com/bootstrap/javascript.html#popover
+ * from the great guys at Twitter.
+ *
+ * Untested with 2.1.0 but should worked with 2.0.x
+ *
+ * ========================================================== */
+!function($) {
+  "use strict"
+
+  /* class definition */
+  var Clickover = function ( element, options ) {
+    // local init
+    this.cinit('clickover', element, options );
+  }
+
+  Clickover.prototype = $.extend({}, $.fn.popover.Constructor.prototype, {
+
+    constructor: Clickover
+
+    , cinit: function( type, element, options ) {
+      this.attr = {};
+
+      // choose random attrs instead of timestamp ones
+      this.attr.me = ((Math.random() * 10) + "").replace(/\D/g, '');
+      this.attr.click_event_ns = "click." + this.attr.me + " touchstart." + this.attr.me;
+
+      if (!options) options = {};
+
+      options.trigger = 'manual';
+
+      // call parent
+      this.init( type, element, options );
+
+      // setup our own handlers
+      this.$element.on( 'click', this.options.selector, $.proxy(this.clickery, this) );
+
+      // soon add click hanlder to body to close this element
+      // will need custom handler inside here
+    }
+    , clickery: function(e) {
+      // clickery isn't only run by event handlers can be called by timeout or manually
+      // only run our click handler and  
+      // need to stop progration or body click handler would fire right away
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      // set popover's dim's
+      this.options.width  && this.tip().width(  this.options.width  );
+      this.options.height && this.tip().height( this.options.height );
+
+      // set popover's tip 'id' for greater control of rendering or css rules
+      this.options.tip_id     && this.tip().attr('id', this.options.tip_id );
+
+      // add a custom class
+      this.options.class_name && this.tip().addClass(this.options.class_name);
+
+      // we could override this to provide show and hide hooks 
+      this[ this.isShown() ? 'hide' : 'show' ]();
+
+      // if shown add global click closer
+      if ( this.isShown() ) {
+        var that = this;
+
+        // close on global request, exclude clicks inside clickover
+        this.options.global_close &&
+          $('body').on( this.attr.click_event_ns, function(e) {
+            if ( !that.tip().has(e.target).length ) { that.clickery(); }
+          });
+
+        this.options.esc_close && $(document).bind('keyup.clickery', function(e) {
+            if (e.keyCode == 27) { that.clickery(); }
+            return;
+        });
+
+        // first check for others that might be open
+        // wanted to use 'click' but might accidently trigger other custom click handlers
+        // on clickover elements 
+        !this.options.allow_multiple &&
+            $('[data-clickover-open=1]').each( function() { 
+                $(this).data('clickover') && $(this).data('clickover').clickery(); });
+
+        // help us track elements w/ open clickovers using html5
+        this.$element.attr('data-clickover-open', 1);
+
+        // if element has close button then make that work, like to
+        // add option close_selector
+        this.tip().on('click', '[data-dismiss="clickover"]', $.proxy(this.clickery, this));
+
+        // trigger timeout hide
+        if ( this.options.auto_close && this.options.auto_close > 0 ) {
+          this.attr.tid = 
+            setTimeout( $.proxy(this.clickery, this), this.options.auto_close );  
+        }
+
+        // provide callback hooks for post shown event
+        typeof this.options.onShown == 'function' && this.options.onShown.call(this);
+        this.$element.trigger('shown');
+      }
+      else {
+        this.$element.removeAttr('data-clickover-open');
+
+        this.options.esc_close && $(document).unbind('keyup.clickery');
+
+        $('body').off( this.attr.click_event_ns ); 
+
+        if ( typeof this.attr.tid == "number" ) {
+          clearTimeout(this.attr.tid);
+          delete this.attr.tid;
+        }
+
+		// provide some callback hooks
+        typeof this.options.onHidden == 'function' && this.options.onHidden.call(this);
+        this.$element.trigger('hidden');
+      }
+    }
+    , isShown: function() {
+      return this.tip().hasClass('in');
+    }
+    , resetPosition: function() {
+        var $tip
+        , inside
+        , pos
+        , actualWidth
+        , actualHeight
+        , placement
+        , tp
+
+      if (this.hasContent() && this.enabled) {
+        $tip = this.tip()
+
+        placement = typeof this.options.placement == 'function' ?
+          this.options.placement.call(this, $tip[0], this.$element[0]) :
+          this.options.placement
+
+        inside = /in/.test(placement)
+
+        pos = this.getPosition(inside)
+
+        actualWidth = $tip[0].offsetWidth
+        actualHeight = $tip[0].offsetHeight
+
+        switch (inside ? placement.split(' ')[1] : placement) {
+          case 'bottom':
+            tp = {top: pos.top + pos.height, left: pos.left + pos.width / 2 - actualWidth / 2}
+            break
+          case 'top':
+            tp = {top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2}
+            break
+          case 'left':
+            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth}
+            break
+          case 'right':
+            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width}
+            break
+        }
+
+        $tip.css(tp)
+      }
+    }
+    , debughide: function() {
+      var dt = new Date().toString();
+
+      console.log(dt + ": clickover hide");
+      this.hide();
+    }
+  })
+
+  /* plugin definition */
+  /* stolen from bootstrap tooltip.js */
+  $.fn.clickover = function( option ) {
+    return this.each(function() {
+      var $this = $(this)
+        , data = $this.data('clickover')
+        , options = typeof option == 'object' && option
+
+      if (!data) $this.data('clickover', (data = new Clickover(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  $.fn.clickover.Constructor = Clickover
+
+  // these defaults are passed directly to parent classes
+  $.fn.clickover.defaults = $.extend({}, $.fn.popover.defaults, {
+    trigger: 'manual',
+    auto_close:   0, /* ms to auto close clickover, 0 means none */
+    global_close: 1, /* allow close when clicked away from clickover */
+    esc_close:    1, /* allow clickover to close when esc key is pressed */
+    onShown:  null,  /* function to be run once clickover has been shown */
+    onHidden: null,  /* function to be run once clickover has been hidden */
+    width:  null, /* number is px (don't add px), null or 0 - don't set anything */
+    height: null, /* number is px (don't add px), null or 0 - don't set anything */
+    tip_id: null,  /* id of popover container */
+    class_name: 'clickover', /* default class name in addition to other classes */
+    allow_multiple: 0 /* enable to allow for multiple clickovers to be open at the same time */
+  })
+
+}( window.jQuery );
+</script>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function(e) { 
+  
+  jQuery('#user-name').attr("required",true);
+  jQuery('#user-organization').attr("required",true);
+  jQuery('#user-email').attr("required",true);
+  jQuery('#user-telephone').attr("required",true);
+  
+  jQuery('[name="requestform"]').submit(function(event){
+    document.location.href = "./licence.html#requestsection";
+    
+    var userparams = getUserOptionsChoise();
+    jQuery('#user-params').val(userparams);
+    
+    var post_url = jQuery(this).attr("action"); 
+    
+    jQuery.ajax({
+      url : post_url,
+      type: "POST",
+      dataType: "json",
+      data : jQuery(this).serialize(),
+      success: function(response) {
+        if(response.status == "success"){
+          jQuery('[name="requestform"]').html("<div id='message'></div>");
+          jQuery('#message').html("<h2>Заявка принята!</h2>");
+          jQuery('#message').append("<p>Ожидайте ответа в течение 3-х рабочих дней.</p>");
+          jQuery('#message').append("<img src=\"../ok_circle.png\">");
+        }
+        else {
+          jQuery('[name="requestform"]').html("<div id='message'></div>");
+          jQuery('#message').html("<h2>Произошла ошибка, заявка не отправлена!</h2>");
+          jQuery('#message').append("<p>" + response + "</p>");
+          jQuery('#message').append("<img src=\"../error_circle.png\">");
+        }
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {       
+        jQuery('[name="requestform"]').html("<div id='message'></div>");
+        jQuery('#message').html("<h2>Произошла ошибка, заявка не отправлена!</h2>");
+        jQuery('#message').append("<p>Статус: \"" + textStatus + "\"; Ошибка: \"" + errorThrown + "\".</p>");
+        jQuery('#message').append("<img src=\"../error_circle.png\">");
+      }
+    });  
+    
+    event.preventDefault(); 
+  });
+  
+});  
+  
+function getUserOptionsChoise() {
+    var text = document.getElementById("RequestPackage").innerHTML + " | ";
+  
+    var lis=document.getElementById("COptions").getElementsByTagName("li");
+    for (var i=0; i<lis.length; i++) {
+      if (lis[i].style.display != "none") {
+        text += lis[i].innerHTML + " | "; 
+      }
+    }
+   
+    text += document.getElementById("keyChoose").innerHTML + ": ";
+    text += document.getElementById("kNumberChoose").innerHTML + " | ";
+  
+    text += "Стоимость: " +document.getElementById("RequestSum").innerHTML+
+            " руб.";
+    
+    return text;
+}
+</script>
+
+
+
+<script type="text/javascript">
+jQuery(function() { 
+  jQuery('[rel="clickover"]').clickover({
+    onHidden: function() { jQuery(".arrow").removeAttr("style"); },
+    global_close: true,
+    html: true,
+    esc_close: true,
+    placement: getPlacementFunction(310, 300)
+  });
+}) 
+  
+var getPlacementFunction = function (width, height) {
+    return function (tip, element) {
+        var defaultPosition = "right";
+        var position, top, bottom, left, right;
+
+        var $element = jQuery(element);
+        var boundTop = jQuery(document).scrollTop();
+        var boundLeft = jQuery(document).scrollLeft();
+        var boundRight = boundLeft + jQuery(window).width();
+        var boundBottom = boundTop + jQuery(window).height();
+
+        var pos = jQuery.extend({}, $element.offset(), {
+            width: element.offsetWidth,
+            height: element.offsetHeight
+        });
+
+        var isWithinBounds = function (elPos) {
+            return boundTop < elPos.top && boundLeft < elPos.left && boundRight > (elPos.left + width) && boundBottom > (elPos.top + height);
+        };
+
+        var testTop = function () {
+            if (top === false) return false;
+            top = isWithinBounds({
+                top: pos.top - height,
+                left: pos.left + pos.width / 2 - width / 2
+            });
+            return top ? "top" : false;
+        };
+
+        var testBottom = function () {
+            if (bottom === false) return false;
+            bottom = isWithinBounds({
+                top: pos.top + pos.height,
+                left: pos.left + pos.width / 2 - width / 2
+            });
+            return bottom ? "bottom" : false;
+        };
+
+        var testLeft = function () {
+            if (left === false) return false;
+            left = isWithinBounds({
+                top: pos.top + pos.height / 2 - height / 2,
+                left: pos.left - width
+            });
+            return left ? "left" : false;
+        };
+
+        var testRight = function () {
+            if (right === false) return false;
+            right = isWithinBounds({
+                top: pos.top + pos.height / 2 - height / 2,
+                left: pos.left + pos.width
+            });
+            return right ? "right" : false;
+        };
+
+        switch (defaultPosition) {
+            case "right":
+                if (position = testRight()) return position;
+            case "left":
+                if (position = testLeft()) return position;
+            case "bottom":
+                if (position = testBottom()) return position;
+            case "top":
+                if (position = testTop()) return position;
+            default:
+                if (position = testRight()) return position;
+                if (position = testLeft()) return position;
+                if (position = testBottom()) return position;
+                if (position = testTop()) return position;
+                return "bottom";
+        }
+    }
+};     
+</script>
+
+<script type="text/javascript">
+jQuery(document).ready(function () { 
+    document.getElementById("GroundingMin").click();
+  
+    var VlahPriceSpan = document.getElementById("VlahPriceSpan");
+    VlahPriceSpan.innerHTML = fValueFromRowIndex("3").slice(0,-1);
+  
+    var FreqPriceSpan = document.getElementById("FreqPriceSpan");
+    FreqPriceSpan.innerHTML = fValueFromRowIndex("4").slice(0,-1);
+});
+</script>
+    
+ <style>img:hover {
+    border-color: #3177bd;
+}
+
+.popover {
+    max-width:310px;
+    width:310px;
+}
+
+
+</style>
+</head>
+<body class=" bootstrap bd-body-7  bd-pagebackground bd-margins">
+    <header class=" bd-headerarea-1 bd-margins">
+        <section class=" bd-section-4 bd-page-width bd-tagstyles " id="section4" data-section-title="">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-layoutbox-3 bd-page-width  bd-no-margins clearfix">
+    <div class="bd-container-inner">
+        <div class=" bd-layoutcontainer-6 bd-page-width  bd-columns bd-no-margins">
+    <div class="bd-container-inner">
+        <div class="container-fluid">
+            <div class="row 
+ bd-row-flex 
+ bd-row-align-middle">
+                <div class=" bd-columnwrapper-16 
+ col-lg-5
+ col-md-4
+ col-sm-4
+ col-xs-12">
+    <div class="bd-layoutcolumn-16 bd-column" ><div class="bd-vertical-align-wrapper"><a class=" bd-logo-2 bd-imagescaling bd-imagescaling-4" href="/">
+    <img class=" bd-imagestyles" src="../assets/images/418dddcbdae15a53d86637b73ca4f6ee_ZYM_logo.png"
+ alt="ЗУМ. Заземление, молниезащита, ЭМС">
+</a></div></div>
+</div>
+	
+		<div class=" bd-columnwrapper-17 
+ col-lg-7
+ col-md-8
+ col-sm-8
+ col-xs-12">
+    <div class="bd-layoutcolumn-17 bd-column" ><div class="bd-vertical-align-wrapper">
+    <div data-smooth-scroll data-animation-time="251" class=" bd-smoothscroll-1">
+    <nav class=" bd-hmenu-1 "  data-responsive-menu="true" data-responsive-levels="all open" data-responsive-type="" data-offcanvas-delay="0ms" data-offcanvas-duration="700ms" data-offcanvas-timing-function="ease">
+        
+            <div class=" bd-menuoverlay-14 bd-menu-overlay"></div>
+            <div class=" bd-responsivemenu-11 collapse-button">
+    <div class="bd-container-inner">
+        <div class="bd-menuitem-4 ">
+            <a  data-toggle="collapse"
+                data-target=".bd-hmenu-1 .collapse-button + .navbar-collapse"
+                href="#" onclick="return false;">
+                    <span>МЕНЮ</span>
+            </a>
+        </div>
+    </div>
+</div>
+            <div class="navbar-collapse collapse ">
+            
+            <div class=" bd-horizontalmenu-86 clearfix">
+                <div class="bd-container-inner">
+                    
+                    
+                    <ul class=" bd-menu-78 nav nav-pills nav-center">
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+                        
+                            
+                            <li class=" bd-menuitem-52
+                                        
+                                        bd-toplevel-item
+                                        
+                                        "
+                                    >
+
+                                
+                            
+                            <a  href="../index.html" >Главная</a>
+
+                                
+                                    
+                            
+                            
+                            </li>
+                            
+                            <li class=" bd-menuitem-52
+                                        
+                                        bd-toplevel-item
+                                        
+                                        "
+                                    >
+
+                                
+                            
+                            <a  href="../about.html" >О нас</a>
+
+                                
+                                    
+                            
+                            
+                            </li>
+                            
+                            <li class=" bd-menuitem-52
+                                        
+                                        bd-toplevel-item
+                                        
+                                        "
+                                    >
+
+                                
+                            
+                            <a  href="../services.html" >Услуги</a>
+
+                                
+                                    
+                            
+                            
+                            </li>
+                            
+                            <li class=" bd-menuitem-52
+                                        
+ bd-submenu-icon-only
+                                        bd-toplevel-item
+                                        
+                                        "
+                                    >
+
+                                
+                            
+                            <a 
+ class="active" href="../zymprogram.html" >Программа «ЗУМ»</a>
+
+                                
+                                    
+                            
+                            
+
+                                
+                            <div class="bd-menu-56-popup ">
+                            
+                                <ul class=" bd-menu-56 bd-no-margins">
+
+
+<li class="bd-menuitem-53 bd-sub-item bd-sub-item">                    
+          <a href="../zymprogram.html#tasksection" class="submenu-item-color">Решаемые задачи</a>
+      </li> 
+                                
+      <li class="bd-menuitem-53 bd-sub-item bd-sub-item">
+          <a href="../zymprogram.html#featuresection" class="submenu-item-color">Особенности программы</a>
+      </li>                           
+
+      <li class="bd-menuitem-53 bd-sub-item bd-sub-item">
+          <a href="../zymprogram.html#demosection" class="submenu-item-color">Заказать демо-версию</a>
+      </li>
+ 
+      <li class="dividerLi"></li>                                
+                                    
+
+                                    
+                            
+                            
+                                <li class=" bd-menuitem-53 bd-sub-item bd-sub-item">
+
+                                    
+                            
+                            <a 
+ class="active" href="../zymprogram/licence.html" >Приобретение лицензии</a>
+
+                                    
+                                        
+                            
+                            
+
+                                    
+                            
+                                </li>
+
+                                
+                            
+                                </ul>
+                            </div>
+                            </li>
+                            
+                            <li class=" bd-menuitem-52
+                                        
+                                        bd-toplevel-item
+                                        
+                                        "
+                                    >
+
+                                
+                            
+                            <a  href="../partners.html" >Партнеры</a>
+
+                                
+                                    
+                            
+                            
+                            </li>
+                            
+                            <li class=" bd-menuitem-52
+                                        
+                                        bd-toplevel-item
+                                        
+                                        "
+                                    >
+
+                                
+                            
+                            <a  href="../articles.html" >Статьи</a>
+
+                                
+                                    
+                            
+                            
+                            </li>
+                            
+                            <li class=" bd-menuitem-52
+                                        
+                                        bd-toplevel-item
+                                        
+                                        "
+                                    >
+
+                                
+                            
+                            <a  href="../contacts.html" >Контакты</a>
+
+                                
+                                    
+                            
+                            
+                            </li>
+                    </ul>
+                    
+                    
+                </div>
+            </div>
+            
+            <div class="bd-menu-close-icon">
+    <a href="#" class="bd-icon  bd-icon-43"></a>
+</div>
+        
+            </div>
+    </nav>
+    </div></div></div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+    </div>
+</section>
+</header>
+	
+		<div class=" bd-pagetitle-3">
+    <div class="bd-container-inner">
+        <h1>Приобретение лицензии</h1>
+    </div>
+</div>
+	
+		<div class=" bd-stretchtobottom-2 bd-stretch-to-bottom" data-control-selector=".bd-content-12"><div class=" bd-content-12 ">
+    
+    <div class=" bd-htmlcontent-10 bd-margins" 
+ data-page-id="page.19">
+    <div class="bd-containereffect-100 container-effect container "><section class=" bd-section-60 bd-tagstyles bd-custom-inputs " id="section21" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <p class=" bd-textblock-375 bd-content-element">
+    ООО «ЗУМ» предлагает приобрести неисключительную лицензию на программу для ЭВМ «ЗУМ». В комплект поставки входит документация с описанием математических моделей и методов вычислительного ядра, инструкция по работе с ПО и серия уроков, позволяющая самостоятельно научиться работе с программой. Защита ПО осуществляется электронным USB-ключом.
+</p>
+	
+		<div class=" bd-customhtml-14 bd-tagstyles bd-custom-button">
+    <div class="bd-container-inner bd-content-element">
+        <button style=" padding:0px" class="accordion" draggable="false">Системные требования</button>
+<div class="accPanel" style="line-height:1.7em">
+  <ul style="padding-bottom:0px;padding-left:0px">
+  <li class="CommonLi"> AutoCAD (или продукты семейства AutoCAD - Architecture, Electrical, т.д.) версий 2012-2020. <span style="font-weight: 700;">AutoCAD LT не подходит!</span></li>
+  <li class="CommonLi"> Windows XP и выше</li>
+  <li class="CommonLi"> ОЗУ 4Гб и более</li>
+</ul>
+</div>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-5 bd-content-element">
+    В стоимость лицензии на ПО входит <span style="font-weight:600">1 год гарантийной поддержки и поставки новых версий ПО</span>. Лицензия на ПО (включая версии ПО, полученные в течение срока действия гарантийной поддержки) <span style="font-weight:600">бессрочная</span>. Лицензия на ПО НДС не облагается.
+</p>
+	
+		<div class=" bd-customhtml-16 bd-tagstyles bd-custom-bulletlist">
+    <div class="bd-container-inner bd-content-element">
+        Программа «ЗУМ» содержит большое число расчетных возможностей, которые сгруппированы в три пакета:
+<ol style="margin-top:10px">
+  <li><span style="font-weight:700">«Заземление: базовая версия»</span> включает базовые средства для расчета заземления, но позволяет добавить (сразу или впоследствии) дополнительные расчетные возможности, в том числе молниезащиту. Пакет ориентирован на малые предприятия.</li>
+  <li><span style="font-weight:700">«Заземление: максимальная версия»</span> включает все возможности программы (все заземление и всю молниезащиту) и ориентирован на проектные организации, производящие весь комплекс расчетов заземления, молниезащиты, грозозащиты и ЭМС ПС и ВЛ.</li>
+  <li><span style="font-weight:700">«Молниезащита внешняя»</span> содержит средства построения зон защиты молниеотводов по российским стандартам (по умолчанию) с возможностью подключения отраслевого стандарта МО РФ и стандарта МЭК. Пакет ориентирован на тех, кому нужны только возможности молниезащиты без расчета заземлителей.</li>
+</ol>
+Обязателен один электронный ключ защиты Guardant Sign, но можно выбрать любое количество ключей.
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-96 container-effect container ">
+<h3 class=" bd-textblock-103  bd-content-element">
+    1. Выберите пакет и опции:
+</h3>
+</div>
+	
+		<div class="bd-containereffect-93 container-effect container "><section class=" bd-section-63 bd-tagstyles bd-custom-button bd-custom-inputs " id="section53" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-customhtml-78 bd-tagstyles bd-custom-button bd-custom-inputs">
+    <div class="bd-container-inner bd-content-element">
+        <div id="version-buttons"> 
+  <button class="verButton active" style="margin-right:3%;padding-top:7px;line-height:1.9" id="GroundingMin" onclick="versionClick(this);"><span style="line-height:1;display:inline-block">«Заземление»<br><span class="verDescSpan">Базовая версия</span></span><br><span class="verPriceSpan">от 90 000 руб.</span></button>
+  <button class="verButton" style="margin-right:3%;padding-top:7px;line-height:1.9" id="GroundingMax" onclick="versionClick(this);"><span style="line-height:1;display:inline-block">«Заземление»<br><span class="verDescSpan">Максимальная версия</span></span><br><span class="verPriceSpan">от 290 000 руб.</span></button>
+  <button class="verButton" style="padding-top:12px;line-height:2" id="Lightning" onclick="versionClick(this);"><span style="line-height:0.8;display:inline-block">«Молниезащита»<br><span class="verDescLightSpan">внешняя</span></span><br><span class="verPriceSpan">от 45 000 руб.</span></button>
+</div>
+
+<script>
+function versionClick(cb) {
+    var current = document.getElementsByClassName("verButton active");
+    if (current.length != 0) {
+      if (cb == current[0]) { return; }
+      current[0].className = current[0].className.replace(" active", "");
+       
+    }
+    cb.className += " active";
+  
+ 
+    var table = document.getElementById("programOptionsTable");
+    for (var i=0; i<table.rows.length; i++) {
+      if ((cb.id == "Lightning") && (table.rows[i].className != "LightningRow")) {  table.rows[i].style.display = "none"; }
+      else { table.rows[i].style.display = ""; }
+    }
+  
+
+  
+    var fValueClassName = "fvalue";
+    var boxChecked = false;
+    var boxDisabled = false;
+    if (cb.id == "GroundingMax") {
+      boxChecked = true;
+      boxDisabled = true;
+      fValueClassName = "fvalueIncluded activeVal";
+    }
+  
+    var checkBoxes = document.getElementsByName("optionBox");
+
+    for (i = 0; i < checkBoxes.length; i++) { 
+      checkBoxes[i].disabled = boxDisabled;
+      if (checkBoxes[i].checked != boxChecked) { 
+        checkBoxes[i].checked = boxChecked; 
+      }
+        
+      var rInd = checkBoxes[i].parentNode.parentNode.parentNode.rowIndex;
+      var currRow = table.rows[rInd];
+      var currfVal = currRow.cells[currRow.cells.length-1];
+      currfVal.className = fValueClassName;
+      if (cb.id == "GroundingMax") {
+        currfVal.innerHTML = "включен в пакет";   
+      }
+      else { currfVal.innerHTML = fValueFromRowIndex(checkBoxes[i].id); }
+    }
+  
+    // checkBox с id==11 (Российский стандарты) обрабатывается отдельно
+    if (cb.id == "Lightning") {
+      var russ_cb = document.getElementById("11");
+      var russ_fvalue = document.getElementById("11_fvalue");
+      
+      russ_cb.disabled = true;
+      russ_cb.checked = true;
+      russ_fvalue.className = "fvalueIncluded activeVal";
+      russ_fvalue.innerHTML = "включен в пакет"; 
+    }
+  
+  
+    recalculateSum();
+    recalculateRequestBox();
+}
+
+function fValueFromRowIndex(id) {
+    var text = "-";
+  
+    switch (id) {
+      case "1":case "2":case "5": case "17":case "18": 
+        text = "включен в пакет"; break;
+      case "3": text = "25 000 руб."; break;
+      case "4": text = "10 000 руб."; break;
+      case "6": text = "40 000 руб."; break;
+      case "7": text = "40 000 руб."; break;
+      case "8":case "9":case "10": text = "В разработке"; break;
+      case "11": text = "30 000 руб."; break;
+      case "12": text = "25 000 руб."; break;
+      case "13": text = "25 000 руб."; break;
+      case "14": text = "25 000 руб."; break;
+      case "15": text = "45 000 руб."; break;
+      case "16": text = "40 000 руб."; break;
+      case "19": text = "По договоренности"; break;
+      case "20_Sign": {
+        var keySign = document.getElementById("keySign");
+        var keySignVal = keySign.options[keySign.selectedIndex].value;
+        text = String(Number(keySignVal) * 15000);
+        text = addThousandSeparator(text) + " руб.";
+        break;
+      }
+      case "21_Net": {
+        var keyNet = document.getElementById("keyNet");
+        var keyNetVal = keyNet.options[keyNet.selectedIndex].value;
+        text = String(Number(keyNetVal) * 50000);
+        text = addThousandSeparator(text) + " руб.";
+        break;
+      }
+    } 
+  
+    return text;
+}
+  
+</script>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-95 container-effect container "><section class=" bd-section-66 bd-tagstyles bd-custom-button bd-bootstrap-btn bd-btn-default " id="section50" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-customhtml-80 bd-tagstyles bd-custom-table">
+    <div class="bd-container-inner bd-content-element">
+        <div id="myVlahBox" class="modal fade in" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        Для выбора данной опции требуется:<br><span style="font-weight:700">«Импульсные процессы: метод Влаха» (<span id="VlahPriceSpan">25 000 руб</span>)</span>.<br><br>Включить обе опции?
+      </div>
+      <div class="modal-footer">
+        <a id="myVlahYesButton" href="javascript:;" onclick="checkVlah(this);" data-clickedcb="" class="btn btn-primary" draggable="false">&nbsp;Да&nbsp;</a>
+        <a class="btn btn-default" data-dismiss="modal" draggable="false">Нет</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myVlahOrFreqBox" class="modal fade in" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        Требуется любая из двух опций:<br><span style="font-weight:700">«Импульсные процессы: метод Влаха» (<span id="VlahPriceSpan">25 000 руб</span>);<br>«Импульсные процессы: частотный метод» (<span id="FreqPriceSpan">10 000 руб</span>).</span><br><br>Включите хотя бы одну из них.
+      </div>
+      <div class="modal-footer">
+        <a data-dismiss="modal" class="btn btn-default" draggable="false">&nbsp;ОК&nbsp;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myVlahOrFreqBoxOff" class="modal fade in" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <span id="VlahOrFreqTitleSpan">«Метод Влаха» или «Частотный метод»</span> требуется для опций:<br><span id="VlahOrFreqTextSpan" style="font-weight:700;white-space:pre-line">«Импульсные процессы: метод Влаха»</span>.<br><br>Отключить эти опции?
+      </div>
+      <div class="modal-footer">
+        <a id="myVlahOrFreqYesBtn" href="javascript:;" onclick="checkVlahOrFreqOff(this);" data-clickedcb="" class="btn btn-primary" draggable="false">&nbsp;Да&nbsp;</a>
+        <a class="btn btn-default" data-dismiss="modal" draggable="false">Нет</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<table id="programOptionsTable">
+  <tbody>
+
+    <tr class="LightningRow">
+      <td colspan="2" class="Headfeature">Расчетная модель:</td>
+    </tr>
+    <tr class="LightningRow">
+      <td class="Infeature"><div class="pure-checkbox"><input id="0" name="optionBox_off" type="checkbox" disabled="" checked=""><label for="0">Цепно-полевая модель тонких проводников&nbsp;</label><a href="#" rel="clickover" data-content="3D система тонких проводников и пластин, состоящая из стержней, проводов, шин, кабелей систем заземления, молниезащиты, электроснабжения, металлоконструкций  ВЛ и ПС, расположенных в земле и воздухе, изображаемая совокупностью линий и полилиний в AutoCAD. Учитываются взаимные сопротивления, индуктивности, емкости.<br><br>Число элементов геометрической модели после дробления: рекомендуемое - <b>до 9000</b>, максимальное - <b>15000</b>.<br><br>Рекомендуемое число молниеотводов – <b>до 100</b>.<br><br><a href='../2014_matematicheskie-modeli-i-metody.pdf' target='_blank'>Подробнее (статья)</a> + <a href='http://lightningprotection.ru/wp-content/uploads/2014/06/02_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD-%D1%81%D1%82_%D0%9C%D0%B0%D1%82%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8_%D0%B2_%D0%B7%D0%B0%D0%B7%D0%B5%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B8_%D0%B8_%D0%AD%D0%9C%D0%A1.pps' target='_blank'>(презентация)</a>" data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalueIncluded activeVal">включен в пакет</td>
+    </tr>
+    <tr>
+      <td colspan="2" class="Headfeature">Заземление:</td>
+    </tr>
+    <tr>
+      <td class="Infeature"><div class="pure-checkbox"><input id="1" name="optionBox_off" type="checkbox" disabled="" checked=""><label for="1">Синусоидальный режим&nbsp;</label><a href="#" rel="clickover" data-content="Расчет входного сопротивления, потенциалов, токов, напряжения прикосновения и шагового напряжения в расчетной модели при воздействии произвольного числа источников синусоидального тока и ЭДС.<br><br><u>Пример 1.</u> Расчет однофазного и двойного КЗ на землю режимов на ПС.<br><u>Пример 2.</u> Расчет стационарного сопротивления заземлителя опоры ВЛ." data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalueIncluded activeVal">включен в пакет</td>
+    </tr>
+    <tr>
+      <td class="Infeature"><div class="pure-checkbox"><input id="2" name="optionBox_off" type="checkbox" disabled="" checked=""><label for="2">Импульсные процессы: метод дискретных схем&nbsp;</label><a href="#" rel="clickover" data-content="Расчет импульсного, мгновенного, переходного сопротивления, потенциалов и токов в расчетной модели при воздействии произвольного числа источников импульсного тока и ЭДС. Метод дискретных схем – наиболее простой и быстродействующий (стандартный) метод, используемый, например, в программе EMTP.<br><br><u>Пример 1.</u> Расчет импульсных процессов ПС при ударе молнии.<br><u>Пример 2.</u> Расчет импульсного сопротивления заземлителя опоры ВЛ.<br><br><a href='../2017_metody-rascheta-perekhodnyh-processov.pdf' target='_blank'>Подробнее о трех методах (статья)</a>" data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalueIncluded activeVal">включен в пакет</td>
+    </tr>
+    <tr>
+      <td class="Infeature"><div class="pure-checkbox"><input id="3" name="optionBox" type="checkbox" onclick="optionClick(event,this,true);"><label for="3">Импульсные процессы: метод Влаха&nbsp;</label><a href="#" rel="clickover" data-content="Метод Влаха – шаговый алгоритм на основе операторного метода – более точный и устойчивый, чем метод дискретных схем. Данный метод требуется для профессиональных расчетов импульсных процессов заземлителей с учетом частотных свойств грунта, искрообразования в грунте, волновых процессов ВЛ и ПС с учетом нелинейных элементов (ОПН, ВСХ изоляции, импульсной короны).<br><br><a href='../2017_metody-rascheta-perekhodnyh-processov.pdf' target='_blank'>Подробнее о трех методах (статья)</a><br><a href='http://ntv.spbstu.ru/fulltext/T10.2.2017_06.PDF' target='_blank'>Подробнее о методе Влаха (статья)</a>" data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalue">25 000 руб.</td>
+    </tr>
+    <tr>
+      <td class="Infeature"><div class="pure-checkbox"><input id="4" name="optionBox" type="checkbox" onclick="optionClick(event,this,true);"><label for="4">Импульсные процессы: частотный метод&nbsp;</label><a href="#" rel="clickover" data-content="Альтернативный метод, менее эффективный, чем методы расчета во временной области (метод дискретных схем, метод Влаха), используемый нами в научных целях и для  подтверждения достоверности расчетов в моделях с частотно-зависимыми параметрами.<br><br><a href='../2017_metody-rascheta-perekhodnyh-processov.pdf' target='_blank'>Подробнее о трех методах (статья)</a>" data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalue">10 000 руб.</td>
+    </tr>
+    
+    <tr>
+      <td colspan="2" class="Headfeature">Грунт:</td>
+    </tr>
+    <tr>
+      <td class="Infeature"><div class="pure-checkbox"><input id="5" name="optionBox_off" type="checkbox" disabled="" checked=""><label for="5">Двухслойный + интерпретация данных ВЭЗ&nbsp;</label><a href="#" rel="clickover" data-content="Стандартная модель грунта, допускаемая нормативными документами. Параметры слоев задаются пользователем или получаются автоматически при интерпретации данных ВЭЗ. Расчеты заземлителей в двухслойном грунте производятся с высокой точностью и быстродействием." data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalueIncluded activeVal">включен в пакет</td>
+    </tr>
+    <tr>
+      <td class="Infeature"><div class="pure-checkbox"><input id="6" name="optionBox" type="checkbox" onclick="optionClick(event,this,true);"><label for="6">Многослойный + интерпретация данных ВЭЗ&nbsp;</label><a href="#" rel="clickover" data-content="Число слоев грунта, получаемых при интерпретации данных ВЭЗ или по данным пробного бурения, обычно больше двух. Дополнительный слой создает промерзание грунта. Замена подобного грунта приближенной двухслойной моделью может быть сопряжена со значительной погрешностью. Данная опция предназначена для более точных, чем в базовой версии расчетов заземлителей. Параметры слоев задаются пользователем или получаются автоматически при интерпретации данных ВЭЗ." data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalue">40 000 руб.</td>
+    </tr>
+    <tr>
+      <td class="Infeature"><div class="pure-checkbox"><input id="7" class="requireVlahOrFreq" name="optionBox" type="checkbox" onclick="optionClick(event,this,true);"><label for="7">С частотно-зависимыми параметрами&nbsp;</label><a href="#" rel="clickover" data-content="Электропроводность грунта зависит от частоты (в настоящее время в России не учитывается), что существенно влияет на результаты расчета импульсных процессов заземлителей <b>в высокоомном грунте</b>. Рекомендуется включить эту опцию для расчета заземлителей молниезащиты, грозовых перенапряжений ВЛ и других задач в высокоомном грунте (1000 Ом·м и выше).<br><br><a href='../2018_raschet-zazemlitelej-molniezashchity-s-uchetom-chastotnoj-zavisimosti.pdf' target='_blank'>Подробнее (статья 1)</a> + <a href='http://rclp2018.com/upload/iblock/122/1226d0e4d9fd1ff0631a42b908dd85fa.pdf' target='_blank'>(презентация)</a><br><a href='../2018_modelirovanie-zazemlitelya-v-grunte.pdf' target='_blank'>Подробнее (статья 2)</a><br><br><span style='color:red'>Требуется опция «метод Влаха» или «частотный метод».</span>" data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalue">40 000 руб.</td>
+    </tr>
+    <tr>
+      <td class="Infeature"><div class="pure-checkbox"><input id="8" class="requireVlah" name="optionBox_off" type="checkbox" disabled=""><label for="8">С нелинейными параметрами&nbsp;</label><a href="#" rel="clickover" data-content="С увеличением плотности стекающего тока начинается ионизация грунта, приводящая к появлению вокруг стержня искровой зоны, которая моделируется увеличением радиуса и длины стержня. Опция рекомендуется при точных расчетах импульсных процессов растекания тока молнии заземлителя опоры ВЛ. У заземлителей ПС искрообразование не возникает из-за разветвления тока молнии по большому числу стержней).<br><br><span style='color:red'>Требуется опция «метод Влаха»" data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalueInDevelopment">В разработке</td>
+    </tr>
+    <tr>
+      <td class="Infeature"><div class="pure-checkbox"><input id="9" name="optionBox_off" type="checkbox" disabled=""><label for="9">3D неоднородности&nbsp;</label><a href="#" rel="clickover" data-content="Грунт может иметь локальные неоднородности (например, водоемы), поверхность грунта может быть негоризонтальной (склон холма, цокольный этаж). Опцию рекомендуется включить для точного моделирования подобных вариантов.<br><br><a href='../2013_soprotivlenie-zazemlitelya-v-mnogoslojnoj-zemle.pdf' target='_blank'>Подробнее о неоднородностях (статья)</a>" data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalueInDevelopment">В разработке</td>
+    </tr>
+    <tr>
+      <td class="Infeature"><div class="pure-checkbox"><input id="10" name="optionBox_off" type="checkbox" disabled=""><label for="10">Электролитические заземлители&nbsp;</label><a href="#" rel="clickover" data-content="Электролитические заземлители создают вокруг себя зону повышенной проводимости, размеры и проводимость которой пользователь может задать. Рекомендуется включить эту опцию, если планируете использовать электролитические заземлители, и не хотите полностью полагаться на рекламу производителей." data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalueInDevelopment">В разработке</td>
+    </tr>
+    
+    <tr class="LightningRow">
+      <td colspan="2" class="Headfeature">Молниезащита:</td>
+    </tr>
+    <tr class="LightningRow">
+    <td class="Infeature"><div class="pure-checkbox"><input id="11" name="optionBox" type="checkbox" onclick="optionClick(event,this,true);"><label for="11">Российские стандарты&nbsp;</label><a href="#" rel="clickover" data-content="Строятся зоны защиты по основным российским стандартам: РД 34.21.122-87, СО-153-34.21.122-2003 и основанных на нем отраслевых стандартах Газпром СТО-2007, Транснефть РД-11. Незащищенная часть объекта маркируется цветом. Строятся горизонтальные, вертикальные сечения и вырезы." data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalue" id="11_fvalue">30 000 руб.</td>
+    </tr>
+    <tr class="LightningRow">
+      <td class="Infeature"><div class="pure-checkbox"><input id="12" name="optionBox" type="checkbox" onclick="optionClick(event,this,true);"><label for="12">Стандарт ВСП-2007&nbsp;</label><a href="#" rel="clickover" data-content="Стандарт МО РФ с более жесткими требованиями, чем СО-2003, рекомендуемый для проектирования соответствующих объектов или для ознакомления.<br><br><a href='../VSP_2007.pdf' target='_blank'>Подробнее о ВСП (статья)</a>" data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalue">25 000 руб.</td>
+    </tr>
+    <tr class="LightningRow">
+      <td class="Infeature"><div class="pure-checkbox"><input id="13" name="optionBox" type="checkbox" onclick="optionClick(event,this,true);"><label for="13">Стандарт МЭК 62305&nbsp;</label><a href="#" rel="clickover" data-content="Построение зоны защиты, зоны захвата, площади стягивания молнии и грозопоражаемости объекта по методу катящейся сферы. Применяется для объектов с разновысокими, наклонными, множественными объектами, при нормированных и произвольных токах молнии, когда российские стандарты «не работают». Приводит к наиболее жестким решениям. Необязательная для России, но  рекомендуемая опция." data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalue">25 000 руб.</td>
+    </tr>
+    
+    <tr>
+      <td colspan="2" class="Headfeature">ЭМС и электромагнитное поле:</td>
+    </tr>
+    <tr>
+      <td class="Infeature"><div class="pure-checkbox"><input id="14" name="optionBox" type="checkbox" onclick="optionClick(event,this,true);"><label for="14">Кондуктивные помехи&nbsp;</label><a href="#" rel="clickover" data-content="Опция позволяет рассчитать кондуктивные помехи контрольного кабеля ПС при ударах молнии и высокочастотной составляющей тока КЗ, что требуется при разработке проекта ЭМС электрической подстанции.<br><br><a href='../2016_raschet-konduktivnyh-pomekh-i-nagreva.pdf' target='_blank'>Подробнее (статья)</a> + <a href='http://lightningprotection.ru/wp-content/uploads/2016/05/4_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD_%D0%A7%D0%B5%D1%80%D0%B5%D0%BF%D0%B0%D0%BD%D0%BE%D0%B2_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD.ppsx' target='_blank'>(презентация)</a>" data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalue">25 000 руб.</td>
+    </tr>
+    <tr>
+      <td class="Infeature"><div class="pure-checkbox"><input id="15" name="optionBox" type="checkbox" onclick="optionClick(event,this,true);"><label for="15">Электромагнитные поля&nbsp;</label><a href="#" rel="clickover" data-content="Опция позволяет:<br><span style='font-weight:600'>1)</span> рассчитать импульсное магнитное поле тока молнии во временной области или модуля напряженности (на эквивалентной частоте) в заданных прямоугольных областях с учетом экранирования сеточными экранами (арматура, металлоконструкции и сайдинг зданий) для анализа ЭМС электрической подстанции;<br><span style='font-weight:600'>2)</span> рассчитать распределение потенциала, модуля напряженности электрического и магнитного поля в заданной области пространства, например, под шинами ПС, под проводами ВЛ в нормальном режиме и режиме КЗ.<br><br><a href='../2018_raschet-magnitnyh-polej-setochnyh-ehkranov.pdf' target='_blank'>Подробнее (статья)</a> + <a href='http://rclp2018.com/upload/iblock/1c8/1c8b49c7c47119162c186be9318b61f1.pdf' target='_blank'>(презентация)</a>" data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalue">45 000 руб.</td>
+    </tr>
+    
+    <tr>
+      <td colspan="2" class="Headfeature">Грозозащита:</td>
+    </tr>
+    <tr>
+      <td class="Infeature"><div class="pure-checkbox"><input id="16" class="requireVlah" name="optionBox" type="checkbox" onclick="optionClick(event,this,true);"><label for="16">Волновые процессы ВЛ и ПС при ударах молнии&nbsp;</label><a href="#" rel="clickover" data-content="Моделирование волновых процессов ВЛ и ПС при ударах молнии в ВЛ с учетом ОПН, ВСХ изоляции, импульсной короны, потерь в земле методом Влаха. Рекомендуется включить опцию «Грунт с частотно-зависимыми параметрами» для точного моделирования обратного перекрытия изоляции опор в высокоомном грунте.<br><br><a href='../2016_modelirovanie-volnovyh-processov.pdf' target='_blank'>Подробнее (статья 1)</a> + <a href='http://lightningprotection.ru/wp-content/uploads/2016/05/2_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD-%D0%94%D0%A1_%D0%A8%D0%B8%D1%88%D0%B8%D0%B3%D0%B8%D0%BD-%D0%A1%D0%9B.pptx' target='_blank'>(презентация)</a><br><a href='../2018_3d-modelirovanie-grozovyh-perenapryazhenij.pdf' target='_blank'>Подробнее (статья 2)</a> + <a href='http://rclp2018.com/upload/iblock/d94/d94a6774991c63299704ef3a4cbae6d8.pdf' target='_blank'>(презентация)</a><br><br><span style='color:red'>Требуется опция «метод Влаха».</span>" data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalue">40 000 руб.</td>
+    </tr>
+
+    <tr class="LightningRow">
+      <td colspan="2" class="Headfeature">Обновление и поддержка:</td>
+    </tr>
+    <tr class="LightningRow">
+      <td class="Infeature"><div class="pure-checkbox"><input id="17" name="optionBox_off" type="checkbox" disabled="" checked=""><label for="17">Гарантийная техническая поддержка и обновления (1 год)&nbsp;</label><a href="#" rel="clickover" data-content="В рамках договора пользователю гарантируется 1 год технической поддержки и поставки обновлений ПО. Срок выпуска обновлений не регламентируется – они выходят по мере готовности. В рамках технической поддержки мы обязуемся исправлять ошибки, выявленные пользователем, а также консультировать пользователя по работе с ПО. В рекомендательном порядке принимаются запросы по доработке ПО." data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalueIncluded activeVal">включен в пакет</td>
+    </tr>
+    <tr class="LightningRow">
+      <td class="Infeature"><div class="pure-checkbox"><input id="18" name="optionBox_off" type="checkbox" disabled="" checked=""><label for="18">Уроки, тестовые задачи, документация по программе&nbsp;</label><a href="#" rel="clickover" data-content="В дистрибутив входит: набор уроков для ознакомления с ПО, набор тестовых задач для оценки корректности вычислений и быстродействия программы, а также документация с подробным описанием расчетных моделей, методов и алгоритмов." data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalueIncluded activeVal">включен в пакет</td>
+    </tr>
+    <tr class="LightningRow">
+      <td class="Infeature"><div class="pure-checkbox"><input id="19" name="optionBox_Agree" type="checkbox" onclick="optionClick(event,this,true);"><label for="19">Обучающий семинар по заземлению, молниезащите, ЭМС (с выездом или удаленно)&nbsp;</label><a href="#" rel="clickover" data-content="Имеется возможность заказать обучающий семинар по темам, связанными с заземлением, молниезащитой и ЭМС в программе ЗУМ. Например: обзор моделей, методов и алгоритмов, продвинутое пользование ПО, вопросы по расчету ПС и ВЛ, т.д. Обучение может производиться как удаленно через интернет (например, в режиме веб-конференции), так и с выездом к заказчику. Цена обговаривается отдельно в зависимости от темы, формата и длительности выступления." data-original-title="" draggable="false"><i class="fa fa-question-circle-o"></i></a></div></td>
+      <td class="fvalueByAgreement">По договоренности</td>
+    </tr>
+    
+    <tr class="LightningRow">
+      <td colspan="2" class="Headfeature">Электронный ключ защиты:</td>
+    </tr>
+    <tr class="LightningRow">
+      <td class="Infeature"><div class="pure-radiobutton"><input id="20_Sign" name="optionRadio" type="radio" onchange="optionClick(event,this,false);" checked=""><label for="20_Sign" style="padding-bottom:0px;padding-top:0px">USB-ключ Guardant Sign (1 раб. станция)&nbsp;</label><a href="#" rel="clickover" data-content="<img src='../Popup/guardant_sign.png' class='popupImg'><p class='popupText'>Электронный USB-ключ Guardant Sign требуется для запуска программы «ЗУМ». Один ключ позволяет работать на одном компьютере единовременно. Каждый ключ стоит <b>15 000 руб</b>. Доступно максимум 4 ключа. Запросы на большее количество ключей обговариваются отдельно.<br><br><a href='https://www.guardant.ru/products/all/guardant-sign/' target='_blank'>Подробнее о Guardant Sign</a></p>" draggable="false" data-original-title="" title=""><i class="fa fa-question-circle-o"></i></a><div class="KeyNumberSignDiv"><p class="pKeyNumber">Кол-во:</p><select class="keyNumberSelect" id="keySign" onchange="keyNumberChange(this)"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></div></div></td>
+      <td class="fvalue activeVal">15 000 руб.</td>
+    </tr>
+    <tr class="LightningRow">
+      <td class="Infeature"><div class="pure-radiobutton"><input id="21_Net" name="optionRadio" type="radio" onchange="optionClick(event,this,false);"><label for="21_Net" style="padding-bottom:0px;padding-top:0px">USB-ключ Guardant Sign Net (10 раб. станций)&nbsp;</label><a href="#" rel="clickover" data-content="<img src='../Popup/guardant_net.png' class='popupImg'><p class='popupText'>Электронный USB-ключ Guardant Sign Net - сетевая версия ключа Guardant Sign. Администратор сети предприятия вставляет ключ в компьютер-сервер, на котором специальное приложение («сервер ключей») раздает лицензии на компьютеры-клиенты через локальную сеть. Один ключ позволяет работать с программой «ЗУМ» максимум на десяти компьютерах единовременно. Каждый ключ стоит <b>50 000 руб</b>. Доступно максимум 2 ключа. Запросы на большее количество ключей обговариваются отдельно.<br><br><a href='https://www.guardant.ru/products/all/guardant-net/' target='_blank'>Подробнее о Guardant Sign Net</a></p>" draggable="false" data-original-title="" title=""><i class="fa fa-question-circle-o"></i></a><div class="KeyNumberNetDiv"><p class="pKeyNumber">Кол-во:</p><select class="keyNumberSelect" id="keyNet" onchange="keyNumberChange(this)"><option value="1">1</option><option value="2">2</option></select></div></div></td>
+      <td class="fvalue" style="color:#a6a6a6">50 000 руб.</td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<script>
+  
+function checkVlah(yesBtn) {
+    var cb_Vlah = document.getElementById("3");     // Влах
+
+    cb_Vlah.click(); 
+  
+    var clickedCB_id = yesBtn.getAttribute('data-clickedcb');
+    if (clickedCB_id) {
+      var cb_Clicked = document.getElementById(clickedCB_id);
+      cb_Clicked.click();
+    }
+  
+    jQuery("#myVlahBox").modal('hide');
+}
+  
+function checkVlahOrFreqOff(yesBtn) { 
+    var clickedCB_ids = yesBtn.getAttribute('data-clickedcb').split(',');
+    for (k = 0; k < clickedCB_ids.length; k++) {
+      var cb_Clicked1 = document.getElementById(clickedCB_ids[k]);
+      cb_Clicked1.click();
+    }
+  
+    var cb_Vlah = document.getElementById("3");     // Влах
+    var cb_Freq = document.getElementById("4");     // Частотный метод  
+  
+    if (cb_Vlah.checked) { cb_Vlah.click(); }
+    if (cb_Freq.checked) { cb_Freq.click(); }
+  
+    jQuery("#myVlahOrFreqBoxOff").modal('hide');
+}
+  
+  
+function optionClick(event, cb, needRecalculate) {
+    var rowInd = cb.parentNode.parentNode.parentNode.rowIndex;
+
+    var table = document.getElementById("programOptionsTable");
+    var currRow = table.rows[rowInd];
+    var currfVal = currRow.cells[currRow.cells.length-1];
+   
+    var cb_Vlah = document.getElementById("3");    // Влах
+    var cb_Freq = document.getElementById("4");    // Частотный метод
+  
+    if (cb.checked) {
+   
+      if ((cb.classList.contains("requireVlahOrFreq")) && 
+          (!cb_Vlah.checked) && (!cb_Freq.checked)) {
+        
+        jQuery("#myVlahOrFreqBox").modal('show');
+        
+        event.preventDefault();  event.stopPropagation();  return;
+      }
+      
+      if ((cb.classList.contains("requireVlah")) && (!cb_Vlah.checked)) {
+        
+        var modalYesBtn = document.getElementById("myVlahYesButton");
+        modalYesBtn.setAttribute("data-clickedCB", cb.id);
+        
+        jQuery("#myVlahBox").modal('show');
+      
+        event.preventDefault();  event.stopPropagation();  return;
+      }
+     
+      currfVal.style.color="";
+      currfVal.className += " activeVal"; 
+      if (cb.id == "20_Sign") {
+        optionClick(event, document.getElementById("21_Net"), true);
+      }
+      if (cb.id == "21_Net") {
+        optionClick(event, document.getElementById("20_Sign"), true);
+      }
+    }
+    else {  
+      if ((cb.id == "20_Sign") || (cb.id == "21_Net")) { 
+        currfVal.style.color = "#a6a6a6";
+      }
+ 
+      if (cb.id == "3") {
+        var cbs = [];
+        if (cb_Freq.checked == false) {
+          cbs=document.querySelectorAll('.requireVlah, .requireVlahOrFreq');
+        }
+        else { cbs = document.querySelectorAll('.requireVlah'); }
+        
+        if (showMyVlahOrFreqBoxOff(cbs, false) == true) {
+          event.preventDefault();  event.stopPropagation();  return;
+        }
+      }
+      
+      if (((cb.id == "3") && (cb_Freq.checked == false)) || 
+         ((cb.id == "4") && (cb_Vlah.checked == false))) { 
+           
+        var cbs = document.getElementsByClassName("requireVlahOrFreq");
+        
+        if (showMyVlahOrFreqBoxOff(cbs, true) == true) {
+          event.preventDefault();  event.stopPropagation();  return;
+        }  
+      }     
+      
+      
+      currfVal.className = currfVal.className.replace(" activeVal", ""); 
+    }
+
+    if (needRecalculate) { 
+      recalculateSum();
+      recalculateRequestBox();
+    }
+
+}
+  
+function showMyVlahOrFreqBoxOff(cbs, needFreqMethod) {
+    var cb_names = [];     
+    var cbs_ids = [];
+  
+    for (i = 0; i < cbs.length; i++) {
+      if (cbs[i].checked) { 
+        cb_names.push(jQuery('label[for="'+cbs[i].id+'"]').text().trim()
+        + " (" + fValueFromRowIndex(cbs[i].id).slice(0,-1) + ")"); 
+        cbs_ids.push(cbs[i].id);
+      } 
+    }
+        
+    if (cb_names.length != 0) {
+      var modalYesBtn = document.getElementById("myVlahOrFreqYesBtn");
+      modalYesBtn.setAttribute("data-clickedCB", cbs_ids.join(","));
+          
+      var VlahOrFreqSpan= document.getElementById("VlahOrFreqTextSpan");
+      VlahOrFreqSpan.innerHTML = cb_names.join(";\n");
+      
+      var VlahFreqTitleSpan= document.getElementById("VlahOrFreqTitleSpan"); 
+      if (needFreqMethod) { VlahFreqTitleSpan.innerHTML = "«Метод Влаха» или «Частотный метод»"; } 
+      else { VlahFreqTitleSpan.innerHTML = "«Метод Влаха»"; }
+      
+      jQuery("#myVlahOrFreqBoxOff").modal('show'); 
+      
+      return true;
+    }
+  
+    return false;
+}
+
+function keyNumberChange(sel) {
+    var rowInd = sel.parentNode.parentNode.parentNode.parentNode.rowIndex;
+
+    var table = document.getElementById("programOptionsTable");
+    var currRow = table.rows[rowInd];
+    var currfVal = currRow.cells[currRow.cells.length-1];
+  
+    var currRadio;
+    if (sel.id=="keySign") { currRadio=document.getElementById("20_Sign"); }
+    if (sel.id=="keyNet") { currRadio=document.getElementById("21_Net"); }
+
+    currfVal.innerHTML = fValueFromRowIndex(currRadio.id); 
+  
+    recalculateSum();
+  
+    recalculateRequestBox();
+}
+ 
+function recalculateSum() {
+    var total = document.getElementById("TotalId");
+    var current = document.getElementsByClassName("verButton active");
+    if (current.length == 0) { total.textContent = "-"; return; }
+  
+    var sumPrice = 0;
+  
+    var fValsActive = document.getElementsByClassName("fvalue activeVal");
+    for (i = 0; i < fValsActive.length; i++) {
+      if (fValsActive[i].offsetParent != null) {
+        sumPrice += stringValToInt(fValsActive[i].textContent);
+      }
+    }
+   
+    var total = document.getElementById("TotalId");
+      
+    var sumBase = 0;
+    if (current[0].id == "GroundingMin") { sumBase = 75000; } 
+    if (current[0].id == "GroundingMax") { sumBase = 275000; }
+    if (current[0].id == "Lightning") { sumBase = 30000; }
+    total.textContent = sumBase + sumPrice;
+
+    total.textContent = addThousandSeparator(total.textContent);
+}
+  
+function recalculateRequestBox() {
+    var rSum = document.getElementById("RequestSum");
+    var total = document.getElementById("TotalId");
+    rSum.innerHTML = total.innerHTML;
+  
+  
+    var current = document.getElementsByClassName("verButton active");
+    if (current.length == 0) { return; }
+    var rPackage = document.getElementById("RequestPackage");
+    if (current[0].id == "GroundingMin") {
+      rPackage.innerHTML = "«Заземление»: базовая версия"; 
+    } 
+    if (current[0].id == "GroundingMax") { 
+      rPackage.innerHTML = "«Заземление»: максимальная версия"; 
+    }
+    if (current[0].id == "Lightning") { 
+      rPackage.innerHTML = "«Молниезащита»";  
+    }
+  
+  
+    var checkBoxes = document.querySelectorAll('[name="optionBox"],[name="optionBox_Agree"]');
+  
+    var table = document.getElementById("programOptionsTable"); 
+
+    for (i = 0; i < checkBoxes.length; i++) { 
+      var rowInd = checkBoxes[i].parentNode.parentNode.parentNode.rowIndex;
+      var currRow = table.rows[rowInd];
+      var currfVal = currRow.cells[currRow.cells.length-1];
+      
+      var chosen = ((checkBoxes[i].offsetParent != null) &&
+                    (checkBoxes[i].checked) && 
+                    (!currfVal.classList.contains("fvalueIncluded"))); 
+      
+      chooseLi = document.getElementById(checkBoxes[i].id + "_Choose");
+      if (chosen) { chooseLi.style.display = ""; }
+      else { chooseLi.style.display = "none"; }   
+    }
+  
+  
+    var signRadio = document.getElementById("20_Sign");
+    var keyChoose = document.getElementById("keyChoose");
+    var kNumberChoose = document.getElementById("kNumberChoose");
+    var currSel;
+    if (signRadio.checked) {
+      keyChoose.innerHTML = "USB-ключ Guardant Sign (1 раб. станция)";
+      currSel = document.getElementById("keySign");
+    }
+    else {   
+      keyChoose.innerHTML = "USB-ключ Guardant Sign Net (10 раб. станций)";
+      currSel = document.getElementById("keyNet");
+    }
+    var currSelVal = currSel.options[currSel.selectedIndex].value;
+    if (currSelVal == "1") { kNumberChoose.innerHTML=currSelVal + " ключ"; }
+    else { kNumberChoose.innerHTML=currSelVal + " ключа"; }
+}
+
+function stringValToInt(str) {
+      str = str.replace('руб.','');
+      str = str.replace(/ /g, '');
+      return Number(str);
+}
+  
+function addThousandSeparator(str) {
+    str = str.slice(0, str.length-3) + " " + str.slice(str.length-3);
+    return str;
+}  
+  
+</script>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-101 container-effect container "><section class=" bd-section-58 bd-tagstyles " id="section58" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <p class=" bd-textblock-362 bd-content-element">
+    <span class="TotalText">Итого:&nbsp; &nbsp;</span><b><span id="TotalId">90 000</span> руб.</b>
+</p>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-42 container-effect container "><section class=" bd-section-50 bd-tagstyles " id="requestsection" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <h3 class=" bd-textblock-364 bd-content-element">
+    2. Отправьте заявку:
+</h3>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-99 container-effect container "><section class=" bd-section-55 bd-tagstyles " id="formsection" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <form class=" bd-form-6 "
+ action="https://formcarry.com/s/aNbvoOjpl-S"
+ name="requestform" method="post">
+    <div class="bd-container-inner">
+        <div class="container-fluid">
+            <h3 class=" bd-textblock-366 bd-content-element">
+    Выбрано:
+</h3>
+	
+		<div class=" bd-customhtml-72 bd-tagstyles bd-custom-bulletlist">
+    <div class="bd-container-inner bd-content-element">
+        <span style="font-weight:600">Пакет:</span>
+<ul style="padding-top:0px;margin-bottom:5px">
+  <li class="CommonLi">&nbsp;<span id="RequestPackage" class="PackageSpan">«Заземление»: базовая версия</span></li>  
+</ul>
+
+<span style="font-weight:600">Доп. опции:</span>
+<ul id="COptions" style="padding-top:0px;margin-bottom:5px">
+  <li id="3_Choose" class="CommonLi" style="display:none">&nbsp;Импульсные процессы: метод Влаха</li>
+  <li id="4_Choose" class="CommonLi" style="display:none">&nbsp;Импульсные процессы: частотный метод</li>
+  <li id="6_Choose" class="CommonLi" style="display:none">&nbsp;Грунт: Многослойный + интерпретация данных ВЭЗ</li>
+  <li id="7_Choose" class="CommonLi" style="display:none">&nbsp;Грунт: С частотно-зависимыми параметрами</li>
+  <li id="11_Choose" class="CommonLi" style="display:none">&nbsp;Молниезащита: Российские стандарты</li>
+  <li id="12_Choose" class="CommonLi" style="display:none">&nbsp;Молниезащита: Стандарт ВСП-2007</li>
+  <li id="13_Choose" class="CommonLi" style="display:none">&nbsp;Молниезащита: Стандарт МЭК 62305</li>
+  <li id="14_Choose" class="CommonLi" style="display:none">&nbsp;Кондуктивные помехи</li>
+  <li id="15_Choose" class="CommonLi" style="display:none">&nbsp;Электромагнитные поля</li>
+  <li id="16_Choose" class="CommonLi" style="display:none">&nbsp;Волновые процессы ВЛ и ПС при ударах молнии</li>
+  <li id="19_Choose" class="CommonLi" style="display:none">&nbsp;Обучающий семинар по заземлению, молниезащите, ЭМС (с выездом или удаленно)</li>
+</ul>
+
+<span style="font-weight:600">Ключи:</span>
+<ul style="padding-top:0px">
+  <li class="CommonLi">&nbsp;<span id="keyChoose">USB-ключ Guardant Sign (1 раб. станция)</span>: <b><span id="kNumberChoose">1 ключ</span></b></li>
+</ul>
+    </div>
+</div>
+	
+		<p class=" bd-textblock-368 bd-content-element">
+    <span style="font-weight:600">Стоимость:&nbsp;&nbsp;&nbsp;</span><span class="PriceSpan"><b><span id="RequestSum">90 000</span> руб.</b></span>
+</p>
+	
+		<h3 class=" bd-textblock-347 bd-content-element">
+    Заполните форму
+</h3>
+	
+		<div class=" bd-input-26 form-group
+ row">
+    <label class="bd-form-label
+ form-control-label
+  col-lg-3 col-md-3 col-sm-3"
+ for="user-name">Контактное лицо</label>
+    <div class=" col-lg-9 col-md-9 col-sm-9">
+
+    <input type="text"
+ id="user-name" class="bd-form-input"
+ placeholder="Фамилия Имя Отчество"
+ name="user-name" >
+
+    </div>
+</div>
+	
+		<div class=" bd-input-25 form-group
+ row">
+    <label class="bd-form-label
+ form-control-label
+  col-lg-3 col-md-3 col-sm-3"
+ for="user-organization">Организация</label>
+    <div class=" col-lg-9 col-md-9 col-sm-9">
+
+    <input type="text"
+ id="user-organization" class="bd-form-input"
+ placeholder="Ваша организация"
+ name="user-organization" >
+
+    </div>
+</div>
+	
+		<div class=" bd-input-24 form-group
+ row">
+    <label class="bd-form-label
+ form-control-label
+  col-lg-3 col-md-3 col-sm-3"
+ for="user-email">E-mail</label>
+    <div class=" col-lg-9 col-md-9 col-sm-9">
+
+    <input type="email"
+ id="user-email" class="bd-form-input"
+ placeholder="Ваш e-mail"
+ name="user-email" >
+
+    </div>
+</div>
+	
+		<div class=" bd-input-23 form-group
+ row">
+    <label class="bd-form-label
+ form-control-label
+  col-lg-3 col-md-3 col-sm-3"
+ for="user-telephone">Телефон</label>
+    <div class=" col-lg-9 col-md-9 col-sm-9">
+
+    <input type="tel"
+ id="user-telephone" class="bd-form-input"
+ placeholder="Ваш телефон"
+ name="user-telephone" >
+
+    </div>
+</div>
+	
+		<div class=" bd-textarea-6 form-group
+ row">
+    <label class="bd-form-label
+ form-control-label
+  col-lg-3 col-md-3 col-sm-3">Комментарий</label>
+    <div class=" col-lg-9 col-md-9 col-sm-9">
+
+    <textarea class="bd-form-input"
+ name="user-comment"></textarea>
+
+    </div>
+</div>
+	
+		<div class=" bd-input-22 form-group
+ row">
+    
+    
+
+    <input type="hidden" class="bd-form-input"
+ placeholder="Input"
+ name="_gotcha" >
+
+    
+</div>
+	
+		<div class=" bd-input-3 hidden-md hidden-sm hidden-xs hidden-lg form-group
+ row">
+    
+    
+
+    <input type="hidden"
+ id="user-params" class="bd-form-input"
+ name="user-params" >
+
+    
+</div>
+	
+		<p class=" bd-textblock-345 bd-content-element">
+    * Отправляя данные формы, вы даете <a href="../agreement.pdf" target="_blank" draggable="false">согласие на обработку своих персональных данных</a> в соответствии с <a href="../privacy.pdf" target="_blank" draggable="false">Политикой конфиденциальности</a>.
+</p>
+	
+		<div class=" bd-customhtml-71 bd-tagstyles bd-custom-button bd-bootstrap-btn bd-btn-primary">
+    <div class="bd-container-inner bd-content-element">
+        <button type="submit" style="padding-top:6px;padding-bottom:6px;padding-left:12px;padding-right:12px">ОТПРАВИТЬ ЗАЯВКУ</button>
+    </div>
+</div>
+        </div>
+    </div>
+</form>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-43 container-effect container ">
+<h3 class=" bd-textblock-94  bd-content-element">
+    3. Дальнейшие действия:
+</h3>
+</div>
+	
+		<div class="bd-containereffect-76 container-effect container "><section class=" bd-section-53 bd-tagstyles " id="section53" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-customhtml-22 bd-tagstyles">
+    <div class="bd-container-inner bd-content-element">
+        <ol class="AfterOl">
+  <li class="AfterLi">В течение 3-х рабочих дней мы вышлем вам типовой договор с приложениями и актом приема-передачи ПО.</li>
+  <li class="AfterLi">Затем происходит процесс согласования и подписания договора. В случае необходимости сканы подписанных договоров отправляются обеими сторонами по электронной почте.</li>
+  <li class="AfterLi">Вы производите оплату согласно договору.</li>
+  <li class="AfterLi">Мы высылаем вам (почтой или курьерской службой) подписанные документы и ключи защиты, а также ссылку на дистрибутив программы «ЗУМ» по вашему электронному адресу. Срок поставки указан в договоре (обычно 2 недели с момента оплаты).</li>
+  <li class="AfterLi">Вы принимаете «товар», подписываете полученные документы, включая акт приема-передачи, и высылаете нам наш экземпляр документов.</li>
+</ol>
+<br>
+<p class="pChangeProcedure">Процедура может быть изменена по желанию заказчика.</p>
+    </div>
+</div>
+    </div>
+</section></div>
+	
+		<div class="bd-containereffect-92 container-effect container ">
+<h3 class=" bd-textblock-46  bd-content-element">
+    4. Дополнительно (после заключения договора):
+</h3>
+</div>
+	
+		<div class="bd-containereffect-103 container-effect container "><section class=" bd-section-5 bd-tagstyles " id="section53" data-section-title="Section">
+    <div class="bd-container-inner bd-margins clearfix">
+        <div class=" bd-customhtml-18 bd-tagstyles">
+    <div class="bd-container-inner bd-content-element">
+        <ol class="AfterOl">
+  <li class="AfterLi">Покупка дополнительных ключей защиты возможна в рамках заключенного договора на основании выставленного нами счета по ценам, указанным в таблице выше.</li>
+  <li class="AfterLi">Покупка дополнительных опций в пакете «Заземление: базовая версия» также осуществляется на основании выставленного счета по ценам из таблицы. После оплаты счета мы высылаем пользователю код активации по сети Интернет. С помощью этого кода пользователь самостоятельно обновляет имеющиеся у него ключи защиты в программе «ЗУМ».</li>
+  <li class="AfterLi">При покупке дополнительных опций из пакета «Заземление: базовая версия» на сумму превышающую стоимость пакета «Заземление: максимальная версия» пользователю будут предоставлены все возможности программы (как в пакете «Заземление: максимальная версия»).</li>
+  <li class="AfterLi">Техническая поддержка и поставка обновлений программы после завершения гарантийных обязательств осуществляется по договору технической поддержки (по желанию Заказчика). <b>На данный момент стоимость поддержки составляет 10% от цены приобретенных опций (за вычетом стоимости ключей) в год.</b></li>
+  <li class="AfterLi">Дополнительные услуги (цена договорная):
+    <ul style="padding-left:0px; padding-top:5px">
+    <li class="CommonLi"> Обучение работе с ПО (удаленное и с выездом к заказчику).</li>
+    <li class="CommonLi"> Совместные расчеты и проектирование.</li>
+    <li class="CommonLi"> Доработка по индивидуальному заказу.</li>
+  </ul>
+  </li>
+</ol>
+    </div>
+</div>
+    </div>
+</section></div>
+</div>
+</div></div>
+	
+		<footer class=" bd-footerarea-1 bd-margins">
+        <section class=" bd-section-1 bd-tagstyles" id="section2" data-section-title="Footer Centered Simplest">
+    <div class="bd-container-inner bd-margins clearfix">
+        <p class=" bd-textblock-2 bd-no-margins bd-content-element">
+    © 2020 ООО «ЗУМ»
+</p>
+    </div>
+</section>
+	
+		
+</footer>
+	
+		<div data-smooth-scroll data-animation-time="250" class=" bd-smoothscroll-3"><a href="#" class=" bd-backtotop-1 ">
+    <span class="bd-icon-67 bd-icon "></span>
+</a></div>
+</body>
+</html>

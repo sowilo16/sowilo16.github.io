@@ -5,27 +5,48 @@
 	<script>
     var themeHasJQuery = !!window.jQuery;
 </script>
-<script type="text/javascript" src="./assets/js/jquery.js?1.0.2162"></script>
+<script type="text/javascript" src="./assets/js/jquery.js?1.0.3293"></script>
 <script>
     window._$ = jQuery.noConflict(themeHasJQuery);
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./assets/css/bootstrap.css?1.0.2162" media="screen" />
-<script type="text/javascript" src="./assets/js/bootstrap.min.js?1.0.2162"></script>
+<link rel="stylesheet" href="./assets/css/bootstrap.css?1.0.3293" media="screen" />
+<script type="text/javascript" src="./assets/js/bootstrap.min.js?1.0.3293"></script>
 <!--[if lte IE 9]>
-<link rel="stylesheet" href="./assets/css/layout.ie.css?1.0.2162">
-<script src="./assets/js/layout.ie.js?1.0.2162"></script>
+<link rel="stylesheet" href="./assets/css/layout.ie.css?1.0.3293">
+<script src="./assets/js/layout.ie.js?1.0.3293"></script>
 <![endif]-->
 <link class="" href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic&subset=cyrillic-ext' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="./assets/js/layout.core.js"></script>
-<script src="./assets/js/CloudZoom.js?1.0.2162"></script>
+<script src="./assets/js/CloudZoom.js?1.0.3293"></script>
 	
     <title>Партнеры</title>
-	<link rel="stylesheet" href="./assets/css/style.css?1.0.2162">
-	<script src="./assets/js/script.js?1.0.2162"></script>
+	<link rel="stylesheet" href="./assets/css/style.css?1.0.3293">
+	<script src="./assets/js/script.js?1.0.3293"></script>
     <meta charset="utf-8">
     
     
+
+<script type="text/javascript">
+jQuery(document).ready(function(e) { 
+ 
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("accActive");
+      var accPanel = this.nextElementSibling;
+      if (accPanel.style.maxHeight){
+        accPanel.style.maxHeight = null;
+      } else {
+        accPanel.style.maxHeight = 1000 + "px";
+      } 
+    });
+  }
+  
+});
+</script>
     
  <meta name="keywords" content="партнеры, клиенты, ЗУМ">
 <meta name="description" content="Здесь представлены основные партнеры и клиенты ООО «ЗУМ».">
@@ -34,256 +55,19 @@
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter37847770 = new Ya.Metrika({
-                    id:37847770,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true
-                });
-            } catch(e) { }
-        });
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
+   ym(37847770, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/37847770" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 <!-- /Yandex.Metrika counter -->
-
-
-
-<!--
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.0.2/bootstrap.min.js"></script>
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
--->
-
-
-
-<script type="text/javascript">
-/* ==========================================================
- * bootstrapx-clickover.js
- * https://github.com/lecar-red/bootstrapx-clickover
- * version: 1.0
- * ==========================================================
- *
- * Based on work from Twitter Bootstrap and 
- * from Popover library http://twitter.github.com/bootstrap/javascript.html#popover
- * from the great guys at Twitter.
- *
- * Untested with 2.1.0 but should worked with 2.0.x
- *
- * ========================================================== */
-!function($) {
-  "use strict"
-
-  /* class definition */
-  var Clickover = function ( element, options ) {
-    // local init
-    this.cinit('clickover', element, options );
-  }
-
-  Clickover.prototype = $.extend({}, $.fn.popover.Constructor.prototype, {
-
-    constructor: Clickover
-
-    , cinit: function( type, element, options ) {
-      this.attr = {};
-
-      // choose random attrs instead of timestamp ones
-      this.attr.me = ((Math.random() * 10) + "").replace(/\D/g, '');
-      this.attr.click_event_ns = "click." + this.attr.me + " touchstart." + this.attr.me;
-
-      if (!options) options = {};
-
-      options.trigger = 'manual';
-
-      // call parent
-      this.init( type, element, options );
-
-      // setup our own handlers
-      this.$element.on( 'click', this.options.selector, $.proxy(this.clickery, this) );
-
-      // soon add click hanlder to body to close this element
-      // will need custom handler inside here
-    }
-    , clickery: function(e) {
-      // clickery isn't only run by event handlers can be called by timeout or manually
-      // only run our click handler and  
-      // need to stop progration or body click handler would fire right away
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-
-      // set popover's dim's
-      this.options.width  && this.tip().width(  this.options.width  );
-      this.options.height && this.tip().height( this.options.height );
-
-      // set popover's tip 'id' for greater control of rendering or css rules
-      this.options.tip_id     && this.tip().attr('id', this.options.tip_id );
-
-      // add a custom class
-      this.options.class_name && this.tip().addClass(this.options.class_name);
-
-      // we could override this to provide show and hide hooks 
-      this[ this.isShown() ? 'hide' : 'show' ]();
-
-      // if shown add global click closer
-      if ( this.isShown() ) {
-        var that = this;
-
-        // close on global request, exclude clicks inside clickover
-        this.options.global_close &&
-          $('body').on( this.attr.click_event_ns, function(e) {
-            if ( !that.tip().has(e.target).length ) { that.clickery(); }
-          });
-
-        this.options.esc_close && $(document).bind('keyup.clickery', function(e) {
-            if (e.keyCode == 27) { that.clickery(); }
-            return;
-        });
-
-        // first check for others that might be open
-        // wanted to use 'click' but might accidently trigger other custom click handlers
-        // on clickover elements 
-        !this.options.allow_multiple &&
-            $('[data-clickover-open=1]').each( function() { 
-                $(this).data('clickover') && $(this).data('clickover').clickery(); });
-
-        // help us track elements w/ open clickovers using html5
-        this.$element.attr('data-clickover-open', 1);
-
-        // if element has close button then make that work, like to
-        // add option close_selector
-        this.tip().on('click', '[data-dismiss="clickover"]', $.proxy(this.clickery, this));
-
-        // trigger timeout hide
-        if ( this.options.auto_close && this.options.auto_close > 0 ) {
-          this.attr.tid = 
-            setTimeout( $.proxy(this.clickery, this), this.options.auto_close );  
-        }
-
-        // provide callback hooks for post shown event
-        typeof this.options.onShown == 'function' && this.options.onShown.call(this);
-        this.$element.trigger('shown');
-      }
-      else {
-        this.$element.removeAttr('data-clickover-open');
-
-        this.options.esc_close && $(document).unbind('keyup.clickery');
-
-        $('body').off( this.attr.click_event_ns ); 
-
-        if ( typeof this.attr.tid == "number" ) {
-          clearTimeout(this.attr.tid);
-          delete this.attr.tid;
-        }
-
-		// provide some callback hooks
-        typeof this.options.onHidden == 'function' && this.options.onHidden.call(this);
-        this.$element.trigger('hidden');
-      }
-    }
-    , isShown: function() {
-      return this.tip().hasClass('in');
-    }
-    , resetPosition: function() {
-        var $tip
-        , inside
-        , pos
-        , actualWidth
-        , actualHeight
-        , placement
-        , tp
-
-      if (this.hasContent() && this.enabled) {
-        $tip = this.tip()
-
-        placement = typeof this.options.placement == 'function' ?
-          this.options.placement.call(this, $tip[0], this.$element[0]) :
-          this.options.placement
-
-        inside = /in/.test(placement)
-
-        pos = this.getPosition(inside)
-
-        actualWidth = $tip[0].offsetWidth
-        actualHeight = $tip[0].offsetHeight
-
-        switch (inside ? placement.split(' ')[1] : placement) {
-          case 'bottom':
-            tp = {top: pos.top + pos.height, left: pos.left + pos.width / 2 - actualWidth / 2}
-            break
-          case 'top':
-            tp = {top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2}
-            break
-          case 'left':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth}
-            break
-          case 'right':
-            tp = {top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width}
-            break
-        }
-
-        $tip.css(tp)
-      }
-    }
-    , debughide: function() {
-      var dt = new Date().toString();
-
-      console.log(dt + ": clickover hide");
-      this.hide();
-    }
-  })
-
-  /* plugin definition */
-  /* stolen from bootstrap tooltip.js */
-  $.fn.clickover = function( option ) {
-    return this.each(function() {
-      var $this = $(this)
-        , data = $this.data('clickover')
-        , options = typeof option == 'object' && option
-
-      if (!data) $this.data('clickover', (data = new Clickover(this, options)))
-      if (typeof option == 'string') data[option]()
-    })
-  }
-
-  $.fn.clickover.Constructor = Clickover
-
-  // these defaults are passed directly to parent classes
-  $.fn.clickover.defaults = $.extend({}, $.fn.popover.defaults, {
-    trigger: 'manual',
-    auto_close:   0, /* ms to auto close clickover, 0 means none */
-    global_close: 1, /* allow close when clicked away from clickover */
-    esc_close:    1, /* allow clickover to close when esc key is pressed */
-    onShown:  null,  /* function to be run once clickover has been shown */
-    onHidden: null,  /* function to be run once clickover has been hidden */
-    width:  null, /* number is px (don't add px), null or 0 - don't set anything */
-    height: null, /* number is px (don't add px), null or 0 - don't set anything */
-    tip_id: null,  /* id of popover container */
-    class_name: 'clickover', /* default class name in addition to other classes */
-    allow_multiple: 0 /* enable to allow for multiple clickovers to be open at the same time */
-  })
-
-}( window.jQuery );
-</script>
-
-<script type="text/javascript">
-   jQuery(function() { jQuery('[rel="clickover"]').clickover(); })
-</script>
     
  <style>img:hover {
     border-color: #3177bd;
@@ -319,8 +103,9 @@
  col-xs-12">
     <div class="bd-layoutcolumn-17 bd-column" ><div class="bd-vertical-align-wrapper">
     <div data-smooth-scroll data-animation-time="251" class=" bd-smoothscroll-1">
-    <nav class=" bd-hmenu-1 " data-responsive-menu="true" data-responsive-levels="one level">
+    <nav class=" bd-hmenu-1 "  data-responsive-menu="true" data-responsive-levels="all open" data-responsive-type="" data-offcanvas-delay="0ms" data-offcanvas-duration="700ms" data-offcanvas-timing-function="ease">
         
+            <div class=" bd-menuoverlay-14 bd-menu-overlay"></div>
             <div class=" bd-responsivemenu-11 collapse-button">
     <div class="bd-container-inner">
         <div class="bd-menuitem-4 ">
@@ -332,10 +117,11 @@
         </div>
     </div>
 </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse ">
             
             <div class=" bd-horizontalmenu-86 clearfix">
                 <div class="bd-container-inner">
+                    
                     
                     <ul class=" bd-menu-78 nav nav-pills nav-center">
                         
@@ -364,7 +150,7 @@
 
                                 
                             
-                            <a  title="ООО «ЗУМ». Заземление, молниезащита, ЭМС" href="./index.html" >Главная</a>
+                            <a  href="./index.html" >Главная</a>
 
                                 
                                     
@@ -381,7 +167,7 @@
 
                                 
                             
-                            <a  title="О нас" href="./about.html" >О нас</a>
+                            <a  href="./about.html" >О нас</a>
 
                                 
                                     
@@ -398,7 +184,7 @@
 
                                 
                             
-                            <a  title="Услуги по расчету заземления и молниезащиты электрических подстанций" href="./services.html" >Услуги</a>
+                            <a  href="./services.html" >Услуги</a>
 
                                 
                                     
@@ -408,6 +194,7 @@
                             
                             <li class=" bd-menuitem-52
                                         
+ bd-submenu-icon-only
                                         bd-toplevel-item
                                         
                                         "
@@ -415,33 +202,57 @@
 
                                 
                             
-                            <a  title="Программа «ЗУМ». Расчет заземления, молниезащиты, ЭМС" href="./zymprogram.html" >Программа «ЗУМ»</a>
+                            <a  href="./zymprogram.html" >Программа «ЗУМ»</a>
 
-
-<div class="bd-menu-56-popup">                          
-  <ul class="data-control-id-171405 bd-menu-56 bd-no-margins">   
-                     
-    <li class="data-control-id-171406 bd-menuitem-53 bd-sub-item bd-sub-item">                    
-        <a href="./zymprogram.html#tasksection">Решаемые задачи</a>
-    </li> 
                                 
-    <li class="data-control-id-171406 bd-menuitem-53 bd-sub-item bd-sub-item">
-        <a href="./zymprogram.html#featuresection">Особенности программы</a>
-    </li>  
-                                
-    <li class="data-control-id-171406 bd-menuitem-53 bd-sub-item bd-sub-item">
-        <a href="./zymprogram.html#pricesection">Стоимость и условия</a>
-    </li>
-
-    <li class="data-control-id-171406 bd-menuitem-53 bd-sub-item bd-sub-item">
-        <a href="./zymprogram.html#demosection">Заказать демо-версию</a>
-    </li>
-
-  </ul>
-</div>                                
                                     
                             
                             
+
+                                
+                            <div class="bd-menu-56-popup ">
+                            
+                                <ul class=" bd-menu-56 bd-no-margins">
+
+<li class="bd-menuitem-53 bd-sub-item bd-sub-item">                    
+          <a href="./zymprogram.html#tasksection" class="submenu-item-color">Решаемые задачи</a>
+      </li> 
+                                
+      <li class="bd-menuitem-53 bd-sub-item bd-sub-item">
+          <a href="./zymprogram.html#featuresection" class="submenu-item-color">Особенности программы</a>
+      </li>                           
+
+      <li class="bd-menuitem-53 bd-sub-item bd-sub-item">
+          <a href="./zymprogram.html#demosection" class="submenu-item-color">Заказать демо-версию</a>
+      </li>
+ 
+      <li class="dividerLi"></li>
+
+                                
+                                    
+
+                                    
+                            
+                            
+                                <li class=" bd-menuitem-53 bd-sub-item bd-sub-item">
+
+                                    
+                            
+                            <a  href="./zymprogram/licence.html" >Приобретение лицензии</a>
+
+                                    
+                                        
+                            
+                            
+
+                                    
+                            
+                                </li>
+
+                                
+                            
+                                </ul>
+                            </div>
                             </li>
                             
                             <li class=" bd-menuitem-52
@@ -454,7 +265,7 @@
                                 
                             
                             <a 
- class="active" title="Партнеры" href="./partners.html" >Партнеры</a>
+ class="active" href="./partners.html" >Партнеры</a>
 
                                 
                                     
@@ -471,7 +282,7 @@
 
                                 
                             
-                            <a  title="Научные статьи по заземлению, молниезащите, ЭМС" href="./articles.html" >Статьи</a>
+                            <a  href="./articles.html" >Статьи</a>
 
                                 
                                     
@@ -488,7 +299,7 @@
 
                                 
                             
-                            <a  title="Контакты" href="./contacts.html" >Контакты</a>
+                            <a  href="./contacts.html" >Контакты</a>
 
                                 
                                     
@@ -497,9 +308,13 @@
                             </li>
                     </ul>
                     
+                    
                 </div>
             </div>
             
+            <div class="bd-menu-close-icon">
+    <a href="#" class="bd-icon  bd-icon-43"></a>
+</div>
         
             </div>
     </nav>
@@ -592,6 +407,14 @@
     <div class="bd-layoutcolumn-6 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-8 bd-own-margins bd-imagestyles-25   "  src="./assets/images/c24d7a01a691637812484866bfc44ae7_.png"
  alt="ФГБОУ ВО ПГУПС, г. Санкт-Петербург"></div></div>
 </div>
+	
+		<div class=" bd-columnwrapper-7 
+ col-lg-6
+ col-md-6
+ col-sm-6">
+    <div class="bd-layoutcolumn-7 bd-column" ><div class="bd-vertical-align-wrapper"><img class="bd-imagelink-10 bd-own-margins bd-imagestyles-30   "  src="./assets/images/7046d250668656e03da4470f3b7a7e7f_.png"
+ alt="ФГБОУ ВО ПГУПС, г. Санкт-Петербург"></div></div>
+</div>
             </div>
         </div>
     </div>
@@ -607,7 +430,7 @@
         <section class=" bd-section-1 bd-tagstyles" id="section2" data-section-title="Footer Centered Simplest">
     <div class="bd-container-inner bd-margins clearfix">
         <p class=" bd-textblock-2 bd-no-margins bd-content-element">
-    © 2019 ООО «ЗУМ»
+    © 2020 ООО «ЗУМ»
 </p>
     </div>
 </section>

@@ -5,27 +5,48 @@
 	<script>
     var themeHasJQuery = !!window.jQuery;
 </script>
-<script type="text/javascript" src="./assets/js/jquery.js?1.0.2162"></script>
+<script type="text/javascript" src="./assets/js/jquery.js?1.0.3293"></script>
 <script>
     window._$ = jQuery.noConflict(themeHasJQuery);
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./assets/css/bootstrap.css?1.0.2162" media="screen" />
-<script type="text/javascript" src="./assets/js/bootstrap.min.js?1.0.2162"></script>
+<link rel="stylesheet" href="./assets/css/bootstrap.css?1.0.3293" media="screen" />
+<script type="text/javascript" src="./assets/js/bootstrap.min.js?1.0.3293"></script>
 <!--[if lte IE 9]>
-<link rel="stylesheet" href="./assets/css/layout.ie.css?1.0.2162">
-<script src="./assets/js/layout.ie.js?1.0.2162"></script>
+<link rel="stylesheet" href="./assets/css/layout.ie.css?1.0.3293">
+<script src="./assets/js/layout.ie.js?1.0.3293"></script>
 <![endif]-->
 <link class="" href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic&subset=cyrillic-ext' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="./assets/js/layout.core.js"></script>
-<script src="./assets/js/CloudZoom.js?1.0.2162"></script>
+<script src="./assets/js/CloudZoom.js?1.0.3293"></script>
 	
     <title>ООО «ЗУМ». Заземление, молниезащита, ЭМС</title>
-	<link rel="stylesheet" href="./assets/css/style.css?1.0.2162">
-	<script src="./assets/js/script.js?1.0.2162"></script>
+	<link rel="stylesheet" href="./assets/css/style.css?1.0.3293">
+	<script src="./assets/js/script.js?1.0.3293"></script>
     <meta charset="utf-8">
     
     
+
+<script type="text/javascript">
+jQuery(document).ready(function(e) { 
+ 
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("accActive");
+      var accPanel = this.nextElementSibling;
+      if (accPanel.style.maxHeight){
+        accPanel.style.maxHeight = null;
+      } else {
+        accPanel.style.maxHeight = 1000 + "px";
+      } 
+    });
+  }
+  
+});
+</script>
     
  <meta name="keywords" content="заземление, молниезащита, ЭМС, ЗУМ, электрические подстанции">
 <meta name="description" content="ООО «ЗУМ» предлагает услуги по расчету заземления, молниезащиты, ЭМС электрических подстанций, а также лицензию на программу ЗУМ.">
@@ -35,29 +56,16 @@
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter37847770 = new Ya.Metrika({
-                    id:37847770,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true
-                });
-            } catch(e) { }
-        });
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
+   ym(37847770, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/37847770" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 <!-- /Yandex.Metrika counter -->
@@ -98,8 +106,9 @@
  col-xs-12">
     <div class="bd-layoutcolumn-17 bd-column" ><div class="bd-vertical-align-wrapper">
     <div data-smooth-scroll data-animation-time="251" class=" bd-smoothscroll-1">
-    <nav class=" bd-hmenu-1 " data-responsive-menu="true" data-responsive-levels="one level">
+    <nav class=" bd-hmenu-1 "  data-responsive-menu="true" data-responsive-levels="all open" data-responsive-type="" data-offcanvas-delay="0ms" data-offcanvas-duration="700ms" data-offcanvas-timing-function="ease">
         
+            <div class=" bd-menuoverlay-14 bd-menu-overlay"></div>
             <div class=" bd-responsivemenu-11 collapse-button">
     <div class="bd-container-inner">
         <div class="bd-menuitem-4 ">
@@ -111,10 +120,11 @@
         </div>
     </div>
 </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse ">
             
             <div class=" bd-horizontalmenu-86 clearfix">
                 <div class="bd-container-inner">
+                    
                     
                     <ul class=" bd-menu-78 nav nav-pills nav-center">
                         
@@ -144,7 +154,7 @@
                                 
                             
                             <a 
- class="active" title="ООО «ЗУМ». Заземление, молниезащита, ЭМС" href="./index.html" >Главная</a>
+ class="active" href="./index.html" >Главная</a>
 
                                 
                                     
@@ -161,7 +171,7 @@
 
                                 
                             
-                            <a  title="О нас" href="./about.html" >О нас</a>
+                            <a  href="./about.html" >О нас</a>
 
                                 
                                     
@@ -178,7 +188,86 @@
 
                                 
                             
-                            <a  title="Услуги по расчету заземления и молниезащиты электрических подстанций" href="./services.html" >Услуги</a>
+                            <a  href="./services.html" >Услуги</a>
+
+                                
+                                    
+                            
+                            
+                            </li>
+                            
+                            <li class=" bd-menuitem-52
+                                        
+ bd-submenu-icon-only
+                                        bd-toplevel-item
+                                        
+                                        "
+                                    >
+
+                                
+                            
+                            <a  href="./zymprogram.html" >Программа «ЗУМ»</a>
+
+                                
+                                    
+                            
+                            
+
+                                
+                            <div class="bd-menu-56-popup ">
+                            
+                                <ul class=" bd-menu-56 bd-no-margins">
+
+
+<li class="bd-menuitem-53 bd-sub-item bd-sub-item">                    
+          <a href="./zymprogram.html#tasksection" class="submenu-item-color">Решаемые задачи</a>
+      </li> 
+                                
+      <li class="bd-menuitem-53 bd-sub-item bd-sub-item">
+          <a href="./zymprogram.html#featuresection" class="submenu-item-color">Особенности программы</a>
+      </li>                           
+
+      <li class="bd-menuitem-53 bd-sub-item bd-sub-item">
+          <a href="./zymprogram.html#demosection" class="submenu-item-color">Заказать демо-версию</a>
+      </li>
+ 
+      <li class="dividerLi"></li>                                
+                                    
+
+                                    
+                            
+                            
+                                <li class=" bd-menuitem-53 bd-sub-item bd-sub-item">
+
+                                    
+                            
+                            <a  href="./zymprogram/licence.html" >Приобретение лицензии</a>
+
+                                    
+                                        
+                            
+                            
+
+                                    
+                            
+                                </li>
+
+                                
+                            
+                                </ul>
+                            </div>
+                            </li>
+                            
+                            <li class=" bd-menuitem-52
+                                        
+                                        bd-toplevel-item
+                                        
+                                        "
+                                    >
+
+                                
+                            
+                            <a  href="./partners.html" >Партнеры</a>
 
                                 
                                     
@@ -195,45 +284,7 @@
 
                                 
                             
-                            <a  title="Программа «ЗУМ». Расчет заземления, молниезащиты, ЭМС" href="./zymprogram.html" >Программа «ЗУМ»</a>
-
-
-<div class="bd-menu-56-popup">                          
-  <ul class="data-control-id-171405 bd-menu-56 bd-no-margins">   
-                     
-    <li class="data-control-id-171406 bd-menuitem-53 bd-sub-item bd-sub-item">                    
-        <a href="./zymprogram.html#tasksection">Решаемые задачи</a>
-    </li> 
-                                
-    <li class="data-control-id-171406 bd-menuitem-53 bd-sub-item bd-sub-item">
-        <a href="./zymprogram.html#featuresection">Особенности программы</a>
-    </li>  
-                                
-    <li class="data-control-id-171406 bd-menuitem-53 bd-sub-item bd-sub-item">
-        <a href="./zymprogram.html#pricesection">Стоимость и условия</a>
-    </li>
-
-    <li class="data-control-id-171406 bd-menuitem-53 bd-sub-item bd-sub-item">
-        <a href="./zymprogram.html#demosection">Заказать демо-версию</a>
-    </li>
-
-  </ul>
-</div>                                
-                                    
-                            
-                            
-                            </li>
-                            
-                            <li class=" bd-menuitem-52
-                                        
-                                        bd-toplevel-item
-                                        
-                                        "
-                                    >
-
-                                
-                            
-                            <a  title="Партнеры" href="./partners.html" >Партнеры</a>
+                            <a  href="./articles.html" >Статьи</a>
 
                                 
                                     
@@ -250,24 +301,7 @@
 
                                 
                             
-                            <a  title="Научные статьи по заземлению, молниезащите, ЭМС" href="./articles.html" >Статьи</a>
-
-                                
-                                    
-                            
-                            
-                            </li>
-                            
-                            <li class=" bd-menuitem-52
-                                        
-                                        bd-toplevel-item
-                                        
-                                        "
-                                    >
-
-                                
-                            
-                            <a  title="Контакты" href="./contacts.html" >Контакты</a>
+                            <a  href="./contacts.html" >Контакты</a>
 
                                 
                                     
@@ -276,9 +310,13 @@
                             </li>
                     </ul>
                     
+                    
                 </div>
             </div>
             
+            <div class="bd-menu-close-icon">
+    <a href="#" class="bd-icon  bd-icon-43"></a>
+</div>
         
             </div>
     </nav>
@@ -451,7 +489,7 @@
 </div>
 	
 		<p class=" bd-textblock-13 bd-content-element">
-    ООО «ЗУМ» образовано в 2013 г. при поддержке Фонда содействия развитию малых форм предприятий в научно-технической сфере. Сфера деятельности - разработка программного обеспечения для расчета заземления, молниезащиты, ЭМС в электроэнергетике (программа ЗУМ) и предоставление услуг по расчету и проектированию электрических подстанций. Среди сотрудников ООО «ЗУМ»: 1 доктор технических наук и два кандидата технических наук.
+    ООО «ЗУМ» образовано в 2013 г. при поддержке Фонда содействия развитию малых форм предприятий в научно-технической сфере. Сфера деятельности - разработка программного обеспечения для расчета заземления, молниезащиты, ЭМС в электроэнергетике (программа «ЗУМ») и предоставление услуг по расчету и проектированию электрических подстанций. Среди сотрудников ООО «ЗУМ»: один доктор технических наук и два кандидата технических наук.
 </p>
 	
 		<div class=" bd-spacer-2 clearfix"></div>
@@ -596,7 +634,7 @@
         <section class=" bd-section-1 bd-tagstyles" id="section2" data-section-title="Footer Centered Simplest">
     <div class="bd-container-inner bd-margins clearfix">
         <p class=" bd-textblock-2 bd-no-margins bd-content-element">
-    © 2019 ООО «ЗУМ»
+    © 2020 ООО «ЗУМ»
 </p>
     </div>
 </section>

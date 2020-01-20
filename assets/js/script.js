@@ -100,14 +100,8 @@ jQuery(function ($) {
                 var elWidth = el.outerWidth();
                 var elLeft = el.offset().left;
                 el.css('width', (el.outerWidth() / bodyWidth * 100) + '%');
-
-                if (bodyWidth / 2 > (elLeft + elWidth / 2)) {
-                    el.css('left', (elLeft / bodyWidth * 100) + '%');
-                    el.css('right', 'auto');
-                } else {
-                    el.css('right', ((bodyWidth - elLeft - elWidth) / bodyWidth * 100) + '%');
-                    el.css('left', 'auto');
-                }
+                el.css('left', (elLeft / bodyWidth * 100) + '%');
+                el.css('right', ((bodyWidth - elLeft - elWidth) / bodyWidth * 100) + '%');
 
                 var offset = parseInt(element.data('offset'), 10) || 0;
                 var ev = $.Event('affix-calc.theme.affix');
@@ -230,30 +224,47 @@ jQuery(function ($) {
         }
     };
     //=====================================================
-    function setQueue() {
-        $('.animated[data-animation-event]').each(function () {
-            var effect = $(this);
-            if(!effect.data('animation-queue')) {
-                effect.data('animation-queue', new AsyncQueue($(this)));
-            }
-        });
+    $(function() {
+        /**
+         * Fix for bootstrap v3.1.1
+         * Missing check for event target.
+         * Already fixed in newer versions
+         */
+        if ($.support.transition && !$.event.special.bsTransitionEnd) {
+            $.event.special[$.support.transition.end] = {
+                handle: function (e) {
+                    if ($(e.target).is(this)) {
+                        return e.handleObj.handler.apply(this, arguments);
+                    }
+                }
+            };
+        }
+    });
+
+    function getQueue(effect) {
+        if (effect.is('.animated[data-animation-event]') && !effect.data('animation-queue')) {
+            effect.data('animation-queue', new AsyncQueue(effect));
+        }
+        return effect.data('animation-queue');
     }
     function runAnimation(effect, eventName) {
-        var queue = effect.data('animation-queue');
-        if(queue) {
+        var queue = getQueue(effect);
+        if (queue) {
             queue.push(eventName);
         }
     }
     function abortAnimation(effect) {
-        var queue = effect.data('animation-queue');
-        if(queue) {
+        var queue = getQueue(effect);
+        if (queue) {
             queue.abort();
         }
     }
+    function visibilityImmediate(effect, value) {
+        effect.css('transition', value === 'hidden' ? 'none' : '');
+        effect.css('visibility', value);
+    }
 
     $(window).resize(function() {
-        setQueue();
-        
         // onloadinterval
         $('.animated[data-animation-event*="onloadinterval"]').each(function() {
             var effect = $(this);
@@ -261,8 +272,6 @@ jQuery(function ($) {
         });
     });
     $(function() {
-        setQueue();
-
         // hover
         $(document).on('mouseover', '.animated[data-animation-event*="hover"]', function() {
             runAnimation($(this), 'hover');
@@ -274,7 +283,7 @@ jQuery(function ($) {
                 return;
             }
             if (needToHide(effect, 'scroll')) {//скрывать, даже если изначально он в поле зрения
-                effect.css('visibility', 'hidden');
+                visibilityImmediate(effect, 'hidden');
             }
         });
         $(document).on('scroll', function() {
@@ -320,7 +329,7 @@ jQuery(function ($) {
         slideinEffects.each(function() {
             var effect = $(this);
             if (needToHide(effect, 'slidein')) {
-                effect.css('visibility', 'hidden');
+                visibilityImmediate(effect, 'hidden');
             }
         });
         var carouselsSlidein = slideinEffects.parents('.carousel');
@@ -330,12 +339,12 @@ jQuery(function ($) {
                 .find('.animated[data-animation-event*="slidein"]')
                 .each(function() {
                     runAnimation($(this), 'slidein');
-                })
+                });
             $(this)
                 .find('.item:not(.active)')
                 .find('.animated[data-animation-event*="slideout"]').each(function() {
                     var effect = $(this);
-                    effect.css('visibility', '');
+                    visibilityImmediate(effect, '');
                 });
             $(this)
                 .find('.item:not(.active)')
@@ -343,7 +352,7 @@ jQuery(function ($) {
                 .each(function() {
                     var effect = $(this);
                     if (needToHide(effect, 'slidein')) {
-                        effect.css('visibility', 'hidden');
+                        visibilityImmediate(effect, 'hidden');
                     }
                 });
         });
@@ -366,7 +375,7 @@ jQuery(function ($) {
                     }
                     setTimeout(function () {
                         if (needToHide(effect, 'slideout')) {
-                            effect.css('visibility', 'hidden');
+                            visibilityImmediate(effect, 'hidden');
                         }
                     }.bind(effect), getAnimationTime(effect, 'slideout'));
                 });
@@ -376,7 +385,7 @@ jQuery(function ($) {
                     effects.each(function() {
                         var effect = $(this);
                         if (needToHide(effect, 'slideout')) {
-                            effect.css('visibility', 'hidden');
+                            visibilityImmediate(effect, 'hidden');
                         }
                         if (effect.data('slideout-played')) {
                             effect.data('slideout-played', false);
@@ -441,7 +450,7 @@ jQuery(function ($) {
     //========================================
     function BaseAnimation() {}
     BaseAnimation.prototype.start = function(nextAnimation) {
-        this.dom.css('visibility', '');
+        visibilityImmediate(this.dom, '');
         this.nextAnimation = nextAnimation;
         startAnimation(this.dom, this.type);
         this.timer = waitEnd(this.dom, this.type, function() {
@@ -647,9 +656,23 @@ jQuery(function ($) {
             }
             return 0;
         },
-        classRE = new RegExp('.*(bd-\\S+[-\\d]*).*'),
+        classRE1 = new RegExp('^bd-.*-\\d+$'),
+        classRE2 = new RegExp('^bd-.*$'),
+        getClass = function getClass(el) {
+            var i;
+            for (i = 0; i < el.classList.length; i++) {
+                if (classRE1.test(el.classList[i])) {
+                    return el.classList[i];
+                }
+            }
+            for (i = 0; i < el.classList.length; i++) {
+                if (classRE2.test(el.classList[i])) {
+                    return el.classList[i];
+                }
+            }
+        },
         childFilter = function childFilter() {
-            return classRE.test(this.className);
+            return !!getClass(this);
         },
         getDeeper = function (roots) {
             while (roots.length && roots.length === roots.children().length) {
@@ -663,7 +686,7 @@ jQuery(function ($) {
             var childrenWeights = {};
             var getNextWeight = function getNextWeight(children, i, l) {
                 for (var j = i + 1; j < l; j++) {
-                    var cls = children[j].className.replace(classRE, '$1');
+                    var cls = getClass(children[j]);
                     if (childrenClasses.indexOf(cls) !== -1) {
                         return childrenWeights[cls];
                     }
@@ -674,7 +697,7 @@ jQuery(function ($) {
                 var children = $(root).children().filter(childFilter);
                 var previousWeight = 0;
                 for (var c = 0, l = children.length; c < l; c++) {
-                    var cls = children[c].className.replace(classRE, '$1');
+                    var cls = getClass(children[c]);
                     if (!cls || cls.length < 1) {
                         continue;
                     }
@@ -753,16 +776,12 @@ jQuery(function ($) {
                 }
             });
 
-            var magicNumberForFirefoxByRamazanInDR21547 = 0;
-            if (navigator.userAgent.toLowerCase().indexOf('firefox') !== -1) {
-                magicNumberForFirefoxByRamazanInDR21547 = 10;
-            }
-            $(row).css('min-height', (hMax + 1 + magicNumberForFirefoxByRamazanInDR21547) + 'px');
+            $(row).css('min-height', (hMax + 1) + 'px');
         }
         row = [];
     };
     var itemsRE = new RegExp('.*(separated-item[^\\s]+).*'),
-        resize = function resize() {
+        resize = function resize(force) {
             var grid = $('.separated-grid');
             grid.each(function eachGrid(i, gridElement) {
                 var g = $(gridElement);
@@ -796,8 +815,9 @@ jQuery(function ($) {
                     }
                 }
 
-
-                if (g.innerHeight() === gridElement._height && g.innerWidth() === gridElement._width) {
+                // height of inner elements may change (because of height in vh)
+                // in this case 'force' argument used
+                if (!force && g.innerHeight() === gridElement._height && g.innerWidth() === gridElement._width) {
                     return;
                 }
 
@@ -857,7 +877,7 @@ jQuery(function ($) {
             if (param && param.force) {
                 resize();
             } else {
-                timeoutLazy = setTimeout(resize, 100);
+                timeoutLazy = setTimeout(resize, 100, e && e.type === 'resize');
             }
         },
         interval = function interval() {
@@ -1002,11 +1022,11 @@ window.ThemeLightbox = (function ($) {
                         }
                         e.preventDefault();
                     }).mousedown(function (e) {
-                            // close on middle button click
-                            if (e.which === 2) {
-                                close();
-                            }
-                            e.preventDefault();
+                        // close on middle button click
+                        if (e.which === 2) {
+                            close();
+                        }
+                        e.preventDefault();
                      });
                 }
                 move(current);
@@ -1103,8 +1123,7 @@ window.ThemeLightbox = (function ($) {
         function showLoader(enable) {
             if (!enable) {
                 $(".bd-lightbox .loading").remove();
-            }
-            else {
+            } else {
                 $('<div class="loading"> </div>').css({ "top": $(window).height() / 2 - 16, "left": $(window).width() / 2 - 16 }).appendTo($(".bd-lightbox"));
             }
         }
@@ -1115,7 +1134,7 @@ window.ThemeLightbox = (function ($) {
             if (parentLink.length) {
                 parentLink.click(function (e) {
                     e.preventDefault();
-                    });
+                });
                 largeImage = parentLink.attr('href');
             } else {
                 var src = image.attr("src");
@@ -1160,42 +1179,180 @@ jQuery(function ($) {
         });
     });
 
-    $(document).on('touchend click', '[data-responsive-menu] a:not([data-toggle="collapse"])', function responsiveClick(e) {
-        var itemLink = $(this);
-        var menu = itemLink.closest('[data-responsive-menu]');
-        var responsiveBtn = menu.find('.collapse-button');
-        var responsiveLevels = menu.data('responsiveLevels');
+    function parseTiming(str) {
+        var ms = parseInt(str);
+        if (str.indexOf('ms') === -1 && str.indexOf('s') !== -1) {
+            ms *= 1000;
+        }
+        return ms;
+    }
 
-        // TODO: check isResponsive and !isResponsive separately
-        if (responsiveBtn.length && !responsiveBtn.is(':visible') ||
-            responsiveLevels !== 'expand on click' && responsiveLevels !== '' ||
-            !menu.data('responsiveMenu')) {
-            return true;
+    var emulateTransitionEnd = $.fn.emulateTransitionEnd;
+    var dummyTransitionEnd = function (ms) {
+        return function () {
+            return emulateTransitionEnd.call(this, ms);
+        };
+    };
+
+    var $body = $('body'),
+        $html = $('html');
+
+    $body.on('click', '.bd-menu-overlay, .bd-menu-close-icon', function (e) {
+        var menu = $(e.target).closest('nav');
+        if (menu.length) {
+            menu.find('.navbar-collapse').collapse('hide');
+        }
+    });
+
+    $(document).keyup(function (e) {
+        if (e.keyCode === 27) { // esc
+            $('nav .navbar-collapse.collapse.in').collapse('hide');
+        }
+    });
+
+    var prevWidth = window.innerWidth,
+        prevHeight = window.innerHeight;
+    $(window).on('resize', function () {
+        if (prevWidth === window.innerWidth && prevHeight === window.innerHeight) {
+            return;
+        }
+        // close all offcanvas menus
+        $('nav .navbar-collapse.collapse.width.in').collapse('hide');
+        prevWidth = window.innerWidth;
+        prevHeight = window.innerHeight;
+    });
+
+    function disableScroll() {
+        var overflow = $html[0].clientHeight < $html[0].scrollHeight;
+        $body.css('top', '-' + window.scrollY + 'px');
+        if (overflow) {
+            $html.css('overflow-y', 'scroll');
+        }
+        $html.css('position', 'fixed').css('width', '100%');
+    }
+
+    function enableScroll() {
+        if ($html.css('position') !== 'fixed') { // already enabled
+            return;
+        }
+        $html.css('position', '').css('overflow-y', '').css('width', '');
+        var scrollY = -parseInt($body.css('top'));
+        $body.css('top', '');
+        window.scrollTo(window.scrollX, scrollY);
+    }
+
+    $body.on('show.bs.collapse', '.navbar-collapse.width', function (event) {
+        var menu = $(event.target).closest('nav'),
+            overlay = menu.find('.bd-menu-overlay');
+
+        var offcanvasShift = menu.data('responsiveType') === 'offcanvas-shifted';
+        if (offcanvasShift) {
+            $body
+                .css('transition', ['left', menu.data('offcanvasDuration'), menu.data('offcanvasTimingFunction'), menu.data('offcanvasDelay')].join(' '))
+                .css('left', '0');
         }
 
-        var submenu = itemLink.siblings();
-        if (!submenu.length) return true;
-        if (submenu.css('visibility') === 'visible') {
-            submenu.removeClass('show');
-            submenu.find('.show').removeClass('show');
-            itemLink.removeClass('active');
-        } else {
-            itemLink
-                .closest('[class*=bd-menuitem]')
-                .siblings()
-                .find('ul').parent()
-                .removeClass('show');
+        disableScroll();
+        overlay.addClass('show');
 
-            itemLink.closest('[class*=bd-menuitem]')
-                .siblings()
-                .find('> div > a, > a')
-                .removeClass('active');
+        $.fn.emulateTransitionEnd = dummyTransitionEnd(parseTiming(menu.data('offcanvasDuration')) + parseTiming(menu.data('offcanvasDelay')));
+        requestAnimationFrame(function () {
+            var width = menu.find('.navbar-collapse')[0].style.width;
 
-            submenu.addClass('show');
-            itemLink.addClass('active');
+            overlay
+                .css('opacity', 1)
+                .css('margin-left', width);
+
+            if (offcanvasShift) {
+                $body.css('left', width);
+            }
+            $.fn.emulateTransitionEnd = emulateTransitionEnd;
+        });
+    });
+
+    $body.on('shown.bs.collapse', '.navbar-collapse.width', function (event) {
+        $(event.target).css('width', '');
+    });
+
+    $body.on('hide.bs.collapse', '.navbar-collapse.width', function (event) {
+        var menu = $(event.target).closest('nav'),
+            overlay = menu.find('.bd-menu-overlay');
+        var offcanvasShift = menu.data('responsiveType') === 'offcanvas-shifted';
+        overlay
+            .css('opacity', '')
+            .css('margin-left', '');
+
+        if (offcanvasShift) {
+            $body.css('left', '0');
         }
-        e.preventDefault();
-        return false;
+
+        $.fn.emulateTransitionEnd = dummyTransitionEnd(parseTiming(menu.data('offcanvasDuration')) + parseTiming(menu.data('offcanvasDelay')));
+    });
+
+    $body.on('hidden.bs.collapse', '.navbar-collapse.width', function (event) {
+        var collapse = $(event.target),
+            overlay = collapse.siblings('.bd-menu-overlay');
+        $.fn.emulateTransitionEnd = emulateTransitionEnd;
+        $body.css('transition', '');
+        enableScroll();
+
+        overlay.removeClass('show');
+        collapse.css('width', '');
+    });
+
+    function isResponsive(menu) {
+        var tmpContainer = $('<div>').addClass('responsive-collapsed');
+        menu.append(tmpContainer);
+        var visible = tmpContainer.is(':visible');
+        tmpContainer.remove();
+        return !visible;
+    }
+
+    $(document).on('touchend click', '[data-responsive-menu] .nav a', function responsiveClick(e) {
+        var itemLink = $(this),
+            menu = itemLink.closest('[data-responsive-menu]'),
+            responsiveLevels = menu.data('responsiveLevels'),
+            levels = menu.data('levels'),
+            responsive = isResponsive(menu);
+
+        if (responsive && responsiveLevels === 'expand on click' ||
+            !responsive && levels === 'expand on click'
+        ) {
+            var submenu = itemLink.siblings();
+            if (submenu.length > 0) {
+                if (submenu.css('visibility') === 'visible') {
+                    submenu.removeClass('show');
+                    submenu.find('.show').removeClass('show');
+                    itemLink.removeClass('active');
+                } else {
+                    itemLink
+                        .closest('[class*=bd-menuitem]')
+                        .siblings()
+                        .find('ul').parent()
+                        .removeClass('show');
+
+                    itemLink.closest('[class*=bd-menuitem]')
+                        .siblings()
+                        .find('> div > a, > a')
+                        .removeClass('active');
+
+                    submenu.addClass('show');
+                    itemLink.addClass('active');
+                }
+                e.preventDefault();
+                return false;
+            }
+        }
+
+        if (e.type === 'click' && menu.attr('data-responsive-type') === 'offcanvas' && menu.find('.collapse.in').length > 0) {
+            // make anchor-link works
+            menu.find('.navbar-collapse').collapse('hide');
+            enableScroll();
+            e.preventDefault();
+            e.currentTarget.click();
+            return false;
+        }
+        return true;
     });
 
     $(document).on('mouseenter touchstart', 'ul.nav > li, .nav ul > li', function calcSubmenuDirection() {
@@ -1818,7 +1975,10 @@ jQuery(function($) {
                         var thumbnail = $(this),
                             rel = thumbnail.attr('rel') === undefined ? '' : thumbnail.attr('rel'),
                             relAttr = (rel.indexOf("cloud-zoom-effect-1") > 0 ? rel : (rel === '' ? '' : rel + ',') + "useZoom: 'cloud-zoom-effect-1'");
-                        thumbnail.attr('rel', relAttr).addClass('cloud-zoom-gallery');
+                        thumbnail.attr('rel', relAttr);
+                        if (!thumbnail.hasClass('with-lightbox')) {
+                            thumbnail.addClass('cloud-zoom-gallery');
+                        }
                     });
                 }
             }
@@ -2406,7 +2566,6 @@ function SmoothWheel() {
             i *= that.options.stepsize / 120;
         }
         ssc_scrollArray(n, -r, -i);
-        e.preventDefault();
     }
 
     function ssc_keydown(e) {
@@ -2482,7 +2641,7 @@ function SmoothWheel() {
             t.push(e);
             if (n === e.scrollHeight) {
                 if (!ssc_frame || ssc_root.clientHeight + 10 < n) {
-                    return ssc_setCache(t, document.body);
+                    return ssc_setCache(t, currentScrollingElement);
                 }
             } else if (e.clientHeight + 10 < e.scrollHeight) {
                 overflow = getComputedStyle(e, "").getPropertyValue("overflow");
@@ -2564,6 +2723,8 @@ function SmoothWheel() {
     var ssc_pending = false;
     var ssc_cache = {};
     var currentBrowser = '';
+    var versionBrowser = '';
+    var currentScrollingElement = document.body;
 
     setInterval(function() {
         ssc_cache = {};
@@ -2578,15 +2739,23 @@ function SmoothWheel() {
 
     jQuery(document).ready(function() {
         function t() {
-            var e = navigator.appName,
-                tReg = navigator.userAgent,
-                n;
-            var r = tReg.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-            if (r && (n = tReg.match(/version\/([\.\d]+)/i)) !== null) r[2] = n[1];
-            r = r ? [r[1], r[2]] : [e, navigator.appVersion, "-?"];
-            return r[0];
+            var ua = navigator.userAgent, tem,
+                M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+            if(/trident/i.test(M[1])){
+                tem =  /\brv[ :]+(\d+)/g.exec(ua) || [];
+                return 'IE '+(tem[1] || '');
+            }
+            if(M[1] === 'Chrome'){
+                tem = ua.match(/\b(OPR|Edge)\/(\d+)/);
+                if(tem != null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
+            }
+            M = M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+            if((tem = ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
+            return M;
         }
-        currentBrowser = t().toLowerCase();
+
+        currentBrowser = t()[0].toLowerCase();
+        versionBrowser = t()[1];
 
         var webKit = 'safari;chrome';
         var IE = 'netscape;msie';
@@ -2605,7 +2774,13 @@ function SmoothWheel() {
             if (currentBrowser === 'firefox' || currentBrowser === "msie" || currentBrowser === "netscape") {
                 ssc_addEvent("wheel", ssc_wheel);
             } else {
-                ssc_addEvent("mousewheel", ssc_wheel);
+                if (currentBrowser === 'chrome' && parseInt(versionBrowser) >= 61) {
+                    // Use scrollingElement for smooth scrolling using keyboard
+                    currentScrollingElement  = document.scrollingElement;
+                    // Here is used native chrome smooth scrolling for wheel.
+                } else {
+                    ssc_addEvent("mousewheel", ssc_wheel);
+                }
             }
             ssc_addEvent("load", ssc_init);
         }
@@ -2651,50 +2826,55 @@ function SmoothWheel() {
     $(stretchToBottom);
 
     function stretchToBottom() {
-        var bh, mh = 0;
-        var parent,
-            html = document.documentElement,
-            prevHeight = html.style.height;
+        var html = document.documentElement,
+            prevHeight = html.style.height,
+            body = $('body');
 
         html.style.height = '100%';
 
-        var c = $('.bd-stretch-to-bottom');
-        var target = c.find(c.data('controlSelector'))
-            .add(c.find(c.data('controlSelector') + ' .bd-stretch-inner').first());
+        $('.bd-stretch-to-bottom').each(function() {
+            var c = $(this),
+                bh,
+                mh = 0,
+                parent;
 
-        if (target.length === 0) {
-            return;
-        }
+            var target = c.find(c.data('controlSelector'))
+                .add(c.find(c.data('controlSelector') + ' .bd-stretch-inner').first());
 
-        target.removeAttr('style');
-        bh = $('body').height();
+            if (target.length === 0) {
+                return;
+            }
 
-        var prevMargin = 0;
-        $('body').children().each(function() {
-            var $node = $(this);
-            if ($node.is(':visible') && $node.css('float') !== 'left' && $node.css('float') !== 'right' &&
-                $node.css('position') !== 'absolute' && $node.css('position') !== 'fixed') {
+            target.removeAttr('style');
+            bh = body.height();
 
-                if (!prevMargin) {
-                    mh += parseFloat($node.css('margin-top'));
-                } else {
-                    mh += Math.max(parseFloat($node.css('margin-bottom')), prevMargin);
+            var prevMargin = 0;
+            body.children().each(function() {
+                var $node = $(this);
+                if ($node.is(':visible') && $node.css('float') !== 'left' && $node.css('float') !== 'right' &&
+                    $node.css('position') !== 'absolute' && $node.css('position') !== 'fixed') {
+
+                    if (!prevMargin) {
+                        mh += parseFloat($node.css('margin-top'));
+                    } else {
+                        mh += Math.max(parseFloat($node.css('margin-bottom')), prevMargin);
+                    }
+
+                    mh += $node.outerHeight();
+
+                    prevMargin = parseFloat($node.css('margin-bottom'));
+
+                    if ($.contains(this, target[0]) || this === target[0]) {
+                        parent = $node;
+                    }
                 }
+            });
 
-                mh += $node.outerHeight();
-
-                prevMargin = parseFloat($node.css('margin-bottom'));
-
-                if ($.contains(this, target[0]) || this === target[0]) {
-                    parent = $node;
-                }
+            if (mh < bh && parent) {
+                var r = bh - mh;
+                target.css('min-height', (target.outerHeight(true) + r) + 'px');
             }
         });
-
-        if (mh < bh && parent) {
-            var r = bh - mh;
-            c.css('min-height', (c.outerHeight(true) + r) + 'px');
-        }
 
         html.style.height = prevHeight;
     }
@@ -2709,7 +2889,8 @@ function SmoothWheel() {
         $(document).ready(function () {
             var controls = $('[data-autoplay=true]');
             $(controls).each(function (index, item) {
-                item.src = item.src + (item.src.indexOf("?") === -1 ? "?" : "&") + "autoplay=1";
+                if (item.src)
+                    item.src = item.src + (item.src.indexOf("?") === -1 ? "?" : "&") + "autoplay=1";
             });
         });
     }

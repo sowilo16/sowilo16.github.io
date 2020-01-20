@@ -5,105 +5,109 @@
 	<script>
     var themeHasJQuery = !!window.jQuery;
 </script>
-<script type="text/javascript" src="./assets/js/jquery.js?1.0.2162"></script>
+<script type="text/javascript" src="./assets/js/jquery.js?1.0.3293"></script>
 <script>
     window._$ = jQuery.noConflict(themeHasJQuery);
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./assets/css/bootstrap.css?1.0.2162" media="screen" />
-<script type="text/javascript" src="./assets/js/bootstrap.min.js?1.0.2162"></script>
+<link rel="stylesheet" href="./assets/css/bootstrap.css?1.0.3293" media="screen" />
+<script type="text/javascript" src="./assets/js/bootstrap.min.js?1.0.3293"></script>
 <!--[if lte IE 9]>
-<link rel="stylesheet" href="./assets/css/layout.ie.css?1.0.2162">
-<script src="./assets/js/layout.ie.js?1.0.2162"></script>
+<link rel="stylesheet" href="./assets/css/layout.ie.css?1.0.3293">
+<script src="./assets/js/layout.ie.js?1.0.3293"></script>
 <![endif]-->
 <link class="" href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic&subset=cyrillic-ext' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="./assets/js/layout.core.js"></script>
-<script src="./assets/js/CloudZoom.js?1.0.2162"></script>
+<script src="./assets/js/CloudZoom.js?1.0.3293"></script>
 	
     <title>Программа «ЗУМ». Расчет заземления, молниезащиты, ЭМС</title>
-	<link rel="stylesheet" href="./assets/css/style.css?1.0.2162">
-	<script src="./assets/js/script.js?1.0.2162"></script>
+	<link rel="stylesheet" href="./assets/css/style.css?1.0.3293">
+	<script src="./assets/js/script.js?1.0.3293"></script>
     <meta charset="utf-8">
     
     
+
+<script type="text/javascript">
+jQuery(document).ready(function(e) { 
+ 
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("accActive");
+      var accPanel = this.nextElementSibling;
+      if (accPanel.style.maxHeight){
+        accPanel.style.maxHeight = null;
+      } else {
+        accPanel.style.maxHeight = 1000 + "px";
+      } 
+    });
+  }
+  
+});
+</script>
     
  <meta name="keywords" content="заземление, молниезащита, ЭМС, ЗУМ, программа, расчет">
 <meta name="description" content="Программа «ЗУМ» – приложение к AutoCAD, предназначенное для комплексного расчета систем молниезащиты и заземления при проектировании объектов энергетики.">
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter37847770 = new Ya.Metrika({
-                    id:37847770,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true
-                });
-            } catch(e) { }
-        });
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
+   ym(37847770, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/37847770" style="position:absolute; left:-9999px;" alt=""></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-<script>var $ = jQuery;</script>
-
 <script src="https://www.google.com/recaptcha/api.js" async="true" defer="true"></script>
 
 <script type="text/javascript">
-$(document).ready(function(e) { 
+jQuery(document).ready(function(e) { 
   
-  $('#df-name').attr("required",true);
-  $('#df-organization').attr("required",true);
-  $('#df-email').attr("required",true);
-  $('#df-telephone').attr("required",true);
+  jQuery('#df-name').attr("required",true);
+  jQuery('#df-organization').attr("required",true);
+  jQuery('#df-email').attr("required",true);
+  jQuery('#df-telephone').attr("required",true);
   
-  $('[name="demoform"]').submit(function(event){  
-    var post_url = $(this).attr("action"); 
+  jQuery('[name="demoform"]').submit(function(event){  
+    var post_url = jQuery(this).attr("action"); 
     
-    $.ajax({
+    jQuery.ajax({
       url : post_url,
       type: "POST",
       dataType: "json",
-      data : $(this).serialize(),
+      data : jQuery(this).serialize(),
       success: function(response) {
         if(response.status == "success"){
-          $('[name="demoform"]').html("<div id='message'></div>");
-          $('#message').html("<h2>Заявка на демо-версию принята!</h2>");
-          $('#message').append("<p>Ожидайте ответа в течение 3-х рабочих дней.</p>");
-          $('#message').append("<img src=\"ok_circle.png\">");
+          jQuery('[name="demoform"]').html("<div id='message'></div>");
+          jQuery('#message').html("<h2>Заявка на демо-версию принята!</h2>");
+          jQuery('#message').append("<p>Ожидайте ответа в течение 3-х рабочих дней.</p>");
+          jQuery('#message').append("<img src=\"ok_circle.png\">");
         }
         else {
-          $('[name="demoform"]').html("<div id='message'></div>");
-          $('#message').html("<h2>Произошла ошибка, заявка не отправлена!</h2>");
-          $('#message').append("<p>" + response + "</p>");
-          $('#message').append("<img src=\"error_circle.png\">");
+          jQuery('[name="demoform"]').html("<div id='message'></div>");
+          jQuery('#message').html("<h2>Произошла ошибка, заявка не отправлена!</h2>");
+          jQuery('#message').append("<p>" + response + "</p>");
+          jQuery('#message').append("<img src=\"error_circle.png\">");
         }
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {       
-        $('[name="demoform"]').html("<div id='message'></div>");
-        $('#message').html("<h2>Произошла ошибка, заявка не отправлена!</h2>");
-        $('#message').append("<p>Статус: \"" + textStatus + "\"; Ошибка: \"" + errorThrown + "\".</p>");
-        $('#message').append("<img src=\"error_circle.png\">");
+        jQuery('[name="demoform"]').html("<div id='message'></div>");
+        jQuery('#message').html("<h2>Произошла ошибка, заявка не отправлена!</h2>");
+        jQuery('#message').append("<p>Статус: \"" + textStatus + "\"; Ошибка: \"" + errorThrown + "\".</p>");
+        jQuery('#message').append("<img src=\"error_circle.png\">");
       }
     });  
     
     event.preventDefault();
-    event.unbind();  
   });
   
 });  
@@ -140,8 +144,9 @@ $(document).ready(function(e) {
  col-xs-12">
     <div class="bd-layoutcolumn-17 bd-column" ><div class="bd-vertical-align-wrapper">
     <div data-smooth-scroll data-animation-time="251" class=" bd-smoothscroll-1">
-    <nav class=" bd-hmenu-1 " data-responsive-menu="true" data-responsive-levels="one level">
+    <nav class=" bd-hmenu-1 "  data-responsive-menu="true" data-responsive-levels="all open" data-responsive-type="" data-offcanvas-delay="0ms" data-offcanvas-duration="700ms" data-offcanvas-timing-function="ease">
         
+            <div class=" bd-menuoverlay-14 bd-menu-overlay"></div>
             <div class=" bd-responsivemenu-11 collapse-button">
     <div class="bd-container-inner">
         <div class="bd-menuitem-4 ">
@@ -153,10 +158,11 @@ $(document).ready(function(e) {
         </div>
     </div>
 </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse ">
             
             <div class=" bd-horizontalmenu-86 clearfix">
                 <div class="bd-container-inner">
+                    
                     
                     <ul class=" bd-menu-78 nav nav-pills nav-center">
                         
@@ -185,7 +191,7 @@ $(document).ready(function(e) {
 
                                 
                             
-                            <a  title="ООО «ЗУМ». Заземление, молниезащита, ЭМС" href="./index.html" >Главная</a>
+                            <a  href="./index.html" >Главная</a>
 
                                 
                                     
@@ -202,7 +208,7 @@ $(document).ready(function(e) {
 
                                 
                             
-                            <a  title="О нас" href="./about.html" >О нас</a>
+                            <a  href="./about.html" >О нас</a>
 
                                 
                                     
@@ -219,7 +225,7 @@ $(document).ready(function(e) {
 
                                 
                             
-                            <a  title="Услуги по расчету заземления и молниезащиты электрических подстанций" href="./services.html" >Услуги</a>
+                            <a  href="./services.html" >Услуги</a>
 
                                 
                                     
@@ -229,6 +235,7 @@ $(document).ready(function(e) {
                             
                             <li class=" bd-menuitem-52
                                         
+ bd-submenu-icon-only
                                         bd-toplevel-item
                                         
                                         "
@@ -237,29 +244,69 @@ $(document).ready(function(e) {
                                 
                             
                             <a 
- class="active" title="Программа «ЗУМ». Расчет заземления, молниезащиты, ЭМС" href="./zymprogram.html" >Программа «ЗУМ»</a>
+ class="active" href="./zymprogram.html" >Программа «ЗУМ»</a>
 
-<div class="bd-menu-56-popup">                          
-  <ul class="data-control-id-171405 bd-menu-56 bd-no-margins">   
-                     
-    <li class="data-control-id-171406 bd-menuitem-53 bd-sub-item bd-sub-item">                    
-        <a href="./zymprogram.html#tasksection">Решаемые задачи</a>
-    </li> 
                                 
-    <li class="data-control-id-171406 bd-menuitem-53 bd-sub-item bd-sub-item">
-        <a href="./zymprogram.html#featuresection">Особенности программы</a>
-    </li>  
+                                    
+                            
+                            
+
                                 
-    <li class="data-control-id-171406 bd-menuitem-53 bd-sub-item bd-sub-item">
-        <a href="./zymprogram.html#pricesection">Стоимость и условия</a>
-    </li>
+                            <div class="bd-menu-56-popup ">
+                            
+                                <ul class=" bd-menu-56 bd-no-margins">
 
-    <li class="data-control-id-171406 bd-menuitem-53 bd-sub-item bd-sub-item">
-        <a href="./zymprogram.html#demosection">Заказать демо-версию</a>
-    </li>
+<li class="bd-menuitem-53 bd-sub-item bd-sub-item">                    
+          <a href="./zymprogram.html#tasksection" class="submenu-item-color">Решаемые задачи</a>
+      </li> 
+                                
+      <li class="bd-menuitem-53 bd-sub-item bd-sub-item">
+          <a href="./zymprogram.html#featuresection" class="submenu-item-color">Особенности программы</a>
+      </li>                           
 
-  </ul>
-</div>
+      <li class="bd-menuitem-53 bd-sub-item bd-sub-item">
+          <a href="./zymprogram.html#demosection" class="submenu-item-color">Заказать демо-версию</a>
+      </li>
+ 
+      <li class="dividerLi"></li>
+
+                                
+                                    
+
+                                    
+                            
+                            
+                                <li class=" bd-menuitem-53 bd-sub-item bd-sub-item">
+
+                                    
+                            
+                            <a  href="./zymprogram/licence.html" >Приобретение лицензии</a>
+
+                                    
+                                        
+                            
+                            
+
+                                    
+                            
+                                </li>
+
+                                
+                            
+                                </ul>
+                            </div>
+                            </li>
+                            
+                            <li class=" bd-menuitem-52
+                                        
+                                        bd-toplevel-item
+                                        
+                                        "
+                                    >
+
+                                
+                            
+                            <a  href="./partners.html" >Партнеры</a>
 
                                 
                                     
@@ -276,7 +323,7 @@ $(document).ready(function(e) {
 
                                 
                             
-                            <a  title="Партнеры" href="./partners.html" >Партнеры</a>
+                            <a  href="./articles.html" >Статьи</a>
 
                                 
                                     
@@ -293,24 +340,7 @@ $(document).ready(function(e) {
 
                                 
                             
-                            <a  title="Научные статьи по заземлению, молниезащите, ЭМС" href="./articles.html" >Статьи</a>
-
-                                
-                                    
-                            
-                            
-                            </li>
-                            
-                            <li class=" bd-menuitem-52
-                                        
-                                        bd-toplevel-item
-                                        
-                                        "
-                                    >
-
-                                
-                            
-                            <a  title="Контакты" href="./contacts.html" >Контакты</a>
+                            <a  href="./contacts.html" >Контакты</a>
 
                                 
                                     
@@ -319,9 +349,13 @@ $(document).ready(function(e) {
                             </li>
                     </ul>
                     
+                    
                 </div>
             </div>
             
+            <div class="bd-menu-close-icon">
+    <a href="#" class="bd-icon  bd-icon-43"></a>
+</div>
         
             </div>
     </nav>
@@ -408,7 +442,7 @@ $(document).ready(function(e) {
 	
 		<div class="bd-containereffect-3 container-effect container "><section class=" bd-section-16 bd-tagstyles " id="section16" data-section-title="Section">
     <div class="bd-container-inner bd-margins clearfix">
-        <div class=" bd-customhtml-4 bd-tagstyles">
+        <div class=" bd-customhtml-4 bd-tagstyles bd-custom-bulletlist">
     <div class="bd-container-inner bd-content-element">
         <b>Программа «ЗУМ»</b>
  – приложение к AutoCAD, предназначенное для комплексного расчета систем молниезащиты и заземления при проектировании объектов электроэнергетики.
@@ -416,9 +450,9 @@ $(document).ready(function(e) {
 <br>
 При разработке продукта преследовались три основных цели:
 <ul>
-  <li> <span><i>многофункциональность программы</i></span>: возможность проводить все расчеты по проекту ЭМС электрических подстанций; </li>
-  <li> <span><i>высокая производительность</i></span>: на один-два порядка более высокий, чем у конкурирующих российских программ; </li> 
-  <li> <span><i>удобство графического моделирования и визуализации</i></span> результатов с использованием AutoCAD (и других САПР). </li>   
+  <li class="CommonLi"> <span><i>многофункциональность программы</i></span>: возможность проводить все расчеты по проекту ЭМС электрических подстанций; </li>
+  <li class="CommonLi"> <span><i>высокая производительность</i></span>: на один-два порядка более высокий, чем у конкурирующих российских программ; </li> 
+  <li class="CommonLi"> <span><i>удобство графического моделирования и визуализации</i></span> результатов с использованием AutoCAD (и других САПР). </li>   
 </ul>
 К настоящему времени эти задачи решены. Расчеты по программе позволяют разработать проект «Электромагнитная совместимость» электрических подстанций или аналогичных объектов, включая молниезащиту, заземление, анализ электромагнитной обстановки, кондуктивные и электромагнитные помехи, электробезопасность, грозовые перенапряжения. Фактически разработан комплекс программ на основе единой модели проводника в земле и воздухе, комплекса численных методов расчета электромагнитных процессов и полей, с общей сервисной оболочкой, интегрированный с AutoCAD. Дальнейшее развитие программы связано с расширением класса решаемых задач, развитием моделей и методов, непрерывным совершенствованием сервисной части.
     </div>
@@ -427,7 +461,7 @@ $(document).ready(function(e) {
 		<div class=" bd-layoutbox-42 bd-no-margins clearfix">
     <div class="bd-container-inner">
         <a 
- href="ZYM_program_2018.ppsx" class="bd-linkbutton-3  bd-button-95 bd-icon bd-icon-29 bd-own-margins bd-content-element"    >
+ href="ZYM_program.ppsx" class="bd-linkbutton-3  bd-button-95 bd-icon bd-icon-29 bd-own-margins bd-content-element"    >
     Презентация программы «ЗУМ»
 </a>
     </div>
@@ -1322,10 +1356,10 @@ COM технологии, используемые в ранних версия�
     </div>
 </section></div>
 	
-		<div class="bd-containereffect-37 container-effect container "><section class=" bd-section-42 bd-tagstyles " id="pricesection" data-section-title="Section">
+		<div class="bd-containereffect-37 container-effect container "><section class=" bd-section-42 bd-tagstyles " id="demosection" data-section-title="Section">
     <div class="bd-container-inner bd-margins clearfix">
         <h2 class=" bd-textblock-27 bd-content-element">
-    Стоимость и условия
+    Демо-версия
 </h2>
     </div>
 </section></div>
@@ -1333,205 +1367,34 @@ COM технологии, используемые в ранних версия�
 		<div class="bd-containereffect-31 container-effect container "><section class=" bd-section-21 bd-tagstyles bd-custom-inputs " id="section21" data-section-title="Section">
     <div class="bd-container-inner bd-margins clearfix">
         <p class=" bd-textblock-44 bd-content-element">
-    ООО «ЗУМ» предлагает приобрести неисключительную лицензию на программу для ЭВМ «ЗУМ», <span style="font-weight:600">типовые</span> характеристики которой представлены в <a href="Характеристика программы ЗУМ.doc" draggable="false">[Характеристики программы «ЗУМ»]</a>. Защита ПО осуществляется электронным ключом. В комплект поставки входит документация с описанием математических моделей и методов вычислительного ядра, инструкция по работе с ПО и серия уроков, позволяющая самостоятельно научиться работе с программой.
+    Для получения демо-версии программы «ЗУМ» отправьте запрос: заполните форму внизу и нажмите «ЗАКАЗАТЬ ДЕМО». Мы обработаем ваш запрос в течение 3-х рабочих дней (обычно быстрее). После этого вышлем на вашу элетронную почту дистрибутив программы, а также демо-ключ и инструкции по его активации.
 </p>
 	
-		<div class=" bd-layoutbox-24 bd-no-margins clearfix">
-    <div class="bd-container-inner">
-        <div class=" bd-layoutbox-33 bd-no-margins clearfix">
-    <div class="bd-container-inner">
-        <div class=" bd-layoutcontainer-13 bd-columns bd-no-margins">
-    <div class="bd-container-inner">
-        <div class="container-fluid">
-            <div class="row 
- bd-row-flex 
- bd-row-align-middle">
-                <div class=" bd-columnwrapper-54 
- col-lg-8
- col-md-8
- col-sm-9
- col-xs-12
- hidden-xs">
-    <div class="bd-layoutcolumn-54 hidden-xs bd-column" ><div class="bd-vertical-align-wrapper"><p class=" bd-textblock-73 bd-content-element">
-    Наименование
-</p></div></div>
-</div>
-	
-		<div class=" bd-columnwrapper-79 
- col-lg-2
- col-md-2
- col-sm-2
- col-xs-12
- hidden-xs">
-    <div class="bd-layoutcolumn-79 hidden-xs bd-column" ><div class="bd-vertical-align-wrapper"><p class=" bd-textblock-60 bd-content-element">
-    Кол. ключей
-</p></div></div>
-</div>
-	
-		<div class=" bd-columnwrapper-78 
- col-lg-2
- col-md-2
- col-sm-1
- col-xs-12
- hidden-xs">
-    <div class="bd-layoutcolumn-78 hidden-xs bd-column" ><div class="bd-vertical-align-wrapper"><p class=" bd-textblock-65 bd-content-element">
-    Цена
-</p></div></div>
-</div>
-	
-		<div class=" bd-columnwrapper-77 
- col-lg-8
- col-md-8
- col-sm-9
- col-xs-12">
-    <div class="bd-layoutcolumn-77 bd-column" ><div class="bd-vertical-align-wrapper"><p class=" bd-textblock-56 bd-content-element">
-    Программа «ЗУМ» с электронным ключом Guardant Sign (1 раб. станция)
-</p></div></div>
-</div>
-	
-		<div class=" bd-columnwrapper-74 
- col-lg-1
- col-md-2
- col-sm-1
- col-xs-7">
-    <div class="bd-layoutcolumn-74 bd-column" ><div class="bd-vertical-align-wrapper"><p class=" bd-textblock-45 hidden-md hidden-sm hidden-lg bd-content-element">
-    Кол. ключей:
-</p>
-	
-		<div class=" bd-customhtml-12 bd-tagstyles bd-custom-inputs">
+		<div class=" bd-customhtml-12 bd-tagstyles bd-custom-bulletlist">
     <div class="bd-container-inner bd-content-element">
-        <select id="LocalKeysSelect" onchange="localKeysFunction()">
-  <option value="250 000 руб.">1</option>
-  <option value="275 000 руб.">2</option>
-  <option value="300 000 руб.">3</option>
-</select>
-
-<script>
-function localKeysFunction() {
-    var x = document.getElementById("LocalKeysSelect").value;
-    document.getElementById("LocalPrice").innerHTML = x;
-}
-</script>
-    </div>
-</div></div></div>
-</div>
-	
-		<div class=" bd-columnwrapper-73 
- col-lg-3
- col-md-2
- col-sm-2
- col-xs-5">
-    <div class="bd-layoutcolumn-73 bd-column" ><div class="bd-vertical-align-wrapper"><div class=" bd-customhtml-5 bd-tagstyles">
-    <div class="bd-container-inner bd-content-element">
-        <p id="LocalPrice">250 000 руб.</p>
-    </div>
-</div></div></div>
-</div>
-	
-		<div class=" bd-columnwrapper-72 
- col-lg-8
- col-md-8
- col-sm-9
- col-xs-12">
-    <div class="bd-layoutcolumn-72 bd-column" ><div class="bd-vertical-align-wrapper"><p class=" bd-textblock-49 bd-content-element">
-    Программа «ЗУМ» с электронным ключом Guardant Sign Net (10 раб. станций)
-</p></div></div>
-</div>
-	
-		<div class=" bd-columnwrapper-62 
- col-lg-1
- col-md-2
- col-sm-1
- col-xs-7">
-    <div class="bd-layoutcolumn-62 bd-column" ><div class="bd-vertical-align-wrapper"><p class=" bd-textblock-31 hidden-md hidden-sm hidden-lg bd-content-element">
-    Кол. ключей:
-</p>
-	
-		<div class=" bd-customhtml-18 bd-tagstyles bd-custom-inputs">
-    <div class="bd-container-inner bd-content-element">
-        <select id="NetKeysSelect" onchange="netKeysFunction()">
-  <option value="350 000 руб.">1</option>
-  <option value="400 000 руб.">2</option>
-</select>
-
-<script>
-function netKeysFunction() {
-    var x = document.getElementById("NetKeysSelect").value;
-    document.getElementById("NetPrice").innerHTML = x;
-}
-</script>
-    </div>
-</div></div></div>
-</div>
-	
-		<div class=" bd-columnwrapper-82 
- col-lg-3
- col-md-2
- col-sm-2
- col-xs-5">
-    <div class="bd-layoutcolumn-82 bd-column" ><div class="bd-vertical-align-wrapper"><div class=" bd-customhtml-14 bd-tagstyles">
-    <div class="bd-container-inner bd-content-element">
-        <p id="NetPrice">350 000 руб.</p>
-    </div>
-</div></div></div>
-</div>
-            </div>
-        </div>
-    </div>
-</div>
-    </div>
-</div>
-	
-		<p class=" bd-textblock-46 bd-content-element">
-    * Лицензия на ПО НДС не облагается. Срок поставки: две недели с момента оплаты.
-<br>
-** Стоимость для других вариантов поставки рассчитывается индивидуально.
-</p>
-    </div>
-</div>
-	
-		<div class=" bd-customhtml-16 bd-tagstyles">
-    <div class="bd-container-inner bd-content-element">
-        В стоимость входит <span style="font-weight:600">1 год подписки на ПО</span>: включает техническую поддержку, поставку новых версии ПО. Лицензия на ПО (и все версии ПО в течение срока действия подписки) <span style="font-weight:600">бессрочная</span>. Продление подписки на 1 год - <span style="font-weight:600">25 000 руб.</span>
-    </div>
-</div>
-	
-		<div class=" bd-customhtml-24 bd-tagstyles bd-custom-bulletlist">
-    <div class="bd-container-inner bd-content-element">
-        <span style="font-weight:600">Дополнительные услуги:</span>
+        <span style="font-weight:600">Особенности демо-версии:</span>
 <ul>
-  <li> Обучение работе с ПО (удаленное и с выездом к заказчику).</li>
-  <li> Совместные расчеты и проектирование.</li>
+  <li class="CommonLi">&nbsp;Полный функционал программы</li>
+  <li class="CommonLi">&nbsp;Срок действия - 14 дней (если требуется больше, укажите в комментарии к запросу)</li>
+    <li class="CommonLi">&nbsp;1&nbsp; программный ключ защиты, который привязывается к 1 рабочему месту</li>
 </ul>
-    </div>
-</div>
-	
-		<div class=" bd-customhtml-28 bd-tagstyles bd-custom-bulletlist">
-    <div class="bd-container-inner bd-content-element">
-        Стоимость ПО с расширенной поддержкой, обучением, гарантией и обновлением, а также с доработкой по индивидуальному заказу&nbsp;-&nbsp;<span style="font-weight: 600;">договорная</span>.
     </div>
 </div>
 	
 		<p class=" bd-textblock-52 bd-content-element">
-    Для приобретения лицензии на программу обращайтесь по электронной почте в разделе «Контакты».
+    Приобрести лицензию на программу «ЗУМ» можно на странице <a href="zymprogram/licence.html" draggable="false">«Приобретение лицензии»</a>.
 </p>
 	
-		<div class=" bd-customhtml-30 bd-tagstyles">
+		<div class=" bd-customhtml-30 bd-tagstyles bd-custom-bulletlist">
     <div class="bd-container-inner bd-content-element">
         <span style="font-weight:600">Системные требования:</span>
 <ul>
-  <li> AutoCAD (или продукты семейства AutoCAD - Architecture, Electrical, т.д.)&nbsp;32х и 64х разрядных версий 2012-2019.&nbsp;<span style="font-weight: 700;">AutoCAD LT не подходит!</span></li>
-  <li> Windows XP и выше</li>
-  <li> ОЗУ 4Гб и более</li>
+  <li class="CommonLi"> AutoCAD (или продукты семейства AutoCAD - Architecture, Electrical, т.д.) версий 2012-2020. <span style="font-weight: 700;">AutoCAD LT не подходит!</span></li>
+  <li class="CommonLi"> Windows XP и выше</li>
+  <li class="CommonLi"> ОЗУ 4Гб и более</li>
 </ul>
     </div>
 </div>
-    </div>
-</section></div>
-	
-		<div class="bd-containereffect-6 container-effect container "><section class=" bd-section-5 bd-tagstyles " id="demosection" data-section-title="Section">
-    <div class="bd-container-inner bd-margins clearfix">
-        <div class=" bd-spacer-10 clearfix"></div>
     </div>
 </section></div>
 	
@@ -1542,23 +1405,8 @@ function netKeysFunction() {
  name="demoform" method="post">
     <div class="bd-container-inner">
         <div class="container-fluid">
-            <h2 class=" bd-textblock-20 bd-content-element">
+            <h3 class=" bd-textblock-20 bd-content-element">
     Заказать демо-версию
-</h2>
-	
-		<div class=" bd-customhtml-19 bd-tagstyles">
-    <div class="bd-container-inner bd-content-element">
-        <span style="font-weight:600">Особенности демо-версии:</span>
-<ul>
-  <li>&nbsp;Полный функционал программы</li>
-  <li>&nbsp;Срок действия - 14 дней (может быть продлен, в случае необходимости)</li>
-    <li>&nbsp;1&nbsp; программный ключ защиты, который привязывается к 1 рабочему месту</li>
-</ul>
-    </div>
-</div>
-	
-		<h3 class=" bd-textblock-48 bd-content-element">
-    Заполните форму
 </h3>
 	
 		<div class=" bd-input-2 form-group
@@ -1671,7 +1519,7 @@ function netKeysFunction() {
         <section class=" bd-section-1 bd-tagstyles" id="section2" data-section-title="Footer Centered Simplest">
     <div class="bd-container-inner bd-margins clearfix">
         <p class=" bd-textblock-2 bd-no-margins bd-content-element">
-    © 2019 ООО «ЗУМ»
+    © 2020 ООО «ЗУМ»
 </p>
     </div>
 </section>
