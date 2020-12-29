@@ -1,28 +1,28 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html dir="ltr">
 <head>
     <link href="./assets/images/ed476fd8d3fa5b5850cc696c5e57a08b_favicon.png" rel="icon" type="image/x-icon" />
 	<script>
     var themeHasJQuery = !!window.jQuery;
 </script>
-<script type="text/javascript" src="./assets/js/jquery.js?1.0.3321"></script>
+<script type="text/javascript" src="./assets/js/jquery.js?1.0.3346"></script>
 <script>
     window._$ = jQuery.noConflict(themeHasJQuery);
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./assets/css/bootstrap.css?1.0.3321" media="screen" />
-<script type="text/javascript" src="./assets/js/bootstrap.min.js?1.0.3321"></script>
+<link rel="stylesheet" href="./assets/css/bootstrap.css?1.0.3346" media="screen" />
+<script type="text/javascript" src="./assets/js/bootstrap.min.js?1.0.3346"></script>
 <!--[if lte IE 9]>
-<link rel="stylesheet" href="./assets/css/layout.ie.css?1.0.3321">
-<script src="./assets/js/layout.ie.js?1.0.3321"></script>
+<link rel="stylesheet" href="./assets/css/layout.ie.css?1.0.3346">
+<script src="./assets/js/layout.ie.js?1.0.3346"></script>
 <![endif]-->
 <link class="" href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic&subset=cyrillic-ext' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="./assets/js/layout.core.js"></script>
-<script src="./assets/js/CloudZoom.js?1.0.3321"></script>
+<script src="./assets/js/CloudZoom.js?1.0.3346"></script>
 	
     <title>Программа «ЗУМ». Расчет заземления, молниезащиты, ЭМС</title>
-	<link rel="stylesheet" href="./assets/css/style.css?1.0.3321">
-	<script src="./assets/js/script.js?1.0.3321"></script>
+	<link rel="stylesheet" href="./assets/css/style.css?1.0.3346">
+	<script src="./assets/js/script.js?1.0.3346"></script>
     <meta charset="utf-8">
     
     
@@ -51,6 +51,8 @@ jQuery(document).ready(function(e) {
  <meta name="keywords" content="заземление, молниезащита, ЭМС, ЗУМ, программа, расчет">
 <meta name="description" content="Программа «ЗУМ» – приложение к AutoCAD, предназначенное для комплексного расчета систем молниезащиты и заземления при проектировании объектов энергетики.">
 
+<script src="https://www.google.com/recaptcha/api.js?render=6LdKwxgaAAAAAHbkUQpPQzKFBRsKCHf0i1LlsR02"></script>
+
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -77,14 +79,30 @@ jQuery(document).ready(function(e) {
   jQuery('#df-email').attr("required",true);
   jQuery('#df-telephone').attr("required",true);
   
-  jQuery('[name="demoform"]').submit(function(event){  
-    var post_url = jQuery(this).attr("action"); 
+  jQuery('[name="demoform"]').submit(function(event){ 
+    event.preventDefault();
+    var DForm = this;    
     
-    jQuery.ajax({
+    grecaptcha.ready(function() {
+	  grecaptcha.execute('6LdKwxgaAAAAAHbkUQpPQzKFBRsKCHf0i1LlsR02', {action: 'homepage'})
+	      .then(function(token) {
+              jQuery('#captchaResponse').val(token);   
+              submitDemoForm(this);
+		  });
+    });    
+          
+  });
+  
+});  
+
+function submitDemoForm(DForm) {
+  var post_url = jQuery(DForm).attr("action");
+  
+  jQuery.ajax({
       url : post_url,
       type: "POST",
       dataType: "json",
-      data : jQuery(this).serialize(),
+      data : jQuery(DForm).serialize(),
       success: function(response) {
         if(response.status == "success"){
           jQuery('[name="demoform"]').html("<div id='message'></div>");
@@ -105,12 +123,9 @@ jQuery(document).ready(function(e) {
         jQuery('#message').append("<p>Статус: \"" + textStatus + "\"; Ошибка: \"" + errorThrown + "\".</p>");
         jQuery('#message').append("<img src=\"error_circle.png\">");
       }
-    });  
-    
-    event.preventDefault();
-  });
-  
-});  
+    });
+}
+
 </script>
     
 </head>
@@ -255,8 +270,6 @@ jQuery(document).ready(function(e) {
                             <div class="bd-menu-56-popup ">
                             
                                 <ul class=" bd-menu-56 bd-no-margins">
-
-
 <li class="bd-menuitem-53 bd-sub-item bd-sub-item">                    
           <a href="./zymprogram.html#tasksection" class="submenu-item-color">Решаемые задачи</a>
       </li> 
@@ -269,7 +282,9 @@ jQuery(document).ready(function(e) {
           <a href="./zymprogram.html#demosection" class="submenu-item-color">Заказать демо-версию</a>
       </li>
  
-      <li class="dividerLi"></li>                                
+      <li class="dividerLi"></li>
+
+                                
                                     
 
                                     
@@ -1490,9 +1505,10 @@ COM технологии, используемые в ранних версия�
     
     
 
-    <input type="hidden" class="bd-form-input"
+    <input type="hidden"
+ id="captchaResponse" class="bd-form-input"
  placeholder="Input"
- name="_gotcha" >
+ name="g-recaptcha-response" >
 
     
 </div>
