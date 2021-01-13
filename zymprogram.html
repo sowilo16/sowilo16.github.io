@@ -87,7 +87,7 @@ jQuery(document).ready(function(e) {
 	  grecaptcha.execute('6LdKwxgaAAAAAHbkUQpPQzKFBRsKCHf0i1LlsR02', {action: 'homepage'})
 	      .then(function(token) {
               jQuery('#captchaResponse').val(token);   
-              submitDemoForm(this);
+              submitDemoForm(DForm);
 		  });
     });    
           
